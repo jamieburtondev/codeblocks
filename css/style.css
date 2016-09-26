@@ -1,0 +1,336 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-width: 700px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+/* FONTS */
+
+h1, h2, h3 {
+	cursor: default;
+}
+
+h1{
+	font-size: 5em;
+	font-family: 'Quantico', Arial;
+	text-align: center;
+}
+
+h2, h3 {
+	font-family: 'Quantico', Arial;
+	font-weight: normal;
+}
+
+h2{
+	font-size: 3em;
+}
+
+p {
+	font-family: 'Glegoo', Arial;
+	font-size: 1.8em;
+	font-weight: bold;
+	text-align: center;
+}
+
+p.buttonText {
+	font-size: 2.2em;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/* SECTIONS */
+
+section {
+	width: 80%;
+	margin: 50px auto;
+}
+
+section.instructions div p {
+	line-height: 2.5em;
+}
+
+/* TITLE BARS */
+
+header {
+	margin-top: 20px;
+}
+
+header h1 {
+
+	width: 45%;
+	padding: 10px 80px;
+	display: block;
+	margin: 0 auto;
+	font-family: 'Quantico';
+	border-radius: 10px;
+	background-color: white;
+	border: 10px solid black;
+	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
+}
+
+div.selectQuestions, div.selectPlayers {
+	padding: 20px;
+	color: white;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+div.selectQuestions {
+	background-color: #0070BA;
+}
+
+div.selectPlayers {
+	background-color: #63A814;
+}
+
+/* COLOR BLOCKS */
+
+div.colorBlock {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+div.solo {
+	background-image: url("../img/Solo.png");
+	background-size: cover;
+	}
+
+div.versus {
+	background-image: url("../img/Versus.png");
+	background-size: cover;
+	}
+
+.htmlSelect div.colorBlock, .cssSelect div.colorBlock, .jsSelect div.colorBlock, .soloSelect div.colorBlock, .versusSelect div.colorBlock {
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, .7);
+} 
+
+.htmlSelect div.colorBlock {
+	background-image: url("../img/HTML_Full.png");
+	background-size: cover;
+}
+
+.htmlSelect div.colorBlock:hover, .cssSelect div.colorBlock:hover, .jsSelect div.colorBlock:hover, 
+.soloSelect div.colorBlock:hover, .versusSelect div.colorBlock:hover {
+	transform: scale(1.1);
+	transform-origin: bottom;
+}
+
+.cssSelect div.colorBlock {
+	background-image: url("../img/CSS_Full.png");
+	background-size: cover;
+}
+
+.jsSelect div.colorBlock {
+	background-image: url("../img/JavaScript_Full.png");
+	background-size: cover;
+}
+
+/* COLOR BLOCKS, INDEX.HTML */
+
+div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
+	text-align: center;
+	display: inline-block;
+}
+
+div.htmlSelect, div.cssSelect, div.jsSelect {
+	width: 33%;
+}
+
+div.soloSelect, div.versusSelect {
+	width: 49%;
+}
+
+/* START BUTTON */
+
+button#start, button#turn {
+	width: 400px;
+	padding: 10px 80px;
+	display: block;
+	margin: 0 auto 20px auto;
+	font-family: 'Quantico';
+	font-size: 2.7em;
+	font-weight: bold;
+	border-radius: 10px;
+	background-color: white;
+	border: 5px solid black;
+	box-shadow: 0px 5px 2px rgba(0, 0, 0, .5);
+}
+
+button#turn {
+	width: 55%;
+}
+
+button#start:hover {
+	transform: scale(1.1);
+}
+
+/* MAIN HTML */
+
+/*START... */
+
+#block1, #block2, #block3, #block4, #block5, #block6, #block7, #block8, #block9 {
+	visibility: none;
+}
+
+section.question, section.answer, section.finish {
+	width: 54%;
+	margin: 40px auto;
+	display: none;
+}
+
+/* SECTIONS */
+
+section.question p, section.answer p{
+	margin-bottom: 20px;
+}
+
+div.paraQA {
+	margin: 20px 0;
+	overflow: auto;
+}
+
+/* ... */
+
+
+section.question input {
+	width: 60%;
+	padding: 10px;
+	display: block;
+	margin: 30px auto;
+	border: 5px solid black;
+	border-radius: 5px;
+	font-size: 2em;
+	font-family: 'Glegoo', Arial;
+	font-weight: bold;
+}
+#guess, #continue, section.finish button, #replay {
+	display: block;
+	width: 30%;
+	margin: 0 auto;
+	font-family: 'Quantico';
+	font-size: 2em;
+	font-weight: bold;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
+	padding: 5px 20px;
+}
+
+#replay, section.finish button {
+	border: 3px solid black;
+}
+
+#answerType, #questionType, section.finish h2 {
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	padding: 5px 0;
+}
+
+#continue, #guess {
+	border-radius: 10px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+}
+
+#continue {
+	width: 350px;
+}
+
+#guess, #replay {
+	width: 275px;
+}
+
+#continue:hover, #guess:hover, #replay:hover {
+	transform: scale(1.1);
+}
+
+/* FINISH, BLOCK BREAKDOWN SECTION */
+
+#paraResults {
+	margin-top: 20px;
+}
+
+div.finishRightWrong {
+	width: 48%;
+	float: left;
+	margin: 20px 0;
+}
+div.finishRightWrong p {
+	padding: 10px 0;
+}
+
+div.finishRightWrong h4 {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	font-family: 'Quantico', Arial;
+}
+
+section.finish h3 {
+	text-align: center;
+	font-size: 3em;
+}
+
+#player1 {
+	color: white;
+	background-color: #63A814;
+	border-radius: 5px;
+}
+
+#player2 {
+	color: white;
+	background-color: #E55126;
+	clear: both;
+	border-radius: 5px;
+}
+
+#replay {
+	color: black;
+	font-size: 3em;
+	border: 5px solid black;
+}
+
+section.finish a {
+	color: black;
+}
+
+/* COLOR BLOCKS */
+
+section.blocks {
+	width: 700px;
+	text-align: center;
+	margin: 60px auto;
+}
+
+div.mainBlock {
+	width: 25%;
+	display: inline-block;
+	text-align: center;
+	padding: 10px 0;
+
+}
+
+/* FOOTER */
+
+@media (max-width: 1020px) {
+	div.htmlSelect, div.cssSelect, div.jsSelect {
+	width: 100%;
+}
+
+	.invis {
+		display: none;
+	}
+
+}
