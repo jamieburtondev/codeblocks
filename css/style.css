@@ -5,6 +5,7 @@
 
 body {
 	min-width: 700px;
+	overflow-x: hidden;
 }
 
 a {
@@ -19,7 +20,7 @@ h1, h2, h3 {
 }
 
 h1{
-	font-size: 5em;
+	font-size: 4em;
 	font-family: 'Quantico', Arial;
 	text-align: center;
 }
@@ -65,14 +66,14 @@ header {
 
 header h1 {
 
-	width: 45%;
+	width: 50%;
 	padding: 10px 80px;
 	display: block;
 	margin: 0 auto;
 	font-family: 'Quantico';
 	border-radius: 10px;
 	background-color: white;
-	border: 10px solid black;
+	border: 8px solid black;
 	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
 }
 
@@ -83,7 +84,7 @@ div.selectQuestions, div.selectPlayers {
 	text-align: center;
 }
 
-div.selectQuestions {
+div.selectQuestions, #blockBreakdown {
 	background-color: #0070BA;
 }
 
@@ -152,7 +153,7 @@ div.soloSelect, div.versusSelect {
 
 /* START BUTTON */
 
-button#start, button#turn {
+button#start, button#turn, #replay {
 	width: 400px;
 	padding: 10px 80px;
 	display: block;
@@ -162,12 +163,25 @@ button#start, button#turn {
 	font-weight: bold;
 	border-radius: 10px;
 	background-color: white;
-	border: 5px solid black;
+	border: 8px solid black;
 	box-shadow: 0px 5px 2px rgba(0, 0, 0, .5);
 }
 
+#turn, #replay {
+	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
+}
+
 button#turn {
-	width: 55%;
+	width: 375px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto 20px;
+}
+
+#replay {
+	color: black;
 }
 
 button#start:hover {
@@ -178,21 +192,26 @@ button#start:hover {
 
 /*START... */
 
-#block1, #block2, #block3, #block4, #block5, #block6, #block7, #block8, #block9 {
+#block1_1, #block1_2, #block1_3, #block1_4, #block1_5, #block1_6, #block1_7, #block1_8, #block1_9,
+#block2_1, #block2_2, #block2_3, #block2_4, #block2_5, #block2_6, #block2_7, #block2_8, #block2_9 {
 	visibility: none;
+	position: relative;
+	z-index: -1;
 }
 
 section.question, section.answer, section.finish {
-	width: 54%;
+	width: 100%;
 	margin: 40px auto;
+	display: none;
+	z-index: 0;
+	position: relative;
+}
+
+section#player2 {
 	display: none;
 }
 
 /* SECTIONS */
-
-section.question p, section.answer p{
-	margin-bottom: 20px;
-}
 
 div.paraQA {
 	margin: 20px 0;
@@ -202,9 +221,9 @@ div.paraQA {
 /* ... */
 
 
-section.question input {
-	width: 60%;
-	padding: 10px;
+#inputAnswer {
+	width: 80%;
+	padding: 15px 30PX;
 	display: block;
 	margin: 30px auto;
 	border: 5px solid black;
@@ -213,46 +232,39 @@ section.question input {
 	font-family: 'Glegoo', Arial;
 	font-weight: bold;
 }
-#guess, #continue, section.finish button, #replay {
+#guess, #continue, section.finish button {
 	display: block;
-	width: 30%;
-	margin: 0 auto;
 	font-family: 'Quantico';
-	font-size: 2em;
+	font-size: 3em;
 	font-weight: bold;
-	border-radius: 10px;
 	background-color: white;
 	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
 	padding: 5px 20px;
 }
 
-#replay, section.finish button {
+section.finish button {
 	border: 3px solid black;
 }
 
 #answerType, #questionType, section.finish h2 {
-	border-radius: 10px;
 	color: white;
 	text-align: center;
 	padding: 5px 0;
+	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
+}
+
+#question {
+	width: 75%;
+	margin: 0 auto;
 }
 
 #continue, #guess {
-	border-radius: 10px;
 	margin: 0 auto;
 	text-align: center;
 	color: white;
 }
 
-#continue {
-	width: 350px;
-}
-
-#guess, #replay {
-	width: 275px;
-}
-
-#continue:hover, #guess:hover, #replay:hover {
+#continue:hover, #replay:hover, #guess:hover, header h1:hover {
 	transform: scale(1.1);
 }
 
@@ -283,23 +295,17 @@ section.finish h3 {
 	font-size: 3em;
 }
 
-#player1 {
+#player1Finish {
 	color: white;
 	background-color: #63A814;
 	border-radius: 5px;
 }
 
-#player2 {
+#player2Finish {
 	color: white;
 	background-color: #E55126;
 	clear: both;
 	border-radius: 5px;
-}
-
-#replay {
-	color: black;
-	font-size: 3em;
-	border: 5px solid black;
 }
 
 section.finish a {
@@ -308,7 +314,7 @@ section.finish a {
 
 /* COLOR BLOCKS */
 
-section.blocks {
+section#player1, section#player2 {
 	width: 700px;
 	text-align: center;
 	margin: 60px auto;
@@ -322,6 +328,11 @@ div.mainBlock {
 
 }
 
+.helpfulLink {
+	text-decoration: none;
+	color: #0070BA;
+}
+
 /* FOOTER */
 
 @media (max-width: 1020px) {
@@ -329,8 +340,19 @@ div.mainBlock {
 	width: 100%;
 }
 
+body {
+	overflow: auto;
+}
+
 	.invis {
 		display: none;
+	}
+
+}
+
+@media(max-height: 800px) {
+	button#turn {
+		position: relative;
 	}
 
 }
