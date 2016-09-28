@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Project 1</title>
+	<title>Code Blocks</title>
 
 <link href="https://fonts.googleapis.com/css?family=Glegoo|Open+Sans|Quantico" rel="stylesheet">
 
@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<!-- BANNER FOR PLAYER 1/2 WINS, SUDDEN DEATH SCENARIOS -->
+
 <p id="banner"></h4>
 
 <!-- HEADER -->
@@ -24,124 +26,97 @@
 
 </header>
 
+<!-- PLAYER 1 BLOCKS TO FILL IN -->
+
 <section id="player1">
 		
 	<div class="mainBlock">
-		
 		<div id="block1_7" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_8" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_9" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_4" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_5" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_6" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_1" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_2" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block1_3" class="colorBlock"></div>
-
 	</div>
 
 </section>
+
+<!-- PLAYER 2 BLOCKS TO FILL IN -->
 
 <section id="player2">
 		
 	<div class="mainBlock">
-		
 		<div id="block2_7" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_8" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_9" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_4" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_5" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_6" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_1" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_2" class="colorBlock"></div>
-
 	</div>
 
 	<div class="mainBlock">
-		
 		<div id="block2_3" class="colorBlock"></div>
-
 	</div>
 
 </section>
+
  
+<!-- ASKING A QUESTION SECTION -->
+
 <section class="question">
+
 	<h2 id="questionType"></h2>
+
 	<div class="paraQA">
 		<p id="question"></p>
 		<input type="text" id="inputAnswer" placeholder="Type your answer here.">
@@ -151,8 +126,12 @@
 
 </section>
 
+<!-- GIVING AN ANSWER, DECLARING CORRECT OR INCORRECT SECTION -->
+
 <section class="answer">
+
 	<h2 id="answerType"></h2>
+
 	<div class="paraQA">
 		<p id="description"></p>
 	</div>
@@ -161,29 +140,42 @@
 
 </section>
 
+<!-- THE RESULTS, OR "BLOCK BREAKDOWN", SECTION AT THE END OF THE GAME -->
+
 <section class="finish">
+
 	<h2 id="blockBreakdown">BLOCK BREAKDOWN</h2>
+
 	<p id="paraResults">These are the results of the match.</p>
+
 	<div class="paraQA">
-	<h3 id="player1Finish">PLAYER 1</h3>
+
+		<h3 id="player1Finish">PLAYER 1</h3>
+
 		<div class="finishRightWrong" id="player1Correct">
 			<h4>CORRECT</h4>
 		</div>
 		<div class="finishRightWrong"  id="player1Incorrect">
-		<h4>INCORRECT</h4>
+			<h4>INCORRECT</h4>
 		</div>
-	<h3 id="player2Finish">PLAYER 2</h3>
+
+		<h3 id="player2Finish">PLAYER 2</h3>
+
 		<div class="finishRightWrong"  id="player2Correct">
 			<h4>CORRECT</h4>
 		</div>
+
 		<div class="finishRightWrong"  id="player2Incorrect">
-		<h4>INCORRECT</h4>
+			<h4>INCORRECT</h4>
 		</div>
+
 	</div>
 
 	<h2 id="replay">REPLAY</h2>
 
 </section>
+
+<!-- BUTTON TO SHOW WHOSE TURN IT IS -->
 
 <button id="turn">PLAYER 1</button>
 
