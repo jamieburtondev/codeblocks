@@ -161,6 +161,8 @@ if (turn === 0 || localStorage.playerCount == 1) {
 
 	function questions() {
 
+	$('#banner').css("display", "none");
+
 	$('.question').css("display", "block");
 
 	$('#question').text(questionSet);
