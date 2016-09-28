@@ -157,18 +157,6 @@ if (turn === 0 || localStorage.playerCount == 1) {
 }
 }
 
-// function animateBlock() {
-// 	$('.question').animate({top: "+=800px"}, 3000);
-// 	setTimeout(zIndex, 3000);
-// }
-
-// }
-
-// function zIndex() {
-// 	$(".question").css("z-index", 0);
-// 	$(".answer").css("z-index", 0);
-// }
-
 // SWITCH FROM BLOCKS TO A QUESTION
 
 	function questions() {
@@ -228,10 +216,10 @@ $('#guess').click(function() {
 var player1Points = 0;
 var player2Points = 0;
 var animateTurn = 1;
+var currentPlayer;
+var blocks;
 
 function correct() {
-
-var blocks;
 
 	if (player == "#player1") {
 		blocks = printPlayer1Blocks;
@@ -243,32 +231,14 @@ var blocks;
 		player2Correct.push("<p class='helpfulLink'><a href='" + linkSet +"'>" + aboutSet + "</a></p>");
 		}
 
-	// $(blocks).css("visibility", "initial");
-	$(blocks).css("background-image", images);
-	$(blocks).css("background-size", "cover");
+$(blocks).css("background-image", images);
+$(blocks).css("background-size", "cover");
 
-	if (animateTurn === 1) {
-	$(blocks).animate({left: "-=800px"});
-	$(blocks).animate({left: "+=400px"}, 750, "linear");
-	$(blocks).animate({left: "+=400px"}, 750, "linear");
-	animateTurn++;
-} else if (animateTurn === 2) {
-
-	$(blocks).animate({top: "-=800px"});
-	$(blocks).animate({top: "+=400px"}, 750, "linear");
-	$(blocks).animate({top: "+=400px"}, 750, "linear");
-	animateTurn++;
-
-} else if (animateTurn === 3) {
-
-	$(blocks).animate({right: "-=800px"});
-	$(blocks).animate({right: "+=400px"}, 750, "linear");
-	$(blocks).animate({right: "+=400px"}, 750, "linear");
-	animateTurn = 1;
-
+if (player == "#player1") {
+	currentPlayer = player1Points;
+} else {
+	currentPlayer = player2Points;
 }
-
-console.log(animateTurn);
 
 	if (player == "#player1") {
 		player1Blocks++;
@@ -290,23 +260,19 @@ function checkWin() {
 
 //If it's the last turn and both players have the same points
 if (lastTurn === 1 && player1Points === 9 && player2Points === 9) {
-	alert("It's tied!");
 	suddenDeath = 1;
 	turn = 0;
 	player1Points = 0;
 	player2Points = 0;
 //If it's the last turn and Player 2 did not answer correctly
 } else if (lastTurn === 1 && player1Points === 9 && player2Points === 8) {
-	alert("Player 1 wins!")
 	breakdown();
 } else {
 // Player 2 wins if Player 1 did not win on same turn
 if (player2Points === 9 && player1Points !== 9) {
-	alert("Player 2 Wins!");
 	breakdown();
 // Player 1 wins if Player 2 can't win on same turn
 } else if (player1Points === 9 && player2Points < 8) {
-	alert("Player 1 Wins!");
 	breakdown();
 // Enables last turn so Player 2 has a chance to tie
 } else if (player1Points === 9 && player2Points === 8) {
@@ -324,13 +290,34 @@ function answers() {
 
 $('#continue').click(function() {
 
+console.log(currentPlayer);
+
+if (currentPlayer === 1 || currentPlayer === 4 || currentPlayer === 7) {
+	$(blocks).animate({left: "-=800px"}, 0);
+	$(blocks).animate({left: "+=400px"}, 750, "linear");
+	$(blocks).animate({left: "+=400px"}, 750, "linear");
+
+} else if (currentPlayer === 2 || currentPlayer === 5 ||currentPlayer === 8) {
+
+	$(blocks).animate({top: "-=800px"}, 0);
+	$(blocks).animate({top: "+=400px"}, 750, "linear");
+	$(blocks).animate({top: "+=400px"}, 750, "linear");
+
+} else if (currentPlayer === 3 || currentPlayer === 6 ||currentPlayer === 9) {
+
+	$(blocks).animate({right: "-=800px"}, 0);
+	$(blocks).animate({right: "+=400px"}, 750, "linear");
+	$(blocks).animate({right: "+=400px"}, 750, "linear");
+}
+
 if (suddenDeath === 1) {
 
+	$('#banner').css("display", "block");
+	$('#banner').text("SUDDEN DEATH");
+
 	if (turn%2 === 0 && (player1Points > player2Points)) {
-		alert("Player 1 wins!")
 		breakdown();
 	} else if (turn%2 === 0 && (player2Points > player1Points)) {
-		alert("Player 2 wins!");
 		breakdown();
 	} else {
 		turn++;
@@ -356,7 +343,26 @@ function breakdown() {
 
 	$('.answer').css("display", "none");
 
+	$(player).css("display", "block");
+
+	$('#banner').css("display", "block");
+
+if (localStorage.playerCount == 1) {
+	$('#banner').text("BLOCK COMPLETED");
+} else if (player1Points > player2Points) {
+	$('#banner').text("PLAYER 1 WINS");
+} else if (player2Points > player1Points) {
+	$('#banner').text("PLAYER 2 WINS");
+}
+
+
+setTimeout(function() {
+
 	$('#turn').css("display", "none");
+
+	$('#banner').css("display", "none");
+
+	$(player).css("display", "none");
 
 	$('.finish').css("display", "block");
 
@@ -374,6 +380,8 @@ function breakdown() {
 		$('#player2Incorrect').css("display", "none");
 		$('#player2Finish').css("display", "none");
 	}
+
+}, 8000)
 
 
 }

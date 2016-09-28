@@ -47,6 +47,19 @@ p.buttonText {
 	margin-top: 10px;
 }
 
+/* WINNER, SUDDEN DEATH BANNER */
+
+p#banner {
+	position: absolute;
+	color: white;
+	background-color: #0070BA;
+	width: 100%;
+	top: 0%;
+	z-index: 1;
+	font-size: 6em;
+	display: none;
+}
+
 /* SECTIONS */
 
 section {
@@ -184,10 +197,6 @@ button#turn {
 	color: black;
 }
 
-button#start:hover {
-	transform: scale(1.1);
-}
-
 /* MAIN HTML */
 
 /*START... */
@@ -264,7 +273,8 @@ section.finish button {
 	color: white;
 }
 
-#continue:hover, #replay:hover, #guess:hover, header h1:hover {
+
+button#start:hover, #continue:hover, #replay:hover, #guess:hover, header h1:hover, .mainBlock:hover {
 	transform: scale(1.1);
 }
 
@@ -324,7 +334,7 @@ div.mainBlock {
 	width: 25%;
 	display: inline-block;
 	text-align: center;
-	padding: 10px 0;
+	padding: 5px 0;
 
 }
 

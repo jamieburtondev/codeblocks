@@ -83,17 +83,11 @@ $('#start').click(function() {
 		localStorage.javascript = 1;
 	}
 
-	if (html.style.opacity != 1 && css.style.opacity != 1 && js.style.opacity != 1) {
-		alert("Select Code Type/s!");
-	}
-
 	if (solo.style.opacity == 1) {
 		localStorage.playerCount = 1;
 	} else if (versus.style.opacity == 1) {
 		localStorage.playerCount = 2;
-	} else {
-		alert("Select Players!");
-	}
+	} 
 })
 
 })
