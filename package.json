@@ -1,0 +1,19 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scriptMain.js",
+  "scripts": {
+    "start": "node_modules/browser-sync/bin/browser-sync.js start --server . --files ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiebb/Project-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamiebb/Project-1/issues"
+  },
+  "homepage": "https://github.com/jamiebb/Project-1#readme"
+}

@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript" src="js/scriptMain.js"></script>
 
@@ -113,13 +113,13 @@
  
 <!-- ASKING A QUESTION SECTION -->
 
-<section class="question">
+<section class="question" id="displayQuestion">
 
 	<h2 id="questionType"></h2>
 
 	<div class="paraQA">
 		<p id="question"></p>
-		<input type="text" id="inputAnswer" placeholder="Type your answer here.">
+		<input type="text" id="inputAnswer" placeholder="Type your answer here." autofocus>
 	</div>
 
 	<h2 id="guess">GUESS</h2>
@@ -128,12 +128,13 @@
 
 <!-- GIVING AN ANSWER, DECLARING CORRECT OR INCORRECT SECTION -->
 
-<section class="answer">
+<section class="answer" id="displayAnswer">
 
 	<h2 id="answerType"></h2>
 
 	<div class="paraQA">
 		<p id="description"></p>
+		<p>Learn more about <a id="answerLink"></a> at W3Schools.</p>
 	</div>
 
 	<h2 id="continue">CONTINUE</h2>
@@ -142,7 +143,7 @@
 
 <!-- THE RESULTS, OR "BLOCK BREAKDOWN", SECTION AT THE END OF THE GAME -->
 
-<section class="finish">
+<section class="finish" id="displayFinish">
 
 	<h2 id="blockBreakdown">BLOCK BREAKDOWN</h2>
 

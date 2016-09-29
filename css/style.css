@@ -22,22 +22,20 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	font-size: 4em;
-	font-family: 'Quantico', Arial;
+	font-family: 'Quantico', Verdana;
 	text-align: center;
 	width: 50%;
 	padding: 10px 80px;
 	display: block;
 	margin: 0 auto;
-	font-family: 'Quantico';
 	border-radius: 10px;
 	background-color: white;
 	border: 8px solid black;
-	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
+	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
 }
 
 h2, h3 {
-	font-family: 'Quantico', Arial;
+	font-family: 'Quantico', Verdana;
 	font-weight: normal;
 }
 
@@ -49,12 +47,12 @@ div.finishRightWrong h4 {
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
-	font-family: 'Quantico', Arial;
+	font-family: 'Quantico', Verdana;
 }
 
 p {
-	font-family: 'Glegoo', Arial;
-	font-size: 1.8em;
+	font-family: 'Glegoo', Verdana;
+	font-size: 1.5em;
 	text-align: center;
 }
 
@@ -99,10 +97,9 @@ div.selectPlayers {
 /* COLOR BLOCKS, ALL PAGES */
 
 div.colorBlock {
-	width: 150px;
-	height: 150px;
+	width: 125px;
+	height: 125px;
 	margin: 0 auto;
-	border-radius: 10px;
 	border: 8px solid black;
 	border-radius: 10px;
 }
@@ -194,16 +191,19 @@ div.versus {
 	border: 5px solid black;
 	border-radius: 5px;
 	font-size: 2em;
-	font-family: 'Glegoo', Arial;
+	font-family: 'Glegoo', Verdana;
 	font-weight: bold;
 }
 
 	/* QUESTION ON ANSWERING PAGE */
 
-#question {
+#question, #description {
 	width: 75%;
 	margin: 0 auto;
+	font-weight: bold;
+	font-size: 1.5em;
 }
+
 
 	/* GUESS ON ANSWERING PAGE, CONTINUE BUTTON ON CORRECT/INCORRECT PAGE */
 
@@ -217,7 +217,7 @@ div.versus {
 
 #guess, #continue {
 	display: block;
-	font-family: 'Quantico';
+	font-family: 'Quantico', Verdana;
 	font-size: 3em;
 	font-weight: bold;
 	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
@@ -228,12 +228,8 @@ div.versus {
 
 #turn {
 	width: 375px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	margin: 0 auto 20px;
-	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
+	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
 }
 
 	/* SHARED ATTRIBUTES FOR START, TURN, AND REPLAY */
@@ -242,7 +238,7 @@ div.versus {
 	padding: 10px 80px;
 	display: block;
 	margin: 0 auto 20px auto;
-	font-family: 'Quantico';
+	font-family: 'Quantico', Verdana;
 	font-size: 2.7em;
 	font-weight: bold;
 	border-radius: 10px;
@@ -256,13 +252,13 @@ div.versus {
 	text-align: center;
 	width: 400px;
 	color: black;
-	box-shadow: 10px 15px 5px rgba(0, 0, 0, .2);
+	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
 }
 
 	/* PROVIDES MARGIN FOR PARAGRAPH EXPLAINING THAT THESE ARE THE RESULTS OF THE GAME */
 
 #paraResults {
-	margin-top: 20px;
+	margin: 20px 20px 0;
 }
 
 	/* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
@@ -277,17 +273,17 @@ div.versus {
 }
 
 #player1Finish, #player2Finish {
-	border-radius: 5px;
 	color: white;
 }
 
 	/* BOARDS FOR BOTH PLAYER1 AND PLAYER 2 */
 
 #player1, #player2 {
-	width: 700px;
+	width: 600px;
 	text-align: center;
-	margin: 60px auto;
+	margin: 10px auto;
 }
+
 
 	/* ENTIRE PLAYER 2 BOARD, TURNS ON WHEN IT'S HIS/HER TURN */
 
@@ -304,7 +300,7 @@ div.versus {
 	width: 100%;
 	top: 0%;
 	z-index: 1;
-	font-size: 6em;
+	font-size: 4.2em;
 	display: none;
 }
 
@@ -332,7 +328,7 @@ h1:hover, #start:hover, #continue:hover, #replay:hover, #guess:hover, .mainBlock
 
 section.question, section.answer, section.finish {
 	width: 100%;
-	margin: 40px auto;
+	margin: 20px auto;
 	display: none;
 	z-index: 0;
 	position: relative;
@@ -341,8 +337,12 @@ section.question, section.answer, section.finish {
 	/* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
 
 div.paraQA {
-	margin: 20px 0;
+	margin: 10px 0;
 	overflow: auto;
+}
+
+div.paraQA p {
+	padding: 10px 0;
 }
 
 /* THE DIVS HOLDING EACH BLOCK THAT THE PLAYERS FILL IN */
@@ -370,53 +370,107 @@ div.finishRightWrong p {
 	padding: 10px 0;
 }
 
-	/* LINKS AT THE END FOR CORRECT AND INCORRECT ANSWERS */
+	/* LINKS AT THE END FOR CORRECT AND INCORRECT ANSWERS
+	 AND AT THE END OF ANSWER DESCRIPTIONS*/
 
-.helpfulLink {
+.helpfulLink, .paraQA a {
 	text-decoration: underline;
-	text-decoration-color: #0070BA;
 }
 
 
 
 /* @MEDIA FOR VARYING DEVICE SIZES */
 
-@media (max-width: 767px) {
+@media(max-width: 450px) {
 
-	div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
-		width: 98%;
+div.colorBlock {
+	width: 80px;
+	height: 80px;
+	margin: 10px auto;
+}
+
+section.instructions div p {
+	line-height: 1em;
+}
+
+#inputAnswer {
+	width: 300px;
+	margin: 10px auto;
+}
+
+#turn {
+	font-size: 2em;
+	padding: 10px;
+}
+
+}
+
+@media(max-width: 600px) {
+
+#player1, #player2 {
+	width: 100%;
+	margin: 10px auto;
+}
+
+div.mainBlock {
+	width: 32%;
+}
+
+}
+
+@media (max-width: 850px) {
+
+div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
+	width: 98%;
+}
+
+#inputAnswer {
+	font-size: 1.4em;
 	}
+
+div.finishRightWrong {
+	width: 99%;
+	float: left;
+	margin: 20px 0;
+}
+
+#replay {
+	width: 200px;
+}
+
+#banner {
+	font-size: 3em;
+}
+
+#answer, #question {
+	font-size: 1.5em;
+}
+
+h1 {
+	font-size: 3em;
+	width: 80%;
+	padding: 5px 20px;
+}
 
 }
 
 @media (max-width: 1023px) {
-	div.htmlSelect, div.cssSelect, div.jsSelect {
-		width: 100%;
-	}
 
-	body {
-		overflow: auto;
-	}
-
-	div.htmlSelect, div.cssSelect {
-		width: 48%;
-	}
-
-	div.jsSelect {
-		width: 98%;
-		margin-top:20px;
-	}
-
-	.invis {
-		display: none;
-	}
-
+div.htmlSelect, div.cssSelect, div.jsSelect {
+	width: 100%;
 }
 
-@media(max-height: 950px) {
+div.htmlSelect, div.cssSelect {
+	width: 48%;
+}
 
-	button#turn {
-		position: relative;
-	}
+div.jsSelect {
+	width: 98%;
+	margin-top:20px;
+}
+
+.invis {
+	display: none;
+}
 
 }

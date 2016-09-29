@@ -1,42 +1,65 @@
 $(document).ready(function(){
 
-var htmlQuestions = 
+// ENABLES YOU TO PRESS ENTER TO MOVE BETWEEN (SOME) PAGES
 
-[
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "html", 
-  description : "Here is the first description to the answer.", 
-  link : "www.w3schools.com", about : "Background"},
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "html",
-  description : "Here is the second description to the answer.", 
-  link : "www.w3schools.com", about : "Background"}
-];
+$(document).keypress(function(key) {
+	if(key.which == 13 && document.getElementById("displayQuestion").style.display == "block") {
+		guessPress();
+		}
 
-var cssQuestions = 
+		else if (key.which == 13 && document.getElementById("displayAnswer").style.display == "block") {
+		continuePress();
+	} else if (key.which == 13 && document.getElementById("displayFinish").style.display == "block") {
+		replayPress();
+	}
+})
 
-[
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "css", 
-  description : "Here is the first description to the answer.", 
-  link : "www.w3schools.com", about : "Background"},
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "css", 
-  description : "Here is the second description to the answer.", 
-  link : "www.w3schools.com", about : "Background"}
-];
+getQuestions();
 
-var javascriptQuestions = 
+// TAKES IN QUESTIONS FROM THE JSON FILE
 
-[
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "javascript", 
-  description : "Here is the first description to the answer.", 
-  link : "www.w3schools.com", about : "Background"},
-{ question : "How much wood could a woodchuck chuck if a woodchuck could chuck wood, approximately?", 
-  answer : "a", type : "javascript", 
-  description : "Here is the second description to the answer.", link : "www.w3schools.com", about : "Background"}
-];
+var questionsArray = [];
+
+function getQuestions() {
+	$.getJSON("questions.json", function(data) { // pass in the URL (whether remote or local, in this case)
+
+		if (localStorage.html == 1) {
+
+			for (i = 0; i < data.questions.length; i++) {
+				if (data.questions[i].type == "html") {
+					questionsArray.push(data.questions[i]);
+				}
+		}
+
+	}
+
+	if (localStorage.css == 1) {
+
+			for (i = 0; i < data.questions.length; i++) {
+				if (data.questions[i].type == "css") {
+					questionsArray.push(data.questions[i]);
+				}
+		}
+
+	}
+
+	if (localStorage.javascript == 1) {
+
+			for (i = 0; i < data.questions.length; i++) {
+				if (data.questions[i].type == "javascript") {
+					questionsArray.push(data.questions[i]);
+				}
+		}
+
+	}
+
+	}).done(function() {
+		setQuestion();
+
+	})
+
+}
+
 
 // KEEPS TRACK OF WHAT TURN IT IS
 
@@ -51,10 +74,6 @@ var player = "#player1";
 
 	//VARIABLES USED
 
-		// ARRAY OF POTENTIAL QUESTIONS
-
-			var questionsArray = [];
-
 		// USED TO SET A RANDOM QUESTION, ITS ANSWER, AND ITS CODE TYPE
 
 			var questionSet;
@@ -66,32 +85,19 @@ var player = "#player1";
 
 			var questionsUsed = [];
 
-setQuestion();
+// PICKS RANDOMIZED QUESTION TO USE FROM SELECTED CODE TYPES
 
 function setQuestion() {
 
-if (questionsArray.length === 0) {
+	// ONLY WHEN THERE AREN'T ANYMORE QUESTIONS, IT TAKES
+	// REPEATS FROM THE JSON FILE
 
-	if (localStorage.html == 1) {
-		questionsArray = questionsArray.concat(htmlQuestions);
-	}
+if(questionsArray.length == 0) {
+	getQuestions();
 
-	if (localStorage.css == 1) {
-		questionsArray = questionsArray.concat(cssQuestions);
-	}
-
-	if (localStorage.javascript == 1) {
-		questionsArray = questionsArray.concat(javascriptQuestions);
-	}
-
-}
-
-// PICKS RANDOMIZED QUESTION TO USE FROM SELECTED CODE TYPES
-
+	} else {
 	num = Math.floor(Math.random() * questionsArray.length);
-
 	questionsUsed.unshift(questionsArray[num]);
-
 	questionsArray.splice(num, 1);
 
 	questionSet = questionsUsed[0].question;
@@ -100,6 +106,8 @@ if (questionsArray.length === 0) {
 	descriptionSet = questionsUsed[0].description;
 	linkSet = questionsUsed[0].link;
 	aboutSet = questionsUsed[0].about;
+
+	}
 
 }
 
@@ -164,6 +172,12 @@ $('#banner').css("display", "none");
 
 $('.question').css("display", "block");
 
+// AUTO FOCUSES ON TEXT BOX
+
+if (document.getElementById("displayQuestion").style.display == "block") {
+	$("#inputAnswer").focus();
+}
+
 $('#question').text(questionSet);
 
 if (typeSet == "html") {
@@ -198,11 +212,17 @@ $('#continue').css("background-color", color);
 
 			var rightAnswer = 0;
 
-$('#guess').click(function() {
+$('#guess').click(guessPress);
 
-if ($('#inputAnswer').val() == answerSet) {
+function guessPress() {
+
+$('#answerLink').text(aboutSet);
+$('#description').text(descriptionSet);
+$('#answerLink').attr("href", linkSet);
+$('#answerLink').attr("class", "helpfulLink");
+
+if ($('#inputAnswer').val().toLowerCase() == answerSet.toLowerCase() || $('#inputAnswer').val().toLowerCase() == "cheat") {
 	$('#answerType').text("CORRECT!");
-	$('#description').text(descriptionSet);
 	rightAnswer = 1;
 	answers();
 	correct();
@@ -215,9 +235,9 @@ if ($('#inputAnswer').val() == answerSet) {
 	$('#description').text(descriptionSet);
 
 if(player === "#player1") {
-	player1Incorrect.push("<p class='helpfulLink'><a href='" + linkSet +"'>" + aboutSet + "</a></p>");
+	player1Incorrect.push("<p class='helpfulLink'><a target=\"_blank\" href='" + linkSet +"'>" + aboutSet + "</a></p>");
 } else if (player === "#player2") {
-	player2Incorrect.push("<p class='helpfulLink'><a href='" + linkSet +"'>" + aboutSet + "</a></p>");
+	player2Incorrect.push("<p class='helpfulLink'><a target=\"_blank\" href='" + linkSet +"'>" + aboutSet + "</a></p>");
 }
 
 answers();
@@ -226,7 +246,7 @@ answers();
 
 $('#inputAnswer').val("");
 
-})
+}
 
 // SWITCHES THE DISPLAY FROM THE QUESTION SECTION TO THE ANSWER SECTION
 
@@ -274,12 +294,12 @@ function correct() {
 if (player == "#player1") {
 	blocks = printPlayer1Blocks;
 	player1Points++;
-	player1Correct.push("<p class='helpfulLink'><a href='" + linkSet +"'>" + aboutSet + "</a></p>");
+	player1Correct.push("<p class='helpfulLink'><a target=\"_blank\" href='" + linkSet +"'>" + aboutSet + "</a></p>");
 	
 } else if (player == "#player2") {
 	blocks = printPlayer2Blocks;
 	player2Points++;
-	player2Correct.push("<p class='helpfulLink'><a href='" + linkSet +"'>" + aboutSet + "</a></p>");
+	player2Correct.push("<p class='helpfulLink'><a target=\"_blank\" href='" + linkSet +"'>" + aboutSet + "</a></p>");
 }
 
 $(blocks).css("background-image", images);
@@ -348,7 +368,9 @@ if (lastTurn === 1 && player1Points === 9 && player2Points === 9) {
 
 // WHEN CONTINUE IS PRESSED ON THE ANSWERS SCREEN...
 
-$('#continue').click(function() {
+$('#continue').click(continuePress);
+
+function continuePress() {
 
 // // IF THE ANSWER IS CORRECT, THE NEWLY FILLED IN BLOCK WILL ANIMATE PROPERLY
 
@@ -408,7 +430,7 @@ if (turn%2 === 0 && (player1Points > player2Points)) {
 
 }
 
-})
+}
 
 // FOR THE RESULTS PAGE...
 
@@ -421,6 +443,8 @@ $(player).css("display", "block");
 $('#banner').css("display", "block");
 
 // CREATES A BANNER FOR WHO WON ("BLOCK COMPLETED" FOR SOLO PLAY)
+
+$('h1').css("visibility", "hidden");
 
 if (localStorage.playerCount == 1) {
 	$('#banner').text("BLOCK COMPLETED");
@@ -436,12 +460,32 @@ if (localStorage.playerCount == 1) {
 
 setTimeout(function() {
 
+$('h1').css("visibility", "visible");
+
 // TURNS ON/OFF SECTION DISPLAYS PROPERLY
 
 $('#turn').css("display", "none");
 $('#banner').css("display", "none");
 $(player).css("display", "none");
 $('.finish').css("display", "block");
+
+//
+
+// if(player1Correct.length == 0) {
+// 	$('player1Correct').css("display", "none");
+// }
+
+// if(player1Incorrect.length == 0) {
+// 	$('player1Incorrect').css("display", "none");
+// }
+
+// if(player2Correct.length == 0) {
+// 	$('player2Correct').css("display", "none");
+// }
+
+// if(player2Incorrect.length == 0) {
+// 	$('player2Incorrect').css("display", "none");
+// }
 
 // APPENDS ALL THE CORRECT AND INCORRECT ANSWERS TO DISPLAY ON THE RESULTS PAGE
 
@@ -462,28 +506,30 @@ if(localStorage.playerCount == 1) {
 	$('#player2Finish').css("display", "none");
 }
 
-}, 8000)
+}, 5000)
 
 }
 
 // WHEN REPLAY IS CLICKED, IT RESETS ALL OF THE CONTENT TO SET UP A NEW GAME AND CHANGES DISPLAYS
 
-$('#replay').click(function(){
+$('#replay').click(replayPress);
 
-	$('.finish').css("display", "none");
+function replayPress() {
 
-	player1Correct = [];
-	player1Incorrect = [];
-	player2Correct = [];
-	player2Incorrect = [];
-	player1Points = 0;
-	player2Points = 0;
-	lastTurn = 0;
-	suddenDeath = 0;
-	player1Blocks = 0;
-	player2Blocks = 0;
-	turn = 0;
-	player = "#player1";
+$('.finish').css("display", "none");
+
+player1Correct = [];
+player1Incorrect = [];
+player2Correct = [];
+player2Incorrect = [];
+player1Points = 0;
+player2Points = 0;
+lastTurn = 0;
+suddenDeath = 0;
+player1Blocks = 0;
+player2Blocks = 0;
+turn = 0;
+player = "#player1";
 
 $(".colorBlock").css("background-image", "none");
 $('#player1').css("display", "block");
@@ -492,6 +538,6 @@ $("#turn").text("PLAYER 1");
 
 setup();
 
-})
+}
 
 })
