@@ -4,19 +4,19 @@ $(document).ready(function(){
 
 $(document).keypress(function(key) {
 	if(key.which == 13 && document.getElementById("displayQuestion").style.display == "block") {
-		guessPress();
-		}
+	guessPress();
+		
+	} else if (key.which == 13 && document.getElementById("displayAnswer").style.display == "block") {
+	continuePress();
 
-		else if (key.which == 13 && document.getElementById("displayAnswer").style.display == "block") {
-		continuePress();
 	} else if (key.which == 13 && document.getElementById("displayFinish").style.display == "block") {
-		replayPress();
+	replayPress();
 	}
 })
 
-getQuestions();
-
 // TAKES IN QUESTIONS FROM THE JSON FILE
+
+getQuestions();
 
 var questionsArray = [];
 
@@ -117,13 +117,17 @@ setup();
 
 function setup() {
 
+console.log(player1Points + " Player 1 Points");
+console.log(player2Points + " Player 2 Points");
+
+
 if (localStorage.playerCount == 1) {
 	$('#turn').text("PRACTICE");
 }
 
 if (turn === 0 || localStorage.playerCount == 1) {
-	$(".colorBlock").css("border", "8px solid black");
-	setTimeout( function() {$(player).css("display", "none"); }, 3000);
+	// $(".colorBlock").css("border", "8px solid black");
+	setTimeout(function() {$(player).css("display", "none"); }, 3000);
 	setTimeout(questions, 3000);
 
 } 
@@ -228,7 +232,7 @@ if ($('#inputAnswer').val().toLowerCase() == answerSet.toLowerCase() || $('#inpu
 	correct();
 
 } else if ($('#inputAnswer').val() === "") {
-	$('#inputAnswer').attr("placeholder", "Don't forget to answer the question!");
+	$('#inputAnswer').attr("placeholder", "Don't forget to answer!");
 
 } else {
 	$('#answerType').text("INCORRECT.");
@@ -241,7 +245,7 @@ if(player === "#player1") {
 }
 
 answers();
-
+checkWin();
 }
 
 $('#inputAnswer').val("");
@@ -524,10 +528,13 @@ player2Correct = [];
 player2Incorrect = [];
 player1Points = 0;
 player2Points = 0;
+currentPlayer = 0;
 lastTurn = 0;
 suddenDeath = 0;
-player1Blocks = 0;
-player2Blocks = 0;
+player1Blocks = 1;
+player2Blocks = 1;
+printPlayer1Blocks = '#block1_' + player1Blocks;
+printPlayer2Blocks = '#block2_' + player2Blocks;
 turn = 0;
 player = "#player1";
 
