@@ -114,29 +114,22 @@ function setup() {
 		// $(".colorBlock").css("border", "8px solid black");
 		setTimeout(function() {$(player).css("display", "none"); }, 3000);
 		setTimeout(questions, 3000);
-
 	} 
 	else {
-
 		setTimeout(function() { $(player).css("display", "none"); }, 3000);
 
 			if(player === "#player1") {
-
 				setTimeout(function() { $("#player2").css("display", "block");
 				$("#turn").text("PLAYER 2"); 
 				}, 3000);
-
 				setTimeout(function() {$("#player2").css("display", "none");
 				player = "#player2";
 				questions();
 				}, 6000);
-
 			} else if (player === "#player2") {
-
 				setTimeout(function() { $("#player1").css("display", "block");
 				$("#turn").text("PLAYER 1");
 				}, 3000);
-
 				setTimeout(function() {$("#player1").css("display", "none");
 				player = "#player1";
 				questions();
