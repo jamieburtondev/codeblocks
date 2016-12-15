@@ -52,7 +52,7 @@ div.finishRightWrong h4 {
 
 p {
 	font-family: 'Glegoo', Verdana;
-	font-size: 1.5em;
+	font-size: 1.7em;
 	text-align: center;
 }
 
@@ -69,8 +69,19 @@ section {
 	margin: 50px auto;
 }
 
+section.instructions {
+	margin: 40px auto;
+}
+
+section.instructions div h2 {
+	font-size: 2.5em;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
 section.instructions div p {
-	line-height: 2.5em;
+	line-height: 2em;
 }
 
 /* TITLE BARS */
@@ -201,9 +212,12 @@ div.versus {
 	width: 75%;
 	margin: 0 auto;
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 1.7em;
 }
 
+#description {
+	margin-bottom: 30px;
+}
 
 	/* GUESS ON ANSWERING PAGE, CONTINUE BUTTON ON CORRECT/INCORRECT PAGE */
 
@@ -261,6 +275,12 @@ div.versus {
 	margin: 20px 20px 0;
 }
 
+	/* ANSWER AND QUESTION SECTIONS */
+
+#displayAnswer, #displayQuestion {
+	margin: 50px 0;
+}
+
 	/* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
 
 #player1Finish {
@@ -281,7 +301,7 @@ div.versus {
 #player1, #player2 {
 	width: 600px;
 	text-align: center;
-	margin: 10px auto;
+	margin: 30px auto;
 }
 
 
@@ -337,12 +357,8 @@ section.question, section.answer, section.finish {
 	/* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
 
 div.paraQA {
-	margin: 10px 0;
+	margin: 30px 0;
 	overflow: auto;
-}
-
-div.paraQA p {
-	padding: 10px 0;
 }
 
 /* THE DIVS HOLDING EACH BLOCK THAT THE PLAYERS FILL IN */
@@ -375,89 +391,115 @@ div.finishRightWrong p {
 
 .helpfulLink, .paraQA a {
 	text-decoration: underline;
+	text-decoration-color: red;
 }
 
 
 
-/* @MEDIA FOR VARYING DEVICE SIZES */
+/* @MEDIA FOR MOBILE PHONES */
 
-@media(max-width: 450px) {
+@media(min-width: 300px) and (max-width: 449px) {
 
-div.colorBlock {
-	width: 80px;
-	height: 80px;
-	margin: 10px auto;
+section div.colorBlock {
+	width: 85px;
+	height: 85px;
+	border: 5px solid black;
 }
 
-section.instructions div p {
-	line-height: 1em;
-}
-
-#inputAnswer {
-	width: 300px;
-	margin: 10px auto;
-}
-
-#turn {
-	font-size: 2em;
-	padding: 10px;
-}
-
-}
-
-@media(max-width: 600px) {
 
 #player1, #player2 {
-	width: 100%;
-	margin: 10px auto;
+	width: 98%;
+	margin: 40px auto;
 }
-
-div.mainBlock {
-	width: 32%;
-}
-
-}
-
-@media (max-width: 850px) {
 
 div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
 	width: 98%;
 }
 
+h1 {
+	padding: 0px 20px;
+	font-size: 2em;
+	width: 80%;
+	border: 5px solid black;
+}
+
+div.mainBlock {
+	width: 31%;
+}
+
+div.colorBlock {
+	width: 85px;
+	height: 85px;
+	border: 5px solid black;
+}
+
+#displayAnswer, #displayQuestion {
+	margin: 20px 0;
+}
+
+
 #inputAnswer {
-	font-size: 1.4em;
-	}
+	width: 80%;
+	margin: 10px auto 0;
+	padding: 5px;
+	font-size: 1em;
+	border: 3px solid black;
+}
+
+#questionType, #answerType, #continue, #guess, #blockBreakdown, #player1Finish, #player2Finish {
+	font-size: 2em;
+}
+
+div.paraQA {
+	margin: 15px 0;
+}
+
+#description {
+	margin-bottom: 15px;
+}
+
+div.paraQA p, #description, #question, #paraResults {
+	font-size: 1em;
+	padding: 0 10px;
+}
+
+#banner {
+	font-size: 2em;
+}
+
+#turn, #replay {
+	width: 80%;
+	font-size: 1.5em;
+	padding: 0 5px;
+	border: 5px solid black;
+}
 
 div.finishRightWrong {
 	width: 99%;
 	float: left;
-	margin: 20px 0;
+	margin: 5px 0;
 }
 
-#replay {
-	width: 200px;
+div.finishRightWrong {
+	font-size: .8em;
 }
 
-#banner {
-	font-size: 3em;
-}
-
-#answer, #question {
-	font-size: 1.5em;
-}
-
-h1 {
-	font-size: 3em;
-	width: 80%;
-	padding: 5px 20px;
+div.finishRightWrong a{
+	font-size: 1.3em;
 }
 
 }
 
-@media (max-width: 1023px) {
+/* @MEDIA FOR TABLETS */
 
-div.htmlSelect, div.cssSelect, div.jsSelect {
-	width: 100%;
+@media(min-width: 450px) and (max-width: 800px) {
+
+header {
+	margin-top: 10px;
+}
+
+#player1, #player2 {
+	margin: 5px auto;
 }
 
 div.htmlSelect, div.cssSelect {
@@ -466,11 +508,42 @@ div.htmlSelect, div.cssSelect {
 
 div.jsSelect {
 	width: 98%;
-	margin-top:20px;
 }
 
-.invis {
-	display: none;
+#questionType, #answerType, #continue, #guess, #blockBreakdown, #player1Finish, #player2Finish {
+	font-size: 2.2em;
+}
+
+div.paraQA {
+	margin: 10px 0;
+}
+
+#description {
+	margin-bottom: 15px;
+}
+
+#turn, #replay {
+	width: 60%;
+	font-size: 1.9em;
+	padding: 0 5px;
+	border: 8px solid black;
+}
+
+#inputAnswer {
+	width: 80%;
+	margin: 10px auto;
+	font-size: 1.5em;
+	border: 5px solid black;
+}
+
+/*div.mainBlock {
+	width: 31%;
+}*/
+
+div.colorBlock {
+	width: 120px;
+	height: 120px;
+	border: 8px solid black;
 }
 
 }
