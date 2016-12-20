@@ -1,6 +1,6 @@
-CODE BLOCKS - Game
+# CODE BLOCKS
 
-Getting Started:
+# Getting Started:
 
   You need to choose at least one category of questions (HTML, CSS, and/or JavaScript).
 
@@ -8,7 +8,7 @@ Getting Started:
 
   The start button will only work once this is completed.
 
-The Game:
+# The Game:
 
   The goal is to build a "literal" code block. That means answering 9 questions correctly, filling in the 9 empty spaces. 
 
@@ -22,6 +22,4 @@ The Game:
   
     If one person misses a question, the other player still needs to get it right to win.
 
-Keyboard Shortcut:
-
-  The text field will be focused on automatically on so you can start typing. Pressing Enter will send you to the next screen.
+Keyboard Shortcut: Perss Enter to submit an answer.
