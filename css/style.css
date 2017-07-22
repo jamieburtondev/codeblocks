@@ -105,7 +105,7 @@ div.selectPlayers {
 	background-color: #63A814;
 }
 
-/* COLOR BLOCKS, ALL PAGES */
+/* COLOR BLOCKS */
 
 div.colorBlock {
 	width: 125px;
@@ -115,7 +115,15 @@ div.colorBlock {
 	border-radius: 10px;
 }
 
-/* INDEX.HTML PAGE SECTION */
+div#solo {
+	opacity: 1;
+}
+
+div#versus {
+	opacity: .5;
+}
+
+/* GAME, PAGE SECTION */
 
 	/* BUTTONS */
 
@@ -173,6 +181,10 @@ div.versus {
 
 
 /* MAIN HTML */
+
+div#game {
+	display: none;
+}
 
 	/*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
@@ -391,10 +403,7 @@ div.finishRightWrong p {
 
 .helpfulLink, .paraQA a {
 	text-decoration: underline;
-	text-decoration-color: red;
 }
-
-
 
 /* @MEDIA FOR MOBILE PHONES */
 
