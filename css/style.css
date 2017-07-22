@@ -174,6 +174,10 @@ div.versus {
 
 /* MAIN HTML */
 
+div#game {
+	display: none;
+}
+
 	/*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
 #block1_1, #block1_2, #block1_3, #block1_4, #block1_5, #block1_6, #block1_7, #block1_8, #block1_9,
@@ -391,10 +395,7 @@ div.finishRightWrong p {
 
 .helpfulLink, .paraQA a {
 	text-decoration: underline;
-	text-decoration-color: red;
 }
-
-
 
 /* @MEDIA FOR MOBILE PHONES */
 
