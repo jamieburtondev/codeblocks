@@ -350,7 +350,7 @@ div#game {
 
 	/* HOVERING CAUSES BIGGER SCALE ON THESE BUTTONS */
 
-h1:hover, #start:hover, #continue:hover, #replay:hover, #guess:hover, .mainBlock:hover {
+#start:hover, #continue:hover, #replay:hover, #guess:hover {
 	transform: scale(1.1);
 }
 
