@@ -2,46 +2,26 @@ $(document).ready(function(){
 
 	// STORES WHAT CODE TYPES / HOW MANY PLAYERS ARE SELECTED
 
-	let htmlPicked = 0;
-	let cssPicked = 0;
-	let jsPicked = 0;
+	let picked = { html: false, css: false, js: false };
 	let playerCount = 1;
 
 	// ADJUSTS BUTTON OPACITIES ON CLICK, WHAT CODE TYPES / AMOUNT OF PLAYERS PICKED
 
-	$('#html').css('opacity', .5);
-	$('#css').css('opacity', .5);
-	$('#js').css('opacity', .5);
-
-	$('#html').click(() => {
-		if ($('#html').css('opacity') === '0.5') {
-			$('#html').css('opacity', 1);
-			htmlPicked = 1;
+	let chooseType = (type) => {
+		if ($(`#${type}`).css('opacity') === '0.5') {
+			picked[type] = true;
+			$(`#${type}`).css('opacity', 1);
 		} else {
-			$('#html').css('opacity', .5);
-			htmlPicked = 0;
+			picked[type] = false;
+			$(`#${type}`).css('opacity', .5);
 		}
-	});
+	}
 
-	$('#css').click(() => {
-		if ($('#css').css('opacity') === '0.5') {
-			$('#css').css('opacity', 1);
-			cssPicked = 1;
-		} else {
-			$('#css').css('opacity', .5);
-			cssPicked = 0;
-		}
-	});
+	['html', 'css', 'js'].forEach((type) => { $(`#${type}`).css('opacity', .5) })
 
-	$('#js').click(() => {
-		if ($('#js').css('opacity') === '0.5') {
-			$('#js').css('opacity', 1);
-			jsPicked = 1;
-		} else {
-			$('#js').css('opacity', .5);
-			jsPicked = 0;
-		}
-	});
+	$('#html').click(() => chooseType('html'));
+	$('#css').click(() => chooseType('css'));
+	$('#js').click(() => chooseType('js'));
 
 	$('#solo').click(() => {
 		$('#solo').css('opacity', 1);
@@ -58,8 +38,8 @@ $(document).ready(function(){
 	// START BUTTON, ASSIGNING VALUES TO LOCAL STORAGE FOR MAIN.HTML'S USE
 
 	$('#start').click(() => {
-		if (!htmlPicked && !cssPicked && !jsPicked) {
-			console.log('cannot start!');
+		if (!picked.html && !picked.css && !picked.js) {
+			alert('You must select at least one set of questions to begin.');
 		} else {
 			$('#setup').css('display', 'none');
 			$('#game').css('display', 'block');
@@ -67,12 +47,9 @@ $(document).ready(function(){
 		}
 	})
 
-// GAME
-
+	// GAME
 	let game = () => {
-
-// ENABLES YOU TO PRESS ENTER TO MOVE BETWEEN (SOME) PAGES
-
+		// ENABLES YOU TO PRESS ENTER TO MOVE BETWEEN (SOME) PAGES
 		$(document).keypress((key) => {
 			if (key.which === 13) {
 				if ($("#displayQuestion").css("display") === "block") {
@@ -90,25 +67,15 @@ $(document).ready(function(){
 		let questionsArray = [];
 
 		let getQuestions = () => {
-			$.getJSON("html.json", (data) => {
-				if (htmlPicked === 1) {
-					questionsArray.push(...data.questions);
-				}				
-			}).done(() => {
-				$.getJSON("css.json", function(data) {
-					if (cssPicked === 1) {
+			['html', 'css', 'js'].forEach((type) => {
+				if (picked[type]) {
+					$.getJSON(`${type}.json`, (data) => {
 						questionsArray.push(...data.questions);
-					}				
-				}).done(() => {
-					$.getJSON("js.json", function(data) {
-						if (jsPicked === 1) {
-							questionsArray.push(...data.questions);
-						}			
-					}).done(() => {
-						setQuestion();	
 					})
-				})
-			})
+				}
+			});
+
+			setTimeout(() => setQuestion(), 1000);
 		}
 
 		getQuestions();
