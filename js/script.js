@@ -6,44 +6,52 @@ $(document).ready(function () {
 
   // ADJUSTS BUTTON OPACITIES ON CLICK, WHAT CODE TYPES / AMOUNT OF PLAYERS PICKED
 
-  let chooseType = (type) => {
-    if ($(`#${type}`).css("opacity") === "0.5") {
+  const opacity = "opacity";
+  const halfOpacity = .5;
+  const fullOpacity = 1;
+
+  const html = "html";
+  const css = "css";
+  const javascript = "js";
+
+  const displayBlock = "block";
+  const displayNone = "none";
+
+  const chooseType = (type) => {
+	const questionTypeUnselected = $(`#${type}`).css(opacity) === `${halfOpacity}`;
+
+    if (questionTypeUnselected) {
       picked[type] = true;
-      $(`#${type}`).css("opacity", 1);
+      $(`#${type}`).css(opacity, fullOpacity);
     } else {
       picked[type] = false;
-      $(`#${type}`).css("opacity", 0.5);
+      $(`#${type}`).css(opacity, halfOpacity);
     }
   };
 
-  ["html", "css", "js"].forEach((type) => {
-    $(`#${type}`).css("opacity", 0.5);
-  });
+  [html, css, javascript].forEach((type) => $(`#${type}`).css(opacity, halfOpacity));
 
-  $("#html").click(() => chooseType("html"));
-  $("#css").click(() => chooseType("css"));
-  $("#js").click(() => chooseType("js"));
+  [html, css, javascript].forEach(type => $(`#${type}`).click(() => chooseType(type)));
 
   $("#solo").click(() => {
-    $("#solo").css("opacity", 1);
-    $("#versus").css("opacity", 0.5);
+    $("#solo").css("opacity", fullOpacity);
+    $("#versus").css("opacity", halfOpacity);
     playerCount = 1;
   });
 
   $("#versus").click(() => {
-    $("#solo").css("opacity", 0.5);
-    $("#versus").css("opacity", 1);
+    $("#solo").css("opacity", halfOpacity);
+    $("#versus").css("opacity", fullOpacity);
     playerCount = 2;
   });
-
   // START BUTTON, ASSIGNING VALUES TO LOCAL STORAGE FOR MAIN.HTML'S USE
 
   $("#start").click(() => {
     if (!picked.html && !picked.css && !picked.js) {
       alert("You must select at least one set of questions to begin.");
     } else {
-      $("#setup").css("display", "none");
-      $("#game").css("display", "block");
+      $("#setup").css("display", displayNone);
+      $("#game").css("display", displayBlock);
       game();
     }
   });
@@ -52,12 +60,16 @@ $(document).ready(function () {
   const game = () => {
     // ENABLES YOU TO PRESS ENTER TO MOVE BETWEEN (SOME) PAGES
     $(document).keypress((key) => {
+		const displayingQuestion = $("#display-question").css("display") === displayBlock;
+		const displayingContinue = $("#display-answer").css("display") === displayBlock;
+		const displayingFinish = $("#display-finish").css("display") === displayBlock;
+
       if (key.which === 13) {
-        if ($("#display-question").css("display") === "block") {
+        if (displayingQuestion) {
           guessPress();
-        } else if ($("#display-answer").css("display") === "block") {
+        } else if (displayingContinue) {
           continuePress();
-        } else if ($("#display-finish").css("display") === "block") {
+        } else if (displayingFinish) {
           replayPress();
         }
       }
@@ -68,7 +80,7 @@ $(document).ready(function () {
     let questionsArray = [];
 
     const getQuestions = () => {
-      ["html", "css", "js"].forEach((type) => {
+      [html, css, javascript].forEach((type) => {
         if (picked[type]) {
           $.getJSON(`${type}.json`, (data) => {
             questionsArray.push(...data.questions);
@@ -138,25 +150,25 @@ $(document).ready(function () {
     let images;
 
     const questions = () => {
-      $("#banner").css("display", "none");
+      $("#banner").css("display", displayNone);
 
-      $(".question").css("display", "block");
+      $(".question").css("display", displayBlock);
 
       // AUTO FOCUSES ON TEXT BOX
 
-      if ($("#display-question").css("display") == "block") {
+      if ($("#display-question").css("display") == displayBlock) {
         $("#input-answer").focus();
       }
 
       $("#question").text(questionSet);
 
-      if (typeSet == "html") {
+      if (typeSet == html) {
         color = "#E44D26";
         images = 'url("./img/HTML_Full.png")';
-      } else if (typeSet === "css") {
+      } else if (typeSet === css) {
         color = "#0070BA";
         images = 'url("./img/CSS_Full.png")';
-      } else if (typeSet === "javascript") {
+      } else if (typeSet === javascript) {
         color = "#63A814";
         images = 'url("./img/JavaScript_Full.png")';
       }
@@ -177,7 +189,7 @@ $(document).ready(function () {
 
       if (turn === 0 || playerCount == 1) {
         setTimeout(() => {
-          $(player).css("display", "none");
+          $(player).css("display", displayNone);
         }, 3000);
         setTimeout(questions, 3000);
       } else {
@@ -192,16 +204,16 @@ $(document).ready(function () {
         };
 
         setTimeout(() => {
-          $(player).css("display", "none"), setPlayer();
+          $(player).css("display", displayNone), setPlayer();
         }, 3000);
 
         setTimeout(() => {
-          $(player).css("display", "block");
+          $(player).css("display", displayBlock);
           $("#turn").text(playerText);
         }, 3000);
 
         setTimeout(() => {
-          $(player).css("display", "none");
+          $(player).css("display", displayNone);
           questions();
         }, 6000);
       }
@@ -214,9 +226,9 @@ $(document).ready(function () {
     const breakdown = () => {
       // TURNS ON/OFF SECTION DISPLAYS PROPERLY
 
-      $(".answer").css("display", "none");
-      $(player).css("display", "block");
-      $("#banner").css("display", "block");
+      $(".answer").css("display", displayNone);
+      $(player).css("display", displayBlock);
+      $("#banner").css("display", displayBlock);
 
       // CREATES A BANNER FOR WHO WON ("BLOCK COMPLETED" FOR SOLO PLAY)
 
@@ -237,10 +249,10 @@ $(document).ready(function () {
 
         // TURNS ON/OFF SECTION DISPLAYS PROPERLY
 
-        $("#turn").css("display", "none");
-        $("#banner").css("display", "none");
-        $(player).css("display", "none");
-        $(".finish").css("display", "block");
+        $("#turn").css("display", displayNone);
+        $("#banner").css("display", displayNone);
+        $(player).css("display", displayNone);
+        $(".finish").css("display", displayBlock);
 
         // APPENDS ALL THE CORRECT AND INCORRECT ANSWERS TO DISPLAY ON THE RESULTS PAGE
 
@@ -255,10 +267,10 @@ $(document).ready(function () {
 
         if (playerCount == 1) {
           $("#player-1-finish").text("OVERVIEW");
-          $("#player-2-finish").css("display", "none");
-          $("#player-2-correct").css("display", "none");
-          $("#player-2-incorrect").css("display", "none");
-          $("#player-2-finish").css("display", "none");
+          $("#player-2-finish").css("display", displayNone);
+          $("#player-2-correct").css("display", displayNone);
+          $("#player-2-incorrect").css("display", displayNone);
+          $("#player-2-finish").css("display", displayNone);
         }
       }, 5000);
     };
@@ -285,8 +297,8 @@ $(document).ready(function () {
     // SWITCHES THE DISPLAY FROM THE QUESTION SECTION TO THE ANSWER SECTION
 
     const answers = () => {
-      $(".question").css("display", "none");
-      $(".answer").css("display", "block");
+      $(".question").css("display", displayNone);
+      $(".answer").css("display", displayBlock);
     };
 
     // WHEN GUESS IS CLICKED ON THE ANSWER PAGE: GOES TO REVEAL THE CORRECT ANSWER
@@ -459,14 +471,14 @@ $(document).ready(function () {
 
       const nextTurn = () => {
         turn++;
-        $(".answer").css("display", "none");
-        $(player).css("display", "block");
+        $(".answer").css("display", displayNone);
+        $(player).css("display", displayBlock);
         setQuestion();
         setup();
       };
 
       if (suddenDeath === 1) {
-        $("#banner").css("display", "block");
+        $("#banner").css("display", displayBlock);
         $("#banner").text("SUDDEN DEATH");
         if (
           (turn % 2 === 0 && player1Points > player2Points) ||
@@ -488,7 +500,7 @@ $(document).ready(function () {
     // WHEN REPLAY IS CLICKED, IT RESETS ALL OF THE CONTENT TO SET UP A NEW GAME AND CHANGES DISPLAYS
 
     const replayPress = () => {
-      $(".finish").css("display", "none");
+      $(".finish").css("display", displayNone);
 
       player1CorrectQuestions = [];
       player1IncorrectQuestions = [];
@@ -507,8 +519,8 @@ $(document).ready(function () {
       player = "#player1";
 
       $(".color-block").css("background-image", "none");
-      $("#player1").css("display", "block");
-      $("#turn").css("display", "block");
+      $("#player1").css("display", displayBlock);
+      $("#turn").css("display", displayBlock);
       $("#turn").text("PLAYER 1");
 
       setup();
