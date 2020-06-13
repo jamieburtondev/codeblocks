@@ -1,562 +1,639 @@
 /* WEBSITE DEFAULTS */
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 a {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 /* CURSOR */
 
-.htmlSelect, .cssSelect, .jsSelect, .solo, .versus, #start, #continue, header {
-	cursor: pointer;
+.htmlSelect,
+.cssSelect,
+.jsSelect,
+.solo,
+.versus,
+#start,
+#continue,
+#guess {
+  cursor: pointer;
 }
 
 /* FONTS */
 
-h1, h2, h3, h4 {
-	cursor: default;
-	font-size: 3em;
+h2,
+h3,
+h4 {
+  cursor: default;
+  font-size: 3em;
 }
 
 h1 {
-	font-family: 'Quantico', Verdana;
-	text-align: center;
-	width: 50%;
-	padding: 10px 80px;
-	display: block;
-	margin: 0 auto;
-	border-radius: 10px;
-	background-color: white;
-	border: 8px solid black;
-	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
+  font-family: "Quantico", Verdana;
+  font-size: 3em;
+  text-align: center;
+  width: 50%;
+  padding: 10px 80px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: white;
+  border: 8px solid black;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
 }
 
-h2, h3 {
-	font-family: 'Quantico', Verdana;
-	font-weight: normal;
+h2,
+h3 {
+  font-family: "Quantico", Verdana;
+  font-weight: normal;
 }
 
 section.finish h3 {
-	text-align: center;
+  text-align: center;
 }
 
 div.finishRightWrong h4 {
-	text-align: center;
-	font-size: 2em;
-	font-weight: bold;
-	font-family: 'Quantico', Verdana;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Quantico", Verdana;
 }
 
 p {
-	font-family: 'Glegoo', Verdana;
-	font-size: 1.7em;
-	text-align: center;
+  font-family: "Glegoo", Verdana;
+  font-size: 1.7em;
+  text-align: center;
 }
 
 p.buttonText {
-	font-size: 2.2em;
-	font-weight: bold;
-	margin-top: 10px;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 /* SECTIONS */
 
 section {
-	width: 80%;
-	margin: 50px auto;
+  width: 80%;
+  margin: 50px auto;
 }
 
 section.instructions {
-	margin: 40px auto;
+  margin: 40px auto;
 }
 
 section.instructions div h2 {
-	font-size: 2.5em;
-	text-align: center;
-	font-weight: bold;
-	margin-bottom: 15px;
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 section.instructions div p {
-	line-height: 2em;
+  line-height: 2em;
 }
 
 /* TITLE BARS */
 
 header {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
-div.selectQuestions, div.selectPlayers {
-	padding: 20px;
-	color: white;
-	margin-bottom: 50px;
-	text-align: center;
+div.selectQuestions,
+div.selectPlayers {
+  padding: 20px;
+  color: white;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-div.selectQuestions, #blockBreakdown {
-	background-color: #0070BA;
+div.selectQuestions,
+#blockBreakdown {
+  background-color: #0070ba;
 }
 
 div.selectPlayers {
-	background-color: #63A814;
+  background-color: #63a814;
 }
 
 /* COLOR BLOCKS */
 
 div.colorBlock {
-	width: 125px;
-	height: 125px;
-	margin: 0 auto;
-	border: 8px solid black;
-	border-radius: 10px;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto;
+  border: 8px solid black;
+  border-radius: 10px;
 }
 
 div#solo {
-	opacity: 1;
+  opacity: 1;
 }
 
 div#versus {
-	opacity: .5;
+  opacity: 0.5;
 }
 
 /* GAME, PAGE SECTION */
 
-	/* BUTTONS */
+/* BUTTONS */
 
-div.htmlSelect, div.cssSelect, div.jsSelect {
-	width: 32%;
+div.htmlSelect,
+div.cssSelect,
+div.jsSelect {
+  width: 32%;
 }
 
-div.soloSelect, div.versusSelect {
-	width: 49%;
+div.soloSelect,
+div.versusSelect {
+  width: 49%;
 }
 
-div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
-	display: inline-block;
+div.htmlSelect,
+div.cssSelect,
+div.jsSelect,
+div.soloSelect,
+div.versusSelect {
+  display: inline-block;
 }
 
-.htmlSelect div.colorBlock, .cssSelect div.colorBlock, .jsSelect div.colorBlock, .soloSelect div.colorBlock, .versusSelect div.colorBlock {
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, .7);
-	border: 0;
+.htmlSelect div.colorBlock,
+.cssSelect div.colorBlock,
+.jsSelect div.colorBlock,
+.soloSelect div.colorBlock,
+.versusSelect div.colorBlock {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
+  border: 0;
 }
 
-	/* IMAGES ON BUTTONS */
+/* IMAGES ON BUTTONS */
 
 div.solo {
-	background-image: url("../img/Solo.png");
-	background-size: cover;
-	}
+  background-image: url("../img/Solo.png");
+  background-size: cover;
+}
 
 div.versus {
-	background-image: url("../img/Versus.png");
-	background-size: cover;
-	}
+  background-image: url("../img/Versus.png");
+  background-size: cover;
+}
 
 .htmlSelect div.colorBlock {
-	background-image: url("../img/HTML_Full.png");
-	background-size: cover;
+  background-image: url("../img/HTML_Full.png");
+  background-size: cover;
 }
 
 .cssSelect div.colorBlock {
-	background-image: url("../img/CSS_Full.png");
-	background-size: cover;
+  background-image: url("../img/CSS_Full.png");
+  background-size: cover;
 }
 
 .jsSelect div.colorBlock {
-	background-image: url("../img/JavaScript_Full.png");
-	background-size: cover;
+  background-image: url("../img/JavaScript_Full.png");
+  background-size: cover;
 }
 
-	/* HOVER EFFECTS ON BUTTONS */
+/* HOVER EFFECTS ON BUTTONS */
 
-.htmlSelect div.colorBlock:hover, .cssSelect div.colorBlock:hover, .jsSelect div.colorBlock:hover, 
-.soloSelect div.colorBlock:hover, .versusSelect div.colorBlock:hover {
-	transform: scale(1.1);
-	transform-origin: bottom;
+.htmlSelect div.colorBlock:hover,
+.cssSelect div.colorBlock:hover,
+.jsSelect div.colorBlock:hover,
+.soloSelect div.colorBlock:hover,
+.versusSelect div.colorBlock:hover {
+  transform: scale(1.1);
+  transform-origin: bottom;
 }
-
 
 /* MAIN HTML */
 
 div#game {
-	display: none;
+  display: none;
 }
 
-	/*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
+/*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
-#block1_1, #block1_2, #block1_3, #block1_4, #block1_5, #block1_6, #block1_7, #block1_8, #block1_9,
-#block2_1, #block2_2, #block2_3, #block2_4, #block2_5, #block2_6, #block2_7, #block2_8, #block2_9 {
-	visibility: none;
-	position: relative;
-	z-index: -1;
+#block1_1,
+#block1_2,
+#block1_3,
+#block1_4,
+#block1_5,
+#block1_6,
+#block1_7,
+#block1_8,
+#block1_9,
+#block2_1,
+#block2_2,
+#block2_3,
+#block2_4,
+#block2_5,
+#block2_6,
+#block2_7,
+#block2_8,
+#block2_9 {
+  visibility: none;
+  position: relative;
+  z-index: -1;
 }
 
 /* IDs SECTION */
 
-	/* START BUTTON ON INDEX.HTML */
+/* START BUTTON ON INDEX.HTML */
 
 #start {
-	width: 400px;
-	box-shadow: 0px 5px 2px rgba(0, 0, 0, .5);
+  width: 400px;
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
-	/* INPUT FOR ANSWERING QUESTIONS */
+/* INPUT FOR ANSWERING QUESTIONS */
 
 #inputAnswer {
-	width: 80%;
-	padding: 15px 30PX;
-	display: block;
-	margin: 30px auto;
-	border: 5px solid black;
-	border-radius: 5px;
-	font-size: 2em;
-	font-family: 'Glegoo', Verdana;
-	font-weight: bold;
+  width: 80%;
+  padding: 15px 30px;
+  display: block;
+  margin: 30px auto;
+  border: 5px solid black;
+  border-radius: 5px;
+  font-size: 2em;
+  font-family: "Glegoo", Verdana;
+  font-weight: bold;
 }
 
-	/* QUESTION ON ANSWERING PAGE */
+/* QUESTION ON ANSWERING PAGE */
 
-#question, #description {
-	width: 75%;
-	margin: 0 auto;
-	font-weight: bold;
-	font-size: 1.7em;
+#question,
+#description {
+  width: 75%;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 1.7em;
 }
 
 #description {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-	/* GUESS ON ANSWERING PAGE, CONTINUE BUTTON ON CORRECT/INCORRECT PAGE */
+/* GUESS ON ANSWERING PAGE, CONTINUE BUTTON ON CORRECT/INCORRECT PAGE */
 
-#guess, #continue {
-	margin: 0 auto;
-	text-align: center;
-	color: white;
+#guess,
+#continue {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
 }
 
-	/*SHARED ATTRIBUTES BETWEEN GUESS AND CONTINUE BUTTONS */
+/*SHARED ATTRIBUTES BETWEEN GUESS AND CONTINUE BUTTONS */
 
-#guess, #continue {
-	display: block;
-	font-family: 'Quantico', Verdana;
-	font-size: 3em;
-	font-weight: bold;
-	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
-	padding: 5px 20px;
+#guess,
+#continue {
+  display: block;
+  font-family: "Quantico", Verdana;
+  font-size: 3em;
+  font-weight: bold;
+  box-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5);
+  padding: 5px 20px;
 }
 
-	/* DISPLAYS THE TURN: PLAYER 1, PLAYER 2, OR "PRACTICE" FOR SOLO PLAY */
+/* DISPLAYS THE TURN: PLAYER 1, PLAYER 2, OR "PRACTICE" FOR SOLO PLAY */
 
 #turn {
-	width: 375px;
-	margin: 0 auto 20px;
-	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
+  width: 375px;
+  margin: 0 auto 20px;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
 }
 
-	/* SHARED ATTRIBUTES FOR START, TURN, AND REPLAY */
+/* SHARED ATTRIBUTES FOR START, TURN, AND REPLAY */
 
-#start, #turn, #replay {
-	padding: 10px 80px;
-	display: block;
-	margin: 0 auto 20px auto;
-	font-family: 'Quantico', Verdana;
-	font-size: 2.7em;
-	font-weight: bold;
-	border-radius: 10px;
-	background-color: white;
-	border: 8px solid black;
+#start,
+#turn,
+#replay {
+  padding: 10px 80px;
+  display: block;
+  margin: 0 auto 20px auto;
+  font-family: "Quantico", Verdana;
+  font-size: 2.7em;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: white;
+  border: 8px solid black;
 }
 
-	/* REPLAY BUTTON AT END OF GAME */
+/* REPLAY BUTTON AT END OF GAME */
 
 #replay {
-	text-align: center;
-	width: 400px;
-	color: black;
-	box-shadow: 5px 8px 5px rgba(0, 0, 0, .2);
+  text-align: center;
+  width: 400px;
+  color: black;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
 }
 
-	/* PROVIDES MARGIN FOR PARAGRAPH EXPLAINING THAT THESE ARE THE RESULTS OF THE GAME */
+/* PROVIDES MARGIN FOR PARAGRAPH EXPLAINING THAT THESE ARE THE RESULTS OF THE GAME */
 
 #paraResults {
-	margin: 20px 20px 0;
+  margin: 20px 20px 0;
 }
 
-	/* ANSWER AND QUESTION SECTIONS */
+/* ANSWER AND QUESTION SECTIONS */
 
-#displayAnswer, #displayQuestion {
-	margin: 50px 0;
+#displayAnswer,
+#displayQuestion {
+  margin: 50px 0;
 }
 
-	/* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
+/* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
 
 #player1Finish {
-	background-color: #63A814;
+  background-color: #63a814;
 }
 
 #player2Finish {
-	background-color: #E55126;
-	clear: both;
+  background-color: #e55126;
+  clear: both;
 }
 
-#player1Finish, #player2Finish {
-	color: white;
+#player1Finish,
+#player2Finish {
+  color: white;
 }
 
-	/* BOARDS FOR BOTH PLAYER1 AND PLAYER 2 */
+/* BOARDS FOR BOTH PLAYER1 AND PLAYER 2 */
 
-#player1, #player2 {
-	width: 600px;
-	text-align: center;
-	margin: 30px auto;
+#player1,
+#player2 {
+  width: 600px;
+  text-align: center;
+  margin: 30px auto;
 }
 
-	/* ENTIRE PLAYER 2 BOARD, TURNS ON WHEN IT'S HIS/HER TURN */
+/* ENTIRE PLAYER 2 BOARD, TURNS ON WHEN IT'S HIS/HER TURN */
 
 #player2 {
-	display: none;
+  display: none;
 }
 
-	/* WINNER, SUDDEN DEATH BANNER */
+/* WINNER, SUDDEN DEATH BANNER */
 
 #banner {
-	position: absolute;
-	color: white;
-	background-color: #0070BA;
-	width: 100%;
-	top: 0%;
-	z-index: 1;
-	font-size: 4.2em;
-	display: none;
+  position: absolute;
+  color: white;
+  background-color: #0070ba;
+  width: 100%;
+  top: 0%;
+  z-index: 1;
+  font-size: 4.2em;
+  display: none;
 }
 
-	/* HEADERS FOR QUESTION, ANSWER, AND RESULTS PAGE */
+/* HEADERS FOR QUESTION, ANSWER, AND RESULTS PAGE */
 
-#answerType, #questionType, #blockBreakdown {
-	color: white;
-	text-align: center;
-	padding: 5px 0;
-	box-shadow: 0px 2.5px 1px rgba(0, 0, 0, .5);
+#answerType,
+#questionType,
+#blockBreakdown {
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  box-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* EFFECTS */
 
-	/* HOVERING CAUSES BIGGER SCALE ON THESE BUTTONS */
+/* HOVERING CAUSES BIGGER SCALE ON THESE BUTTONS */
 
-#start:hover, #continue:hover, #replay:hover, #guess:hover {
-	transform: scale(1.1);
+#start:hover,
+#continue:hover,
+#replay:hover,
+#guess:hover {
+  transform: scale(1.1);
 }
 
 /* SECTIONS */
 
-	/* ALMOST THE ENTIRE QUESTION, ANSWER, AND FINISH PAGE. TURNED OFF AND TURNED ON LATER */
+/* ALMOST THE ENTIRE QUESTION, ANSWER, AND FINISH PAGE. TURNED OFF AND TURNED ON LATER */
 
-section.question, section.answer, section.finish {
-	width: 100%;
-	margin: 20px auto;
-	display: none;
-	z-index: 0;
-	position: relative;
+section.question,
+section.answer,
+section.finish {
+  width: 100%;
+  margin: 20px auto;
+  display: none;
+  z-index: 0;
+  position: relative;
 }
 
-	/* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
+/* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
 
 div.paraQA {
-	margin: 30px 0;
-	overflow: auto;
+  margin: 30px 0;
+  overflow: auto;
 }
 
 /* THE DIVS HOLDING EACH BLOCK THAT THE PLAYERS FILL IN */
 
 div.mainBlock {
-	width: 25%;
-	display: inline-block;
-	text-align: center;
-	padding: 5px 0;
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 0;
 }
 
 /* RESULTS, "BLOCK BREAKDOWN" SECTION */
 
-	/* SECTIONS FOR THE CORRECT AND INCORRECT AREAS FOR BOTH PLAYER 1 AND PLAYER 2 */
+/* SECTIONS FOR THE CORRECT AND INCORRECT AREAS FOR BOTH PLAYER 1 AND PLAYER 2 */
 
 div.finishRightWrong {
-	width: 48%;
-	float: left;
-	margin: 20px 0;
+  width: 48%;
+  float: left;
+  margin: 20px 0;
 }
 
-	/* PADS THE PARAGRAPHS FROM THE EDGE OF THE DIVS */
+/* PADS THE PARAGRAPHS FROM THE EDGE OF THE DIVS */
 
 div.finishRightWrong p {
-	padding: 10px 0;
+  padding: 10px 0;
 }
 
-	/* LINKS AT THE END FOR CORRECT AND INCORRECT ANSWERS
+/* LINKS AT THE END FOR CORRECT AND INCORRECT ANSWERS
 	 AND AT THE END OF ANSWER DESCRIPTIONS*/
 
-.helpfulLink, .paraQA a {
-	text-decoration: underline;
+.helpfulLink,
+.paraQA a {
+  text-decoration: underline;
 }
 
 /* @MEDIA FOR MOBILE PHONES */
 
-@media(min-width: 300px) and (max-width: 449px) {
+@media (min-width: 300px) and (max-width: 449px) {
+  section div.colorBlock {
+    width: 85px;
+    height: 85px;
+    border: 5px solid black;
+  }
 
-section div.colorBlock {
-	width: 85px;
-	height: 85px;
-	border: 5px solid black;
-}
+  #player1,
+  #player2 {
+    width: 98%;
+    margin: 40px auto;
+  }
 
+  div.htmlSelect,
+  div.cssSelect,
+  div.jsSelect,
+  div.soloSelect,
+  div.versusSelect {
+    width: 98%;
+  }
 
-#player1, #player2 {
-	width: 98%;
-	margin: 40px auto;
-}
+  h1 {
+    padding: 0px 20px;
+    font-size: 2em;
+    width: 80%;
+    border: 5px solid black;
+  }
 
-div.htmlSelect, div.cssSelect, div.jsSelect, div.soloSelect, div.versusSelect {
-	width: 98%;
-}
+  div.mainBlock {
+    width: 31%;
+  }
 
-h1 {
-	padding: 0px 20px;
-	font-size: 2em;
-	width: 80%;
-	border: 5px solid black;
-}
+  div.colorBlock {
+    width: 85px;
+    height: 85px;
+    border: 5px solid black;
+  }
 
-div.mainBlock {
-	width: 31%;
-}
+  #displayAnswer,
+  #displayQuestion {
+    margin: 20px 0;
+  }
 
-div.colorBlock {
-	width: 85px;
-	height: 85px;
-	border: 5px solid black;
-}
+  #inputAnswer {
+    width: 80%;
+    margin: 10px auto 0;
+    padding: 5px;
+    font-size: 1em;
+    border: 3px solid black;
+  }
 
-#displayAnswer, #displayQuestion {
-	margin: 20px 0;
-}
+  #questionType,
+  #answerType,
+  #continue,
+  #guess,
+  #blockBreakdown,
+  #player1Finish,
+  #player2Finish {
+    font-size: 2em;
+  }
 
+  div.paraQA {
+    margin: 15px 0;
+  }
 
-#inputAnswer {
-	width: 80%;
-	margin: 10px auto 0;
-	padding: 5px;
-	font-size: 1em;
-	border: 3px solid black;
-}
+  #description {
+    margin-bottom: 15px;
+  }
 
-#questionType, #answerType, #continue, #guess, #blockBreakdown, #player1Finish, #player2Finish {
-	font-size: 2em;
-}
+  div.paraQA p,
+  #description,
+  #question,
+  #paraResults {
+    font-size: 1em;
+    padding: 0 10px;
+  }
 
-div.paraQA {
-	margin: 15px 0;
-}
+  #banner {
+    font-size: 2em;
+  }
 
-#description {
-	margin-bottom: 15px;
-}
+  #turn,
+  #replay {
+    width: 80%;
+    font-size: 1.5em;
+    padding: 0 5px;
+    border: 5px solid black;
+  }
 
-div.paraQA p, #description, #question, #paraResults {
-	font-size: 1em;
-	padding: 0 10px;
-}
+  div.finishRightWrong {
+    width: 99%;
+    float: left;
+    margin: 5px 0;
+  }
 
-#banner {
-	font-size: 2em;
-}
+  div.finishRightWrong {
+    font-size: 0.8em;
+  }
 
-#turn, #replay {
-	width: 80%;
-	font-size: 1.5em;
-	padding: 0 5px;
-	border: 5px solid black;
-}
-
-div.finishRightWrong {
-	width: 99%;
-	float: left;
-	margin: 5px 0;
-}
-
-div.finishRightWrong {
-	font-size: .8em;
-}
-
-div.finishRightWrong a{
-	font-size: 1.3em;
-}
-
+  div.finishRightWrong a {
+    font-size: 1.3em;
+  }
 }
 
 /* @MEDIA FOR TABLETS */
 
-@media(min-width: 450px) and (max-width: 800px) {
+@media (min-width: 450px) and (max-width: 800px) {
+  header {
+    margin-top: 10px;
+  }
 
-header {
-	margin-top: 10px;
-}
+  #player1,
+  #player2 {
+    margin: 5px auto;
+  }
 
-#player1, #player2 {
-	margin: 5px auto;
-}
+  div.htmlSelect,
+  div.cssSelect {
+    width: 48%;
+  }
 
-div.htmlSelect, div.cssSelect {
-	width: 48%;
-}
+  div.jsSelect {
+    width: 98%;
+  }
 
-div.jsSelect {
-	width: 98%;
-}
+  #questionType,
+  #answerType,
+  #continue,
+  #guess,
+  #blockBreakdown,
+  #player1Finish,
+  #player2Finish {
+    font-size: 2.2em;
+  }
 
-#questionType, #answerType, #continue, #guess, #blockBreakdown, #player1Finish, #player2Finish {
-	font-size: 2.2em;
-}
+  div.paraQA {
+    margin: 10px 0;
+  }
 
-div.paraQA {
-	margin: 10px 0;
-}
+  #description {
+    margin-bottom: 15px;
+  }
 
-#description {
-	margin-bottom: 15px;
-}
+  #turn,
+  #replay {
+    width: 60%;
+    font-size: 1.9em;
+    padding: 0 5px;
+    border: 8px solid black;
+  }
 
-#turn, #replay {
-	width: 60%;
-	font-size: 1.9em;
-	padding: 0 5px;
-	border: 8px solid black;
-}
+  #inputAnswer {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 1.5em;
+    border: 5px solid black;
+  }
 
-#inputAnswer {
-	width: 80%;
-	margin: 10px auto;
-	font-size: 1.5em;
-	border: 5px solid black;
-}
-
-/*div.mainBlock {
+  /*div.mainBlock {
 	width: 31%;
 }*/
 
-div.colorBlock {
-	width: 120px;
-	height: 120px;
-	border: 8px solid black;
-}
-
+  div.colorBlock {
+    width: 120px;
+    height: 120px;
+    border: 8px solid black;
+  }
 }
