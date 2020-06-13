@@ -16,9 +16,9 @@ a {
 
 /* CURSOR */
 
-.htmlSelect,
-.cssSelect,
-.jsSelect,
+.html-select,
+.css-select,
+.js-select,
 .solo,
 .versus,
 #start,
@@ -56,11 +56,11 @@ h3 {
   font-weight: normal;
 }
 
-section.finish h3 {
+.finish h3 {
   text-align: center;
 }
 
-div.finishRightWrong h4 {
+.finish-correct-incorrect h4 {
   text-align: center;
   font-size: 2em;
   font-weight: bold;
@@ -73,7 +73,7 @@ p {
   text-align: center;
 }
 
-p.buttonText {
+.button-text {
   font-size: 2.2em;
   font-weight: bold;
   margin-top: 10px;
@@ -81,23 +81,23 @@ p.buttonText {
 
 /* SECTIONS */
 
-section {
+ {
   width: 80%;
   margin: 50px auto;
 }
 
-section.instructions {
+.instructions {
   margin: 40px auto;
 }
 
-section.instructions div h2 {
+.instructions div h2 {
   font-size: 2.5em;
   text-align: center;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-section.instructions div p {
+.instructions div p {
   line-height: 2em;
 }
 
@@ -107,26 +107,26 @@ header {
   margin-top: 20px;
 }
 
-div.selectQuestions,
-div.selectPlayers {
+.select-questions,
+.select-players {
   padding: 20px;
   color: white;
   margin-bottom: 50px;
   text-align: center;
 }
 
-div.selectQuestions,
-#blockBreakdown {
+.select-questions,
+#block-breakdown {
   background-color: #0070ba;
 }
 
-div.selectPlayers {
+.select-players {
   background-color: #63a814;
 }
 
 /* COLOR BLOCKS */
 
-div.colorBlock {
+.color-block {
   width: 125px;
   height: 125px;
   margin: 0 auto;
@@ -134,11 +134,11 @@ div.colorBlock {
   border-radius: 10px;
 }
 
-div#solo {
+#solo {
   opacity: 1;
 }
 
-div#versus {
+#versus {
   opacity: 0.5;
 }
 
@@ -146,98 +146,98 @@ div#versus {
 
 /* BUTTONS */
 
-div.htmlSelect,
-div.cssSelect,
-div.jsSelect {
+.html-select,
+.css-select,
+.js-select {
   width: 32%;
 }
 
-div.soloSelect,
-div.versusSelect {
+.solo-select,
+.versus-select {
   width: 49%;
 }
 
-div.htmlSelect,
-div.cssSelect,
-div.jsSelect,
-div.soloSelect,
-div.versusSelect {
+.html-select,
+.css-select,
+.js-select,
+.solo-select,
+.versus-select {
   display: inline-block;
 }
 
-.htmlSelect div.colorBlock,
-.cssSelect div.colorBlock,
-.jsSelect div.colorBlock,
-.soloSelect div.colorBlock,
-.versusSelect div.colorBlock {
+.html-select .color-block,
+.css-select .color-block,
+.js-select .color-block,
+.solo-select .color-block,
+.versus-select .color-block {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
   border: 0;
 }
 
 /* IMAGES ON BUTTONS */
 
-div.solo {
+.solo {
   background-image: url("../img/Solo.png");
   background-size: cover;
 }
 
-div.versus {
+.versus {
   background-image: url("../img/Versus.png");
   background-size: cover;
 }
 
-.htmlSelect div.colorBlock {
+.html-select .color-block {
   background-image: url("../img/HTML_Full.png");
   background-size: cover;
 }
 
-.cssSelect div.colorBlock {
+.css-select .color-block {
   background-image: url("../img/CSS_Full.png");
   background-size: cover;
 }
 
-.jsSelect div.colorBlock {
+.js-select .color-block {
   background-image: url("../img/JavaScript_Full.png");
   background-size: cover;
 }
 
 /* HOVER EFFECTS ON BUTTONS */
 
-.htmlSelect div.colorBlock:hover,
-.cssSelect div.colorBlock:hover,
-.jsSelect div.colorBlock:hover,
-.soloSelect div.colorBlock:hover,
-.versusSelect div.colorBlock:hover {
+.html-select .color-block:hover,
+.css-select .color-block:hover,
+.js-select .color-block:hover,
+.solo-select .color-block:hover,
+.versus-select .color-block:hover {
   transform: scale(1.1);
   transform-origin: bottom;
 }
 
 /* MAIN HTML */
 
-div#game {
+#game {
   display: none;
 }
 
 /*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
-#block1_1,
-#block1_2,
-#block1_3,
-#block1_4,
-#block1_5,
-#block1_6,
-#block1_7,
-#block1_8,
-#block1_9,
-#block2_1,
-#block2_2,
-#block2_3,
-#block2_4,
-#block2_5,
-#block2_6,
-#block2_7,
-#block2_8,
-#block2_9 {
+#player-1-block-1,
+#player-1-block-2,
+#player-1-block-3,
+#player-1-block-4,
+#player-1-block-5,
+#player-1-block-6,
+#player-1-block-7,
+#player-1-block-8,
+#player-1-block-9,
+#player-2-block-1,
+#player-2-block-2,
+#player-2-block-3,
+#player-2-block-4,
+#player-2-block-5,
+#player-2-block-6,
+#player-2-block-7,
+#player-2-block-8,
+#player-2-block-9 {
   visibility: none;
   position: relative;
   z-index: -1;
@@ -254,7 +254,7 @@ div#game {
 
 /* INPUT FOR ANSWERING QUESTIONS */
 
-#inputAnswer {
+#input-answer {
   width: 80%;
   padding: 15px 30px;
   display: block;
@@ -342,24 +342,24 @@ div#game {
 
 /* ANSWER AND QUESTION SECTIONS */
 
-#displayAnswer,
-#displayQuestion {
+#display-answer,
+#display-question {
   margin: 50px 0;
 }
 
 /* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
 
-#player1Finish {
+#player-1-finish {
   background-color: #63a814;
 }
 
-#player2Finish {
+#player-2-finish {
   background-color: #e55126;
   clear: both;
 }
 
-#player1Finish,
-#player2Finish {
+#player-1-finish,
+#player-2-finish {
   color: white;
 }
 
@@ -393,9 +393,9 @@ div#game {
 
 /* HEADERS FOR QUESTION, ANSWER, AND RESULTS PAGE */
 
-#answerType,
-#questionType,
-#blockBreakdown {
+#answer-type,
+#question-type,
+#block-breakdown {
   color: white;
   text-align: center;
   padding: 5px 0;
@@ -417,9 +417,9 @@ div#game {
 
 /* ALMOST THE ENTIRE QUESTION, ANSWER, AND FINISH PAGE. TURNED OFF AND TURNED ON LATER */
 
-section.question,
-section.answer,
-section.finish {
+.question,
+.answer,
+.finish {
   width: 100%;
   margin: 20px auto;
   display: none;
@@ -429,14 +429,14 @@ section.finish {
 
 /* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
 
-div.paraQA {
+.question-answer {
   margin: 30px 0;
   overflow: auto;
 }
 
 /* THE DIVS HOLDING EACH BLOCK THAT THE PLAYERS FILL IN */
 
-div.mainBlock {
+.main-block {
   width: 25%;
   display: inline-block;
   text-align: center;
@@ -447,7 +447,7 @@ div.mainBlock {
 
 /* SECTIONS FOR THE CORRECT AND INCORRECT AREAS FOR BOTH PLAYER 1 AND PLAYER 2 */
 
-div.finishRightWrong {
+.finish-correct-incorrect {
   width: 48%;
   float: left;
   margin: 20px 0;
@@ -455,7 +455,7 @@ div.finishRightWrong {
 
 /* PADS THE PARAGRAPHS FROM THE EDGE OF THE DIVS */
 
-div.finishRightWrong p {
+.finish-correct-incorrect p {
   padding: 10px 0;
 }
 
@@ -463,14 +463,14 @@ div.finishRightWrong p {
 	 AND AT THE END OF ANSWER DESCRIPTIONS*/
 
 .helpfulLink,
-.paraQA a {
+.question-answer a {
   text-decoration: underline;
 }
 
 /* @MEDIA FOR MOBILE PHONES */
 
 @media (min-width: 300px) and (max-width: 449px) {
-  section div.colorBlock {
+  .color-block {
     width: 85px;
     height: 85px;
     border: 5px solid black;
@@ -482,11 +482,11 @@ div.finishRightWrong p {
     margin: 40px auto;
   }
 
-  div.htmlSelect,
-  div.cssSelect,
-  div.jsSelect,
-  div.soloSelect,
-  div.versusSelect {
+  .html-select,
+  .css-select,
+  .js-select,
+  .solo-select,
+  .versus-select {
     width: 98%;
   }
 
@@ -497,22 +497,22 @@ div.finishRightWrong p {
     border: 5px solid black;
   }
 
-  div.mainBlock {
+  .main-block {
     width: 31%;
   }
 
-  div.colorBlock {
+  .color-block {
     width: 85px;
     height: 85px;
     border: 5px solid black;
   }
 
-  #displayAnswer,
-  #displayQuestion {
+  #display-answer,
+  #display-question {
     margin: 20px 0;
   }
 
-  #inputAnswer {
+  #input-answer {
     width: 80%;
     margin: 10px auto 0;
     padding: 5px;
@@ -520,17 +520,17 @@ div.finishRightWrong p {
     border: 3px solid black;
   }
 
-  #questionType,
-  #answerType,
+  #question-type,
+  #answer-type,
   #continue,
   #guess,
-  #blockBreakdown,
-  #player1Finish,
-  #player2Finish {
+  #block-breakdown,
+  #player-1-finish,
+  #player-2-finish {
     font-size: 2em;
   }
 
-  div.paraQA {
+  .question-answer {
     margin: 15px 0;
   }
 
@@ -538,7 +538,7 @@ div.finishRightWrong p {
     margin-bottom: 15px;
   }
 
-  div.paraQA p,
+  .question-answer p,
   #description,
   #question,
   #paraResults {
@@ -558,17 +558,17 @@ div.finishRightWrong p {
     border: 5px solid black;
   }
 
-  div.finishRightWrong {
+  .finish-correct-incorrect {
     width: 99%;
     float: left;
     margin: 5px 0;
   }
 
-  div.finishRightWrong {
+  .finish-correct-incorrect {
     font-size: 0.8em;
   }
 
-  div.finishRightWrong a {
+  .finish-correct-incorrect a {
     font-size: 1.3em;
   }
 }
@@ -585,26 +585,26 @@ div.finishRightWrong p {
     margin: 5px auto;
   }
 
-  div.htmlSelect,
-  div.cssSelect {
+  .html-select,
+  .css-select {
     width: 48%;
   }
 
-  div.jsSelect {
+  .js-select {
     width: 98%;
   }
 
-  #questionType,
-  #answerType,
+  #question-type,
+  #answer-type,
   #continue,
   #guess,
-  #blockBreakdown,
-  #player1Finish,
-  #player2Finish {
+  #block-breakdown,
+  #player-1-finish,
+  #player-2-finish {
     font-size: 2.2em;
   }
 
-  div.paraQA {
+  .question-answer {
     margin: 10px 0;
   }
 
@@ -620,18 +620,14 @@ div.finishRightWrong p {
     border: 8px solid black;
   }
 
-  #inputAnswer {
+  #input-answer {
     width: 80%;
     margin: 10px auto;
     font-size: 1.5em;
     border: 5px solid black;
   }
 
-  /*div.mainBlock {
-	width: 31%;
-}*/
-
-  div.colorBlock {
+  .color-block {
     width: 120px;
     height: 120px;
     border: 8px solid black;

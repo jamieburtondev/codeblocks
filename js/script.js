@@ -53,11 +53,11 @@ $(document).ready(function () {
     // ENABLES YOU TO PRESS ENTER TO MOVE BETWEEN (SOME) PAGES
     $(document).keypress((key) => {
       if (key.which === 13) {
-        if ($("#displayQuestion").css("display") === "block") {
+        if ($("#display-question").css("display") === "block") {
           guessPress();
-        } else if ($("#displayAnswer").css("display") === "block") {
+        } else if ($("#display-answer").css("display") === "block") {
           continuePress();
-        } else if ($("#displayFinish").css("display") === "block") {
+        } else if ($("#display-finish").css("display") === "block") {
           replayPress();
         }
       }
@@ -144,8 +144,8 @@ $(document).ready(function () {
 
       // AUTO FOCUSES ON TEXT BOX
 
-      if ($("#displayQuestion").css("display") == "block") {
-        $("#inputAnswer").focus();
+      if ($("#display-question").css("display") == "block") {
+        $("#input-answer").focus();
       }
 
       $("#question").text(questionSet);
@@ -161,10 +161,10 @@ $(document).ready(function () {
         images = 'url("./img/JavaScript_Full.png")';
       }
 
-      $("#questionType").text(typeSet.toUpperCase());
-      $("#questionType").css("background-color", color);
+      $("#question-type").text(typeSet.toUpperCase());
+      $("#question-type").css("background-color", color);
       $("#guess").css("background-color", color);
-      $("#answerType").css("background-color", color);
+      $("#answer-type").css("background-color", color);
       $("#continue").css("background-color", color);
     };
 
@@ -245,20 +245,20 @@ $(document).ready(function () {
         // APPENDS ALL THE CORRECT AND INCORRECT ANSWERS TO DISPLAY ON THE RESULTS PAGE
 
         for (i = 0; i <= questionsUsed.length; i++) {
-          $("#player1Correct").append(player1Correct[i]);
-          $("#player1Incorrect").append(player1Incorrect[i]);
-          $("#player2Correct").append(player2Correct[i]);
-          $("#player2Incorrect").append(player2Incorrect[i]);
+          $("#player-1-correct").append(player1CorrectQuestions[i]);
+          $("#player-1-incorrect").append(player1IncorrectQuestions[i]);
+          $("#player-2-correct").append(player2CorrectQuestions[i]);
+          $("#player-2-incorrect").append(player2IncorrectQuestions[i]);
         }
 
         // CHANGES THE DISPLAY IF SOLO PLAY IS ENABLED (LIKE REMOVING PLAYER 2 CONTENT)
 
         if (playerCount == 1) {
-          $("#player1Finish").text("OVERVIEW");
-          $("#player2Finish").css("display", "none");
-          $("#player2Correct").css("display", "none");
-          $("#player2Incorrect").css("display", "none");
-          $("#player2Finish").css("display", "none");
+          $("#player-1-finish").text("OVERVIEW");
+          $("#player-2-finish").css("display", "none");
+          $("#player-2-correct").css("display", "none");
+          $("#player-2-incorrect").css("display", "none");
+          $("#player-2-finish").css("display", "none");
         }
       }, 5000);
     };
@@ -307,32 +307,32 @@ $(document).ready(function () {
       $("#answerLink").attr("class", "helpfulLink");
 
       if (
-        $("#inputAnswer").val().toLowerCase() == answerSet.toLowerCase() ||
-        $("#inputAnswer").val().toLowerCase() == "cheat"
+        $("#input-answer").val().toLowerCase() == answerSet.toLowerCase() ||
+        $("#input-answer").val().toLowerCase() == "cheat"
       ) {
-        $("#answerType").text("CORRECT!");
+        $("#answer-type").text("CORRECT!");
         rightAnswer = 1;
         answers();
         correct();
-      } else if ($("#inputAnswer").val() === "") {
-        $("#inputAnswer").attr("placeholder", "Don't forget to answer!");
+      } else if ($("#input-answer").val() === "") {
+        $("#input-answer").attr("placeholder", "Don't forget to answer!");
       } else {
-        $("#answerType").text("INCORRECT.");
+        $("#answer-type").text("INCORRECT.");
         $("#description").text(descriptionSet);
 
         if (player === "#player1") {
-          player1Incorrect.push(
+			player1IncorrectQuestions.push(
             `<p class='helpfulLink'><a target=\"_blank\" href='${linkSet}'> ${aboutSet} </a></p>`
           );
         } else if (player === "#player2") {
-          player2Incorrect.push(
+          player2IncorrectQuestions.push(
             `<p class='helpfulLink'><a target=\"_blank\" href='${linkSet}'> ${aboutSet} </a></p>`
           );
         }
         answers();
         checkWin();
       }
-      $("#inputAnswer").val("");
+      $("#input-answer").val("");
     };
 
     $("#guess").click(guessPress);
@@ -358,23 +358,23 @@ $(document).ready(function () {
     // HELPS FIGURE OUT WHICH BLOCK SHOULD BE MANIPULATED
 
     let player1Blocks = 1;
-    let printPlayer1Blocks = "#block1_" + player1Blocks;
+    let printPlayer1Blocks = "#player-1-block-" + player1Blocks;
     let player2Blocks = 1;
-    let printPlayer2Blocks = "#block2_" + player2Blocks;
+    let printPlayer2Blocks = "#player-2-block-" + player2Blocks;
 
     // ARRAYS HOLDING ON TO CORRECT/INCORRECT CHOICES BY PLAYERS TO SHOW IN RESULTS PAGE
 
-    const player1Correct = [];
-    const player1Incorrect = [];
+    const player1CorrectQuestions = [];
+    const player1IncorrectQuestions = [];
 
-    const player2Correct = [];
-    const player2Incorrect = [];
+    const player2CorrectQuestions = [];
+    const player2IncorrectQuestions = [];
 
     const correct = () => {
       if (player === "#player1") {
         blocks = printPlayer1Blocks;
         player1Points++;
-        player1Correct.push(
+        player1CorrectQuestions.push(
           "<p class='helpfulLink'><a target=\"_blank\" href='" +
             linkSet +
             "'>" +
@@ -384,7 +384,7 @@ $(document).ready(function () {
       } else if (player === "#player2") {
         blocks = printPlayer2Blocks;
         player2Points++;
-        player2Correct.push(
+        player2CorrectQuestions.push(
           "<p class='helpfulLink'><a target=\"_blank\" href='" +
             linkSet +
             "'>" +
@@ -404,10 +404,10 @@ $(document).ready(function () {
 
       if (player === "#player1") {
         player1Blocks++;
-        printPlayer1Blocks = "#block1_" + player1Blocks;
+        printPlayer1Blocks = "#player-1-block-" + player1Blocks;
       } else if (player === "#player2") {
         player2Blocks++;
-        printPlayer2Blocks = "#block2_" + player2Blocks;
+        printPlayer2Blocks = "#player-2-block-" + player2Blocks;
       }
       checkWin();
     };
@@ -490,10 +490,10 @@ $(document).ready(function () {
     const replayPress = () => {
       $(".finish").css("display", "none");
 
-      player1Correct = [];
-      player1Incorrect = [];
-      player2Correct = [];
-      player2Incorrect = [];
+      player1CorrectQuestions = [];
+      player1IncorrectQuestions = [];
+      player2CorrectQuestions = [];
+      player2IncorrectQuestions = [];
       player1Points = 0;
       player2Points = 0;
       currentPlayer = 0;
@@ -501,12 +501,12 @@ $(document).ready(function () {
       suddenDeath = 0;
       player1Blocks = 1;
       player2Blocks = 1;
-      printPlayer1Blocks = "#block1_" + player1Blocks;
-      printPlayer2Blocks = "#block2_" + player2Blocks;
+      printPlayer1Blocks = "#player-1-block-" + player1Blocks;
+      printPlayer2Blocks = "#player-2-block-" + player2Blocks;
       turn = 0;
       player = "#player1";
 
-      $(".colorBlock").css("background-image", "none");
+      $(".color-block").css("background-image", "none");
       $("#player1").css("display", "block");
       $("#turn").css("display", "block");
       $("#turn").text("PLAYER 1");
