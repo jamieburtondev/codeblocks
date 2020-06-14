@@ -445,8 +445,7 @@ $(document).ready(() => {
       $(blocks).css("background-image", images);
       $(blocks).css("background-size", "cover");
 
-      breakdown();
-      //   checkWin();
+        checkWin();
     };
 
     // CHECKS TO SEE IF THERE IS A WINNER ON THIS TURN
