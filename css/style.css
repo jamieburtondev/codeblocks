@@ -51,7 +51,7 @@ h1 {
 }
 
 h2,
-h3 {
+h3, h4 {
   font-family: "Quantico", Verdana;
   font-weight: normal;
 }
@@ -81,7 +81,7 @@ p {
 
 /* SECTIONS */
 
- {
+section {
   width: 80%;
   margin: 50px auto;
 }
@@ -220,24 +220,7 @@ header {
 
 /*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
-#player-1-block-1,
-#player-1-block-2,
-#player-1-block-3,
-#player-1-block-4,
-#player-1-block-5,
-#player-1-block-6,
-#player-1-block-7,
-#player-1-block-8,
-#player-1-block-9,
-#player-2-block-1,
-#player-2-block-2,
-#player-2-block-3,
-#player-2-block-4,
-#player-2-block-5,
-#player-2-block-6,
-#player-2-block-7,
-#player-2-block-8,
-#player-2-block-9 {
+.player-block {
   visibility: none;
   position: relative;
   z-index: -1;
@@ -389,6 +372,7 @@ header {
   z-index: 1;
   font-size: 4.2em;
   display: none;
+  text-align: center;
 }
 
 /* HEADERS FOR QUESTION, ANSWER, AND RESULTS PAGE */
