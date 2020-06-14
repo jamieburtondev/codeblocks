@@ -177,27 +177,27 @@ header {
 /* IMAGES ON BUTTONS */
 
 .solo {
-  background-image: url("../img/Solo.png");
+  background-image: url("../images/solo.png");
   background-size: cover;
 }
 
 .versus {
-  background-image: url("../img/Versus.png");
+  background-image: url("../images/versus.png");
   background-size: cover;
 }
 
 .html-select .color-block {
-  background-image: url("../img/HTML_Full.png");
+  background-image: url("../images/html-full.png");
   background-size: cover;
 }
 
 .css-select .color-block {
-  background-image: url("../img/CSS_Full.png");
+  background-image: url("../images/css-full.png");
   background-size: cover;
 }
 
 .js-select .color-block {
-  background-image: url("../img/JavaScript_Full.png");
+  background-image: url("../images/javascript-full.png");
   background-size: cover;
 }
 

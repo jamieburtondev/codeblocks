@@ -93,7 +93,7 @@ $(document).ready(() => {
     const getQuestions = () => {
       [html, css, javascript].forEach((type) => {
         if (picked[type]) {
-          $.getJSON(`${type}.json`, (data) => {
+          $.getJSON(`/json/${type}.json`, (data) => {
             questionsArray.push(...data.questions);
           });
         }
@@ -181,15 +181,15 @@ $(document).ready(() => {
       switch (typeSet) {
         case html:
           color = "#E44D26";
-          images = 'url("./img/HTML_Full.png")';
+          images = 'url("./images/HTML_Full.png")';
           break;
         case css:
           color = "#0070BA";
-          images = 'url("./img/CSS_Full.png")';
+          images = 'url("./images/CSS_Full.png")';
           break;
         case "javascript":
           color = "#63A814";
-          images = 'url("./img/JavaScript_Full.png")';
+          images = 'url("./images/JavaScript_Full.png")';
           break;
       }
 

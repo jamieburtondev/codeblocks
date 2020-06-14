@@ -1,17 +1,17 @@
 {
-  "name": "project1",
+  "name": "code-blocks",
   "version": "1.0.0",
   "description": "You need to choose at least one category of questions (HTML, CSS, and/or JavaScript).",
   "main": "scriptMain.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamiebb/Project-1.git"
+    "url": "git+https://github.com/jamiedeveloper/codeblocks.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamiebb/Project-1/issues"
+    "url": "https://github.com/jamiedeveloper/codeblocks/issues"
   },
-  "homepage": "https://github.com/jamiebb/Project-1#readme"
+  "homepage": "https://github.com/jamiedeveloper/codeblocks#readme"
 }
