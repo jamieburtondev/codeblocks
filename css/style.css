@@ -33,12 +33,12 @@ h2,
 h3,
 h4 {
   cursor: default;
-  font-size: 3em;
+  font-size: 2rem;
 }
 
 h1 {
   font-family: "Quantico", Verdana;
-  font-size: 3em;
+  font-size: 2rem;
   text-align: center;
   width: 50%;
   padding: 10px 80px;
@@ -62,19 +62,19 @@ h3, h4 {
 
 .finish-correct-incorrect h4 {
   text-align: center;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   font-family: "Quantico", Verdana;
 }
 
-p {
+p, label {
   font-family: "Glegoo", Verdana;
-  font-size: 1.7em;
+  font-size: 1.25rem;
   text-align: center;
 }
 
-.button-text {
-  font-size: 2.2em;
+.label-input-text {
+  font-size: 2.2rem;
   font-weight: bold;
   margin-top: 10px;
 }
@@ -82,23 +82,24 @@ p {
 /* SECTIONS */
 
 section {
-  width: 80%;
   margin: 50px auto;
 }
 
 .instructions {
+  width: 80%;
   margin: 40px auto;
 }
 
 .instructions div h2 {
-  font-size: 2.5em;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
 .instructions div p {
-  line-height: 2em;
+  line-height: 2rem;
+  text-align: left;
 }
 
 /* TITLE BARS */
@@ -124,12 +125,24 @@ header {
   background-color: #63a814;
 }
 
+/* INPUTS */
+
+input[type="radio"], input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+input[type="radio"]:hover, input[type="checkbox"]:hover, button {
+  cursor: pointer;
+}
+
 /* COLOR BLOCKS */
 
 .color-block {
   width: 125px;
   height: 125px;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   border: 8px solid black;
   border-radius: 10px;
 }
@@ -148,6 +161,15 @@ header {
 
 .html-select,
 .css-select,
+.js-select,
+.solo-select,
+.versus-select {
+  display: inline-block;
+  text-align: center;
+}
+
+.html-select,
+.css-select,
 .js-select {
   width: 32%;
 }
@@ -157,57 +179,40 @@ header {
   width: 49%;
 }
 
-.html-select,
-.css-select,
-.js-select,
-.solo-select,
-.versus-select {
-  display: inline-block;
-}
-
-.html-select .color-block,
-.css-select .color-block,
-.js-select .color-block,
-.solo-select .color-block,
-.versus-select .color-block {
+.color-block {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
   border: 0;
 }
 
 /* IMAGES ON BUTTONS */
 
+.color-block {
+  background-size: cover;
+}
+
 .solo {
   background-image: url("../images/solo.png");
-  background-size: cover;
 }
 
 .versus {
   background-image: url("../images/versus.png");
-  background-size: cover;
 }
 
 .html-select .color-block {
   background-image: url("../images/html-full.png");
-  background-size: cover;
 }
 
 .css-select .color-block {
   background-image: url("../images/css-full.png");
-  background-size: cover;
 }
 
 .js-select .color-block {
   background-image: url("../images/javascript-full.png");
-  background-size: cover;
 }
 
 /* HOVER EFFECTS ON BUTTONS */
 
-.html-select .color-block:hover,
-.css-select .color-block:hover,
-.js-select .color-block:hover,
-.solo-select .color-block:hover,
-.versus-select .color-block:hover {
+.color-block:hover {
   transform: scale(1.1);
   transform-origin: bottom;
 }
@@ -221,7 +226,7 @@ header {
 /*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
 
 .player-block {
-  visibility: none;
+  border: 5px solid black;
   position: relative;
   z-index: -1;
 }
@@ -244,7 +249,7 @@ header {
   margin: 30px auto;
   border: 5px solid black;
   border-radius: 5px;
-  font-size: 2em;
+  font-size: 2rem;
   font-family: "Glegoo", Verdana;
   font-weight: bold;
 }
@@ -256,7 +261,8 @@ header {
   width: 75%;
   margin: 0 auto;
   font-weight: bold;
-  font-size: 1.7em;
+  font-size: 1.25rem;
+  text-align: left;
 }
 
 #description {
@@ -267,6 +273,8 @@ header {
 
 #guess,
 #continue {
+  width: 100%;
+  border: 0;
   margin: 0 auto;
   text-align: center;
   color: white;
@@ -278,7 +286,7 @@ header {
 #continue {
   display: block;
   font-family: "Quantico", Verdana;
-  font-size: 3em;
+  font-size: 2rem;
   font-weight: bold;
   box-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5);
   padding: 5px 20px;
@@ -301,7 +309,7 @@ header {
   display: block;
   margin: 0 auto 20px auto;
   font-family: "Quantico", Verdana;
-  font-size: 2.7em;
+  font-size: 2rem;
   font-weight: bold;
   border-radius: 10px;
   background-color: white;
@@ -312,7 +320,7 @@ header {
 
 #replay {
   text-align: center;
-  width: 400px;
+  width: 75%;
   color: black;
   box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
 }
@@ -370,7 +378,7 @@ header {
   width: 100%;
   top: 0%;
   z-index: 1;
-  font-size: 4.2em;
+  font-size: 4.2rem;
   display: none;
   text-align: center;
 }
@@ -476,7 +484,7 @@ header {
 
   h1 {
     padding: 0px 20px;
-    font-size: 2em;
+    font-size: 2rem;
     width: 80%;
     border: 5px solid black;
   }
@@ -500,7 +508,7 @@ header {
     width: 80%;
     margin: 10px auto 0;
     padding: 5px;
-    font-size: 1em;
+    font-size: 1rem;
     border: 3px solid black;
   }
 
@@ -511,7 +519,7 @@ header {
   #block-breakdown,
   #player-1-finish,
   #player-2-finish {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   .question-answer {
@@ -526,18 +534,18 @@ header {
   #description,
   #question,
   #paraResults {
-    font-size: 1em;
+    font-size: 1rem;
     padding: 0 10px;
   }
 
   #banner {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   #turn,
   #replay {
     width: 80%;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     padding: 0 5px;
     border: 5px solid black;
   }
@@ -549,11 +557,11 @@ header {
   }
 
   .finish-correct-incorrect {
-    font-size: 0.8em;
+    font-size: 0.8rem;
   }
 
   .finish-correct-incorrect a {
-    font-size: 1.3em;
+    font-size: 1.3rem;
   }
 }
 
@@ -585,7 +593,7 @@ header {
   #block-breakdown,
   #player-1-finish,
   #player-2-finish {
-    font-size: 2.2em;
+    font-size: 2.2rem;
   }
 
   .question-answer {
@@ -599,7 +607,7 @@ header {
   #turn,
   #replay {
     width: 60%;
-    font-size: 1.9em;
+    font-size: 1.9rem;
     padding: 0 5px;
     border: 8px solid black;
   }
@@ -607,7 +615,7 @@ header {
   #input-answer {
     width: 80%;
     margin: 10px auto;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     border: 5px solid black;
   }
 

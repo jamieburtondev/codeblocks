@@ -181,15 +181,15 @@ $(document).ready(() => {
       switch (typeSet) {
         case html:
           color = "#E44D26";
-          images = 'url("./images/HTML_Full.png")';
+          images = 'url("./images/html-full.png")';
           break;
         case css:
           color = "#0070BA";
-          images = 'url("./images/CSS_Full.png")';
+          images = 'url("./images/css-full.png")';
           break;
         case "javascript":
           color = "#63A814";
-          images = 'url("./images/JavaScript_Full.png")';
+          images = 'url("./images/javascript-full.png")';
           break;
       }
 
@@ -409,11 +409,11 @@ $(document).ready(() => {
 
     // ARRAYS HOLDING ON TO CORRECT/INCORRECT CHOICES BY PLAYERS TO SHOW IN RESULTS PAGE
 
-    const player1CorrectQuestions = [];
-    const player1IncorrectQuestions = [];
+    let player1CorrectQuestions = [];
+    let player1IncorrectQuestions = [];
 
-    const player2CorrectQuestions = [];
-    const player2IncorrectQuestions = [];
+    let player2CorrectQuestions = [];
+    let player2IncorrectQuestions = [];
 
     const correct = () => {
       const helpfulLink =
