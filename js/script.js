@@ -167,15 +167,6 @@ $(document).ready(() => {
 
       $(".question").css("display", displayBlock);
 
-      // AUTO FOCUSES ON TEXT BOX
-
-      const onDisplayQuestionPage =
-        $("#display-question").css("display") == displayBlock;
-
-      if (onDisplayQuestionPage) {
-        $("#input-answer").focus();
-      }
-
       $("#question").text(questionSet);
 
       switch (typeSet) {
