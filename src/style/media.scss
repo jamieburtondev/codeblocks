@@ -1,0 +1,162 @@
+@media (min-width: 300px) and (max-width: 449px) {
+  .color-block {
+    width: 85px;
+    height: 85px;
+    border: 5px solid black;
+  }
+
+  #player1,
+  #player2 {
+    width: 98%;
+    margin: 40px auto;
+  }
+
+  .html-select,
+  .css-select,
+  .js-select,
+  .solo-select,
+  .versus-select {
+    width: 98%;
+  }
+
+  h1 {
+    padding: 0px 20px;
+    font-size: 2rem;
+    width: 80%;
+    border: 5px solid black;
+  }
+
+  .main-block {
+    width: 31%;
+  }
+
+  .color-block {
+    width: 85px;
+    height: 85px;
+    border: 5px solid black;
+  }
+
+  #display-answer,
+  #display-question {
+    margin: 20px 0;
+  }
+
+  #input-answer {
+    width: 80%;
+    margin: 10px auto 0;
+    padding: 5px;
+    font-size: 1rem;
+    border: 3px solid black;
+  }
+
+  #question-type,
+  #answer-type,
+  #continue,
+  #guess,
+  #block-breakdown,
+  #player-1-finish,
+  #player-2-finish {
+    font-size: 2rem;
+  }
+
+  .question-answer {
+    margin: 15px 0;
+  }
+
+  #description {
+    margin-bottom: 15px;
+  }
+
+  .question-answer p,
+  #description,
+  #question,
+  #para-results {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  #banner {
+    font-size: 2rem;
+  }
+
+  #turn,
+  #replay {
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 0 5px;
+    border: 5px solid black;
+  }
+
+  .finish-correct-incorrect {
+    width: 99%;
+    float: left;
+    margin: 5px 0;
+  }
+
+  .finish-correct-incorrect {
+    font-size: 0.8rem;
+  }
+
+  .finish-correct-incorrect a {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 800px) {
+  header {
+    margin-top: 10px;
+  }
+
+  #player1,
+  #player2 {
+    margin: 5px auto;
+  }
+
+  .html-select,
+  .css-select {
+    width: 48%;
+  }
+
+  .js-select {
+    width: 98%;
+  }
+
+  #question-type,
+  #answer-type,
+  #continue,
+  #guess,
+  #block-breakdown,
+  #player-1-finish,
+  #player-2-finish {
+    font-size: 2.2rem;
+  }
+
+  .question-answer {
+    margin: 10px 0;
+  }
+
+  #description {
+    margin-bottom: 15px;
+  }
+
+  #turn,
+  #replay {
+    width: 60%;
+    font-size: 1.9rem;
+    padding: 0 5px;
+    border: 8px solid black;
+  }
+
+  #input-answer {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 1.5rem;
+    border: 5px solid black;
+  }
+
+  .color-block {
+    width: 120px;
+    height: 120px;
+    border: 8px solid black;
+  }
+}

@@ -1,0 +1,47 @@
+h2,
+h3,
+h4 {
+  cursor: default;
+  font-size: 2rem;
+  font-family: "Quantico", Verdana;
+  font-weight: normal;
+}
+
+h1 {
+  font-family: "Quantico", Verdana;
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
+  padding: 10px 80px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: white;
+  border: 8px solid black;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+.finish {
+  h3 {
+    text-align: center;
+  }
+
+  &-correct-incorrect h4 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Quantico", Verdana;
+  }
+}
+
+p, label {
+  font-family: "Glegoo", Verdana;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.label-input-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}

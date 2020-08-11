@@ -1,0 +1,314 @@
+.instructions {
+  width: 80%;
+  margin: 40px auto;
+
+  div h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  div p {
+    line-height: 2rem;
+    text-align: left;
+  }
+}
+
+.html-select,
+.css-select,
+.js-select,
+.solo,
+.versus,
+#start,
+#continue,
+#guess {
+  cursor: pointer;
+}
+
+.select-questions,
+.select-players {
+  padding: 20px;
+  color: white;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.select-questions,
+#block-breakdown {
+  background-color: #0070ba;
+}
+
+.select-players {
+  background-color: #63a814;
+}
+
+/* INPUTS */
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover,
+button {
+  cursor: pointer;
+}
+
+/* COLOR BLOCKS */
+
+.color-block {
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 10px;
+  border: 8px solid black;
+  border-radius: 10px;
+}
+
+#solo {
+  opacity: 1;
+}
+
+#versus {
+  opacity: 0.5;
+}
+
+/* GAME, PAGE SECTION */
+
+/* MAIN HTML */
+
+#game {
+  display: none;
+}
+
+/*BLOCKS THAT YOU FILL IN BY ANSWERING QUESTIONS */
+
+.player-block {
+  border: 5px solid black;
+  position: relative;
+  z-index: -1;
+}
+
+/* IDs SECTION */
+
+/* START BUTTON ON INDEX.HTML */
+
+#start {
+  width: 400px;
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* INPUT FOR ANSWERING QUESTIONS */
+
+#input-answer {
+  width: 80%;
+  padding: 15px 30px;
+  display: block;
+  margin: 30px auto;
+  border: 5px solid black;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-family: "Glegoo", Verdana;
+  font-weight: bold;
+}
+
+/* QUESTION ON ANSWERING PAGE */
+
+#question,
+#description {
+  width: 75%;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+#description {
+  margin-bottom: 30px;
+}
+
+/* GUESS ON ANSWERING PAGE, CONTINUE BUTTON ON CORRECT/INCORRECT PAGE */
+/*SHARED ATTRIBUTES BETWEEN GUESS AND CONTINUE BUTTONS */
+#guess,
+#continue {
+  width: 100%;
+  border: 0;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  display: block;
+  font-family: "Quantico", Verdana;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5);
+  padding: 5px 20px;
+}
+
+
+/* DISPLAYS THE TURN: PLAYER 1, PLAYER 2, OR "PRACTICE" FOR SOLO PLAY */
+
+#turn {
+  width: 375px;
+  margin: 0 auto 20px;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* SHARED ATTRIBUTES FOR START, TURN, AND REPLAY */
+
+#start,
+#turn,
+#replay {
+  padding: 10px 80px;
+  display: block;
+  margin: 0 auto 20px auto;
+  font-family: "Quantico", Verdana;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: white;
+  border: 8px solid black;
+}
+
+/* REPLAY BUTTON AT END OF GAME */
+
+#replay {
+  text-align: center;
+  width: 75%;
+  color: black;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* PROVIDES MARGIN FOR PARAGRAPH EXPLAINING THAT THESE ARE THE RESULTS OF THE GAME */
+
+#para-results {
+  margin: 20px 20px 0;
+}
+
+/* ANSWER AND QUESTION SECTIONS */
+
+#display-answer,
+#display-question {
+  margin: 50px 0;
+}
+
+/* TITLES ON RESULTS, "BLOCK BREAKDOWN", PAGE FOR PLAYER 1 / PLAYER 2 */
+/* BOARDS FOR BOTH PLAYER 1 AND PLAYER 2 */
+#player {
+  &1, &2 {
+    width: 600px;
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  /* ENTIRE PLAYER 2 BOARD, TURNS ON WHEN IT'S HIS/HER TURN */
+  &2 {
+    display: none;
+  }
+
+  &-1-finish, &-2-finish {
+    color: white;
+  }
+
+  &-1-finish {
+    background-color: #63a814;
+  }
+
+  &-2-finish {
+    background-color: #e55126;
+    clear: both;
+  }
+}
+
+/* WINNER, SUDDEN DEATH BANNER */
+
+#banner {
+  position: absolute;
+  color: white;
+  background-color: #0070ba;
+  width: 100%;
+  top: 0%;
+  z-index: 1;
+  font-size: 4.2rem;
+  display: none;
+  text-align: center;
+}
+
+/* HEADERS FOR QUESTION, ANSWER, AND RESULTS PAGE */
+
+#answer-type,
+#question-type,
+#block-breakdown {
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  box-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* EFFECTS */
+
+/* HOVERING CAUSES BIGGER SCALE ON THESE BUTTONS */
+
+#start,
+#continue,
+#replay,
+#guess {
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* SECTIONS */
+
+/* ALMOST THE ENTIRE QUESTION, ANSWER, AND FINISH PAGE. TURNED OFF AND TURNED ON LATER */
+
+.question,
+.answer,
+.finish {
+  width: 100%;
+  margin: 20px auto;
+  display: none;
+  z-index: 0;
+  position: relative;
+}
+
+/* THE DIVS, WITHING THE QUESTION/ANSWER/FINISH SECTIONS, HOLDING THE CONTENT */
+
+.question-answer {
+  margin: 30px 0;
+  overflow: auto;
+}
+
+/* THE DIVS HOLDING EACH BLOCK THAT THE PLAYERS FILL IN */
+
+.main-block {
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 0;
+}
+
+/* RESULTS, "BLOCK BREAKDOWN" SECTION */
+
+/* SECTIONS FOR THE CORRECT AND INCORRECT AREAS FOR BOTH PLAYER 1 AND PLAYER 2 */
+
+.finish-correct-incorrect {
+  width: 48%;
+  float: left;
+  margin: 20px 0;
+
+  /* PADS THE PARAGRAPHS FROM THE EDGE OF THE DIVS */
+  p {
+    padding: 10px 0;
+  }
+}
+
+/* LINKS AT THE END FOR CORRECT AND INCORRECT ANSWERS
+	 AND AT THE END OF ANSWER DESCRIPTIONS*/
+
+.helpful-link,
+.question-answer a {
+  text-decoration: underline;
+}

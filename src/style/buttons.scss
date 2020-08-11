@@ -1,0 +1,62 @@
+/* BUTTONS */
+
+.html,
+.css,
+.js,
+.solo,
+.versus {
+  &-select {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+.html,
+.css,
+.js {
+  &-select {
+    width: 32%;
+  }
+}
+
+.solo,
+.versus {
+  &-select {
+    width: 49%;
+  }
+}
+
+.color-block {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
+  border: 0;
+  background-size: cover;
+
+  &:hover {
+    transform: scale(1.1);
+    transform-origin: bottom;
+  }
+}
+
+@mixin setBackgroundImage($img) {
+  background-image: url("./images/#{$img}.png");
+}
+
+.solo {
+  @include setBackgroundImage("solo");
+}
+
+.versus {
+  @include setBackgroundImage("versus");
+}
+
+.html-select .color-block {
+  @include setBackgroundImage('html-full');
+}
+
+.css-select .color-block {
+  @include setBackgroundImage('css-full');
+}
+
+.js-select .color-block {
+  @include setBackgroundImage('javascript-full');
+}
