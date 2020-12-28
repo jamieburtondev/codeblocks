@@ -13,7 +13,7 @@ class GameTracker {
 
     this.questions = [];
 
-    this.usedQuestions = [];
+    this.questionsUsed = [];
 
     this.allQuestions = {
       html: HTML.questions,
@@ -98,10 +98,22 @@ class GameTracker {
 
   setQuestion() {
     const num = Math.floor(Math.random() * this.questions.length);
-    this.usedQuestions.unshift(this.questions[num]);
+    this.questionsUsed.unshift(this.questions[num]);
     const question = this.questions.splice(num, 1)[0];
     this.currentQuestion = new QuestionSet(question);
     return this.currentQuestion;
+  }
+
+  getUsedQuestions() {
+    return this.questionsUsed;
+  }
+
+  getCorrectQuestions(player) {
+    return this.correct[player];
+  }
+
+  getIncorrectQuestions(player) {
+    return this.incorrect[player];
   }
 
   getPicked(type) {
