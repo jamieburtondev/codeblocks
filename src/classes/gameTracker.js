@@ -1,8 +1,13 @@
 import HTML from '../json/html.json';
 import CSS from '../json/css.json';
 import JS from '../json/js.json';
+import QuestionSet from './questionSet';
 class GameTracker {
   constructor() {
+    if (GameTracker.instance) {
+      return GameTracker.instance;
+    }
+
     this.currentPlayer = 1;
     this.players = 1;
 
@@ -45,10 +50,30 @@ class GameTracker {
 
     this.lastTurn = false;
     this.suddenDeath = false;
+    this.rightAnswer = false;
+    this.currentQuestion = null;
+
+    GameTracker.instance = this;
+  }
+
+  getCurrentPlayer() {
+    return this.currentPlayer;
+  }
+
+  setCurrentPlayer(num) {
+    this.currentPlayer = num;
   }
 
   isLastTurn() {
     return this.lastTurn;
+  }
+
+  isRightAnswer() {
+    return this.rightAnswer;
+  }
+
+  setRightAnswer(bool) {
+    this.rightAnswer = bool;
   }
 
   getPlayers() {
@@ -68,12 +93,15 @@ class GameTracker {
   }
 
   getQuestion() {
-    console.log(this.questions.length);
+    return this.currentQuestion;
+  }
+
+  setQuestion() {
     const num = Math.floor(Math.random() * this.questions.length);
     this.usedQuestions.unshift(this.questions[num]);
     const question = this.questions.splice(num, 1)[0];
-    console.log(this.questions.length);
-    return question;
+    this.currentQuestion = new QuestionSet(question);
+    return this.currentQuestion;
   }
 
   getPicked(type) {
@@ -85,8 +113,6 @@ class GameTracker {
   }
 
   addCorrect(player, data) {
-    console.log('player', player);
-    console.log('data', data);
     this.correct[player].push(data);
   }
 
@@ -110,8 +136,6 @@ class GameTracker {
   }
 
   getPoints(player) {
-    console.log('player', player, typeof player);
-    console.log('this.points', this.points);
     return this.points[player];
   }
 

@@ -1,22 +1,9 @@
 import GameTracker from "../classes/gameTracker";
-import QuestionSet from "../classes/questionSet";
 
 document.addEventListener("DOMContentLoaded", () => {
   const currentGame = new GameTracker();
 
   let player = player1;
-
-  const questionsUsed = [];
-
-  let currentQuestion;
-
-  let color;
-  let images;
-
-  let rightAnswer = false;
-
-  let currentPlayer;
-  let blocks;
 
   const chooseQuestionType = (type) => {
     currentGame.setPicked(type);
@@ -71,41 +58,38 @@ document.addEventListener("DOMContentLoaded", () => {
     if (noQuestionsAvailable) {
       getQuestions();
     } else {
-      currentQuestion = currentGame.getQuestion();
+      currentGame.setQuestion();
     }
   };
 
   const questions = () => {
     document.getElementById("banner").style.display = "none";
     document.querySelector(".question").style.display = "block";
-    document.getElementById("question").textContent = currentQuestion.question;
+    document.getElementById("question").textContent = currentGame.getQuestion().question;
 
-    switch (currentQuestion.type) {
+    let color;
+
+    switch (currentGame.getQuestion().type) {
       case "html":
         color = "#E44D26";
-        images = 'url("./images/html-full.png")';
         break;
       case "css":
         color = "#0070BA";
-        images = 'url("./images/css-full.png")';
         break;
       case "javascript":
         color = "#63A814";
-        images = 'url("./images/javascript-full.png")';
         break;
     }
 
     document.getElementById(
       "question-type"
-    ).textContent = currentQuestion.type.toUpperCase();
+    ).textContent = currentGame.getQuestion().type.toUpperCase();
 
-    [
-      "question-type",
-      "answer-type",
-      "guess",
-      "continue",
-    ].forEach((element) => document.getElementById(element).style.backgroundColor = color);
-  }
+    ["question-type", "answer-type", "guess", "continue"].forEach(
+      (element) =>
+        (document.getElementById(element).style.backgroundColor = color)
+    );
+  };
 
   const setup = () => {
     getQuestions();
@@ -119,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (firstTurn || only1Player) {
       setTimeout(() => {
-        player.style.display = 'none';
+        player.style.display = "none";
       }, 3000);
       setTimeout(questions, 3000);
     } else {
@@ -135,17 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       setTimeout(() => {
-        document.getElementById(player).style.display = 'none';
+        document.getElementById(player.getAttribute('id')).style.display = "none";
         setPlayer();
       }, 3000);
 
       setTimeout(() => {
-        document.getElementById(player).style.display = 'block';
-        document.getElementById('turn').textContent = `PLAYER ${player}`;
+        document.getElementById(player.getAttribute('id')).style.display = "block";
+        document.getElementById("turn").textContent = `PLAYER ${player}`;
       }, 3000);
 
       setTimeout(() => {
-        document.getElementById(player).style.display = 'none';
+        document.getElementById(player.getAttribute('id')).style.display = "none";
         questions();
       }, 6000);
     }
@@ -153,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const breakdown = () => {
     document.querySelector(".answer").style.display = "none";
-    document.getElementById(player).style.display = 'block';
+    document.getElementById(player.getAttribute('id')).style.display = "block";
     document.getElementById("banner").style.display = "block";
     document.querySelector("h1").style.visibility = "hidden";
 
@@ -165,14 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("banner").textContent = "PLAYER 2 WINS";
     }
 
-    // AFTER SOME TIME HAS PASSED VIEWING THE WINNING BLOCK AND PLAYER...
-
     setTimeout(() => {
       document.querySelector("h1").style.visibility = "visible";
 
-      // TURNS ON/OFF SECTION DISPLAYS PROPERLY
-
-      ["turn", "banner", player].forEach((element) => document.getElementById(element).style.display = 'none');
+      ["turn", "banner", player.getAttribute('id')].forEach(
+        (element) => (document.getElementById(element).style.display = "none")
+      );
 
       document.querySelector(".finish").style.display = "block";
 
@@ -185,27 +167,32 @@ document.addEventListener("DOMContentLoaded", () => {
       //   $("#player-2-incorrect").append(player2IncorrectQuestions[i]);
       // }
 
-      // CHANGES THE DISPLAY IF SOLO PLAY IS ENABLED (LIKE REMOVING PLAYER 2 CONTENT)
-
       if (currentGame.getPlayers() === 1) {
-        document.getElementById('player1Finish').textContent = 'OVERVIEW';
+        document.getElementById("player1Finish").textContent = "OVERVIEW";
         [
           "player-2-finish",
           "player-2-correct",
           "player-2-incorrect",
           "player-2-finish",
-        ].forEach((element) => document.getElementById(element).style.display = 'block');
+        ].forEach(
+          (element) =>
+            (document.getElementById(element).style.display = "block")
+        );
       }
     }, 5000);
   };
 
   let checkWin = () => {
     const player1Points = currentGame.getPoints("player1");
-    let player2Points = currentGame.getPlayers() === 2 ? currentGame.getPoints("player2") : null;
+    let player2Points =
+      currentGame.getPlayers() === 2 ? currentGame.getPoints("player2") : null;
 
-    const tieGame = currentGame.isLastTurn() && player1Points === 9 && player2Points === 9;
+    const tieGame =
+      currentGame.isLastTurn() && player1Points === 9 && player2Points === 9;
     const winner =
-      (currentGame.isLastTurn() && player1Points === 9 && player2Points === 8) ||
+      (currentGame.isLastTurn() &&
+        player1Points === 9 &&
+        player2Points === 8) ||
       (player2Points === 9 && player1Points !== 9) ||
       (player1Points === 9 && player2Points < 8);
     const oneTurnLeft = player1Points === 9 && player2Points === 8;
@@ -227,22 +214,30 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const guessPress = () => {
-    document.getElementById("answer-link").textContent = currentQuestion.about;
+    document.getElementById("answer-link").textContent = currentGame.getQuestion().about;
     document.getElementById("description").textContent =
-      currentQuestion.description;
-      document.getElementById('description').textContent = currentQuestion.description;
-    document.getElementById('answer-link').setAttribute('href', currentQuestion.link);
-    document.getElementById('answer-link').setAttribute('class', 'helpful-link');
+      currentGame.getQuestion().description;
+    document.getElementById("description").textContent =
+      currentGame.getQuestion().description;
+    document
+      .getElementById("answer-link")
+      .setAttribute("href", currentGame.getQuestion().link);
+    document
+      .getElementById("answer-link")
+      .setAttribute("class", "helpful-link");
 
-    const inputtedAnswer = document.getElementById('input-answer').value.toLowerCase();
+    const inputtedAnswer = document
+      .getElementById("input-answer")
+      .value.toLowerCase();
     const correctAnswer =
-      inputtedAnswer === currentQuestion.answer.toLowerCase() ||
+      inputtedAnswer === currentGame.getQuestion().answer.toLowerCase() ||
       inputtedAnswer === "cheat";
-    const noInputtedAnswer = document.getElementById('input-answer').value === "";
+    const noInputtedAnswer =
+      document.getElementById("input-answer").value === "";
 
     if (correctAnswer) {
       document.getElementById("answer-type").textContent = "CORRECT!";
-      rightAnswer = true;
+      currentGame.setRightAnswer(true);
       answers();
       correct();
     } else if (noInputtedAnswer) {
@@ -252,18 +247,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       document.getElementById("answer-type").textContent = "INCORRECT";
       document.getElementById("description").textContent =
-        currentQuestion.description;
+        currentGame.getQuestion().description;
 
-      const helpfulLink = `<p class='helpful-link'><a target=\"_blank\" href='${currentQuestion.link}'> ${currentQuestion.about} </a></p>`;
+      const helpfulLink = `<p class='helpful-link'><a target=\"_blank\" href='${currentGame.getQuestion().link}'> ${currentGame.getQuestion().about} </a></p>`;
 
-      player === player1
-        ? player1IncorrectQuestions.push(helpfulLink)
-        : player2IncorrectQuestions.push(helpfulLink);
-
+      currentGame.addIncorrect(player(player.getAttribute('id'))).push(helpfulLink);
       answers();
       checkWin();
     }
-    document.getElementById('input-answer').value = '';
+    document.getElementById("input-answer").value = "";
   };
 
   document.getElementById("guess").addEventListener("click", guessPress);
@@ -271,8 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const correct = () => {
     const helpfulLink = `
     <p class='helpful-link'>
-      <a target=\"_blank\" href='${currentQuestion.link}'>
-      ${currentQuestion.about}
+      <a target=\"_blank\" href='${currentGame.getQuestion().link}'>
+      ${currentGame.getQuestion().about}
       </a>
     </p>`;
 
@@ -281,25 +273,43 @@ document.addEventListener("DOMContentLoaded", () => {
     currentGame.addPoints(currentPlayer);
     currentGame.addCorrect(currentPlayer, helpfulLink);
 
-    const blocks = document.getElementById(`${player === player1 ? "player-1" : "player-2"}-block-${currentGame.getPoints(currentPlayer)}`);
+    const blocks = document.getElementById(
+      `${
+        player === player1 ? "player-1" : "player-2"
+      }-block-${currentGame.getPoints(currentPlayer)}`
+    );
+
+    let images;
+
+    switch (currentGame.getQuestion().type) {
+      case "html":
+        images = 'url("./images/html-full.png")';
+        break;
+      case "css":
+        images = 'url("./images/css-full.png")';
+        break;
+      case "javascript":
+        images = 'url("./images/javascript-full.png")';
+        break;
+    }
 
     blocks.style.backgroundImage = images;
-    blocks.style.backgroundSize = 'cover';
+    blocks.style.backgroundSize = "cover";
 
     checkWin();
   };
 
   const continuePress = () => {
-    // // IF THE ANSWER IS CORRECT, THE NEWLY FILLED IN BLOCK WILL ANIMATE PROPERLY
+    const points = currentGame.getPoints(player === player1 ? "player1" : "player2");
 
     const animateBlockInFromLeft =
-      currentPlayer === 1 || currentPlayer === 4 || currentPlayer === 7;
+      points === 1 || points === 4 || points === 7;
     const animateBlockInFromTop =
-      currentPlayer === 2 || currentPlayer === 5 || currentPlayer === 8;
+      points === 2 || points === 5 || points === 8;
     const animateBlockInFromRight =
-      currentPlayer === 3 || currentPlayer === 6 || currentPlayer === 9;
+      points === 3 || points === 6 || points === 9;
 
-    if (rightAnswer) {
+    if (currentGame.isRightAnswer()) {
       let move;
       if (animateBlockInFromLeft) {
         move = "left";
@@ -309,29 +319,29 @@ document.addEventListener("DOMContentLoaded", () => {
         move = "right";
       }
 
-      console.log('blocks', blocks);
+      const blocks = `${
+        player === player1 ? "player-1" : "player-2"
+      }-block-${points}`;
 
-      $(blocks).animate({ [move]: "-=800px" }, 0);
-      $(blocks).animate({ [move]: "+=400px" }, 750, "linear");
-      $(blocks).animate({ [move]: "+=400px" }, 750, "linear");
+      $(`#${blocks}`).animate({ [move]: "-=800px" }, 0);
+      $(`#${blocks}`).animate({ [move]: "+=400px" }, 750, "linear");
+      $(`#${blocks}`).animate({ [move]: "+=400px" }, 750, "linear");
 
-      rightAnswer = false;
+      currentGame.setRightAnswer(false);
     }
-
-    // IF IT'S SUDDEN DEATH, IT WILL SAY SO AND THEN GO TO SET UP ANOTHER QUESTION
-    // UNLESS A PLAYER WINS AND THEN IT SENDS THE PLAYER OVER TO THE RESULTS PAGE
 
     const nextTurn = () => {
       currentGame.addTurn();
-      $(".answer").css("display", "none");
-      $(player).css("display", "block");
+      document.querySelector('.answer').style.display = 'none';
+      document.getElementById(player.getAttribute('id')).style.display = 'block';
       setQuestion();
       setup();
     };
 
     if (currentGame.isSuddenDeath()) {
-      $("#banner").css("display", "block");
-      $("#banner").text("SUDDEN DEATH");
+      document.getElementById('banner').style.display = 'block';
+      document.getElementById('banner').textContent = 'SUDDEN DEATH';
+
       if (
         (currentGame.getTurn() % 2 === 0 &&
           currentGame.getPoints("player1") >
@@ -348,7 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nextTurn();
   };
 
-  const replayPress = () => {
+  const replayGame = () => {
     document.querySelector(".finish").style.display = "none";
     currentGame.resetTurns();
     player = player1;
@@ -361,5 +371,5 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   document.getElementById("continue").addEventListener("click", continuePress);
-  document.getElementById("replay").addEventListener("click", replayPress);
+  document.getElementById("replay").addEventListener("click", replayGame);
 });
