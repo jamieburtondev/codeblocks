@@ -3,8 +3,6 @@ import GameTracker from "../classes/gameTracker";
 document.addEventListener("DOMContentLoaded", () => {
   const currentGame = new GameTracker();
 
-  let player = player1;
-
   const chooseQuestionType = (type) => {
     currentGame.setPicked(type);
     const picked = currentGame.getPicked(type);
@@ -103,33 +101,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (firstTurn || only1Player) {
       setTimeout(() => {
-        player.style.display = "none";
+        document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = "none";
       }, 3000);
       setTimeout(questions, 3000);
     } else {
       let setPlayer = () => {
-        switch (player) {
-          case player1:
-            player = player2;
+        switch (currentGame.getCurrentPlayer()) {
+          case 1:
+            currentGame.setCurrentPlayer(2);
             break;
-          case player2:
-            player = player1;
+          case 2:
+            currentGame.setCurrentPlayer(1);
             break;
         }
       };
 
       setTimeout(() => {
-        document.getElementById(player.getAttribute('id')).style.display = "none";
+        document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = "none";
         setPlayer();
       }, 3000);
 
       setTimeout(() => {
-        document.getElementById(player.getAttribute('id')).style.display = "block";
-        document.getElementById("turn").textContent = `PLAYER ${player}`;
+        document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = "block";
+        document.getElementById("turn").textContent = `PLAYER ${currentGame.getCurrentPlayer()}`;
       }, 3000);
 
       setTimeout(() => {
-        document.getElementById(player.getAttribute('id')).style.display = "none";
+        document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = "none";
         questions();
       }, 6000);
     }
@@ -137,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const breakdown = () => {
     document.querySelector(".answer").style.display = "none";
-    document.getElementById(player.getAttribute('id')).style.display = "block";
+    document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = "block";
     document.getElementById("banner").style.display = "block";
     document.querySelector("h1").style.visibility = "hidden";
 
@@ -152,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       document.querySelector("h1").style.visibility = "visible";
 
-      ["turn", "banner", player.getAttribute('id')].forEach(
+      ["turn", "banner", `player${currentGame.getCurrentPlayer()}`].forEach(
         (element) => (document.getElementById(element).style.display = "none")
       );
 
@@ -251,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const helpfulLink = `<p class='helpful-link'><a target=\"_blank\" href='${currentGame.getQuestion().link}'> ${currentGame.getQuestion().about} </a></p>`;
 
-      currentGame.addIncorrect(player(player.getAttribute('id'))).push(helpfulLink);
+      currentGame.addIncorrect(player(`player${currentGame.getCurrentPlayer()}`)).push(helpfulLink);
       answers();
       checkWin();
     }
@@ -268,14 +266,14 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>
     </p>`;
 
-    const currentPlayer = player === player1 ? "player1" : "player2";
+    const currentPlayer = currentGame.getCurrentPlayer() === 1 ? "player1" : "player2";
 
     currentGame.addPoints(currentPlayer);
     currentGame.addCorrect(currentPlayer, helpfulLink);
 
     const blocks = document.getElementById(
       `${
-        player === player1 ? "player-1" : "player-2"
+        currentGame.getCurrentPlayer() === 1 ? "player-1" : "player-2"
       }-block-${currentGame.getPoints(currentPlayer)}`
     );
 
@@ -300,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const continuePress = () => {
-    const points = currentGame.getPoints(player === player1 ? "player1" : "player2");
+    const points = currentGame.getPoints(currentGame.getCurrentPlayer() === 1 ? "player1" : "player2");
 
     const animateBlockInFromLeft =
       points === 1 || points === 4 || points === 7;
@@ -320,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const blocks = `${
-        player === player1 ? "player-1" : "player-2"
+        currentGame.getCurrentPlayer() === 1 ? "player-1" : "player-2"
       }-block-${points}`;
 
       $(`#${blocks}`).animate({ [move]: "-=800px" }, 0);
@@ -333,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextTurn = () => {
       currentGame.addTurn();
       document.querySelector('.answer').style.display = 'none';
-      document.getElementById(player.getAttribute('id')).style.display = 'block';
+      document.getElementById(`player${currentGame.getCurrentPlayer()}`).style.display = 'block';
       setQuestion();
       setup();
     };
@@ -361,9 +359,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const replayGame = () => {
     document.querySelector(".finish").style.display = "none";
     currentGame.resetTurns();
-    player = player1;
+    currentGame.setCurrentPlayer(1);
     document.querySelector(".color-block").style.backgroundImage = "none";
-    $(player1).css("display", "block");
+    document.getElementById('player1').style.display = 'block';
     document.getElementById("turn").style.display = "block";
     document.getElementById("turn").textContent = "PLAYER 1";
 
