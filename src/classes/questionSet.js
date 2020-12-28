@@ -9,4 +9,4 @@ class QuestionSet {
   }
 }
 
-module.exports = QuestionSet;
+export default QuestionSet;
