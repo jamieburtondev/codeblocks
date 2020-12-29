@@ -15,6 +15,7 @@ const nextTurn = () => {
 
 export default () => {
   const currentGame = new GameTracker();
+  const bannerElement = document.getElementById("banner");
   const points = currentGame.getPoints(
     currentGame.getCurrentPlayer() === 1 ? "player1" : "player2"
   );
@@ -45,8 +46,8 @@ export default () => {
   }
 
   if (currentGame.isSuddenDeath()) {
-    document.getElementById("banner").style.display = "block";
-    document.getElementById("banner").textContent = "SUDDEN DEATH";
+    bannerElement.style.display = "block";
+    bannerElement.textContent = "SUDDEN DEATH";
 
     if (
       (currentGame.getTurn() % 2 === 0 &&

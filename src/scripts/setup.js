@@ -1,29 +1,21 @@
 import GameTracker from "../classes/gameTracker";
-import setQuestion from "./setQuestion";
-
-const getQuestions = () => {
-  const currentGame = new GameTracker();
-
-  ["html", "css", "javascript"].forEach((type) => {
-    if (currentGame.getPicked(type)) {
-      currentGame.addQuestions(type);
-    }
-  });
-
-  setQuestion();
-};
+import getQuestions from "./getQuestions";
 
 const questions = () => {
   const currentGame = new GameTracker();
-  document.getElementById("banner").style.display = "none";
-  document.querySelector(".question").style.display = "block";
-  document.getElementById(
-    "question"
-  ).textContent = currentGame.getQuestion().question;
+  const currentQuestion = currentGame.getQuestion();
+  const { question, type } = currentQuestion;
+  const bannerElement = document.getElementById("banner");
+  const questionElement = document.querySelector(".question");
+  const questionContentElement = document.getElementById("question");
+
+  bannerElement.style.display = "none";
+  questionElement.style.display = "block";
+  questionContentElement.textContent = question;
 
   let color;
 
-  switch (currentGame.getQuestion().type) {
+  switch (type) {
     case "html":
       color = "#E44D26";
       break;
@@ -35,9 +27,7 @@ const questions = () => {
       break;
   }
 
-  document.getElementById(
-    "question-type"
-  ).textContent = currentGame.getQuestion().type.toUpperCase();
+  document.getElementById("question-type").textContent = type.toUpperCase();
 
   ["question-type", "answer-type", "guess", "continue"].forEach(
     (element) =>
@@ -47,25 +37,30 @@ const questions = () => {
 
 export default () => {
   const currentGame = new GameTracker();
+  const currentTurn = currentGame.getTurn();
+  const currentPlayer = currentGame.getCurrentPlayer();
+  const currentPlayerElement = document.getElementById(
+    `player${currentPlayer}`
+  );
+  const turnElement = document.getElementById("turn");
+
   getQuestions();
 
   const only1Player = currentGame.getPlayers() === 1;
   if (only1Player) {
-    document.getElementById("turn").textContent = "PRACTICE";
+    turnElement.textContent = "PRACTICE";
   }
 
-  const firstTurn = currentGame.getTurn() === 0;
+  const firstTurn = currentTurn === 0;
 
   if (firstTurn || only1Player) {
     setTimeout(() => {
-      document.getElementById(
-        `player${currentGame.getCurrentPlayer()}`
-      ).style.display = "none";
+      currentPlayerElement.style.display = "none";
     }, 3000);
     setTimeout(questions, 3000);
   } else {
     let setPlayer = () => {
-      switch (currentGame.getCurrentPlayer()) {
+      switch (currentPlayer) {
         case 1:
           currentGame.setCurrentPlayer(2);
           break;
@@ -76,25 +71,17 @@ export default () => {
     };
 
     setTimeout(() => {
-      document.getElementById(
-        `player${currentGame.getCurrentPlayer()}`
-      ).style.display = "none";
+      currentPlayerElement.style.display = "none";
       setPlayer();
     }, 3000);
 
     setTimeout(() => {
-      document.getElementById(
-        `player${currentGame.getCurrentPlayer()}`
-      ).style.display = "block";
-      document.getElementById(
-        "turn"
-      ).textContent = `PLAYER ${currentGame.getCurrentPlayer()}`;
+      currentPlayerElement.style.display = "block";
+      turnElement.textContent = `PLAYER ${currentPlayer}`;
     }, 3000);
 
     setTimeout(() => {
-      document.getElementById(
-        `player${currentGame.getCurrentPlayer()}`
-      ).style.display = "none";
+      currentPlayerElement.style.display = "none";
       questions();
     }, 6000);
   }

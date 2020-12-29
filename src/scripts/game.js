@@ -6,6 +6,9 @@ import guessPress from './guessPress';
 
 document.addEventListener("DOMContentLoaded", () => {
   const currentGame = new GameTracker();
+  const guessElement = document.getElementById("guess");
+  const continueElement = document.getElementById("continue");
+  const replayElement = document.getElementById("replay");
 
   const chooseQuestionType = (type) => {
     currentGame.setPicked(type);
@@ -23,14 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
   ["solo", "versus"].forEach((type) => {
     document.getElementById(type).addEventListener("click", () => {
       const isSolo = type === "solo";
-      document.getElementById(type).style.opacity = 1;
       const otherType = isSolo ? "versus" : "solo";
-      document.getElementById(otherType).style.opacity = 0.5;
+      const amountOfPlayersOptionOne = document.getElementById(type);
+      const amountOfPlayersOptionTwo = document.getElementById(otherType);
+      
+      amountOfPlayersOptionOne.style.opacity = 1;
+      amountOfPlayersOptionTwo.style.opacity = 0.5;
       currentGame.changePlayer(isSolo ? 1 : 2);
     });
   });
 
   document.getElementById("start").addEventListener("click", () => {
+    const setupElement = document.getElementById("setup");
+    const gameElement = document.getElementById("game");
     const noQuestionSetPicked =
       !currentGame.getPicked("html") &&
       currentGame.getPicked("css") &&
@@ -38,14 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (noQuestionSetPicked) {
       alert("You must select at least one set of questions to begin.");
     } else {
-      document.getElementById("setup").style.display = "none";
-      document.getElementById("game").style.display = "block";
+      setupElement.style.display = "none";
+      gameElement.style.display = "block";
       setup();
     }
   });
 
 
-  document.getElementById("guess").addEventListener("click", guessPress);
-  document.getElementById("continue").addEventListener("click", continueGame);
-  document.getElementById("replay").addEventListener("click", replayGame);
+  guessElement.addEventListener("click", guessPress);
+  continueElement.addEventListener("click", continueGame);
+  replayElement.addEventListener("click", replayGame);
 });

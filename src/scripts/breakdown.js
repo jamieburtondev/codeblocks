@@ -2,23 +2,28 @@ import GameTracker from "../classes/gameTracker";
 
 export default () => {
   const currentGame = new GameTracker();
-  document.querySelector(".answer").style.display = "none";
+  const amountOfPlayers = currentGame.getPlayers();
+  const bannerElement = document.getElementById("banner");
+  const answerElement = document.querySelector(".answer");
+  const headerElement = document.querySelector("h1");
+
+  answerElement.style.display = "none";
   document.getElementById(
     `player${currentGame.getCurrentPlayer()}`
   ).style.display = "block";
-  document.getElementById("banner").style.display = "block";
-  document.querySelector("h1").style.visibility = "hidden";
+  bannerElement.style.display = "block";
+  headerElement.style.visibility = "hidden";
 
-  if (currentGame.getPlayers() === 1) {
-    document.getElementById("banner").textContent = "BLOCK COMPLETED";
+  if (amountOfPlayers === 1) {
+    bannerElement.textContent = "BLOCK COMPLETED";
   } else if (player1Points > player2Points) {
-    document.getElementById("banner").textContent = "PLAYER 1 WINS";
+    bannerElement.textContent = "PLAYER 1 WINS";
   } else if (player2Points > player1Points) {
-    document.getElementById("banner").textContent = "PLAYER 2 WINS";
+    bannerElement.textContent = "PLAYER 2 WINS";
   }
 
   setTimeout(() => {
-    document.querySelector("h1").style.visibility = "visible";
+    headerElement.style.visibility = "visible";
 
     ["turn", "banner", `player${currentGame.getCurrentPlayer()}`].forEach(
       (element) => (document.getElementById(element).style.display = "none")

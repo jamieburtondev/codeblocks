@@ -1,11 +1,12 @@
 import GameTracker from "../classes/gameTracker";
-import breakdown from './breakdown';
+import breakdown from "./breakdown";
 
 export default () => {
   const currentGame = new GameTracker();
+  const amountOfPlayers = currentGame.getPlayers();
   const player1Points = currentGame.getPoints("player1");
   let player2Points =
-    currentGame.getPlayers() === 2 ? currentGame.getPoints("player2") : null;
+    amountOfPlayers === 2 ? currentGame.getPoints("player2") : null;
 
   const tieGame =
     currentGame.isLastTurn() && player1Points === 9 && player2Points === 9;

@@ -21,5 +21,3 @@
   If it is tied at 9, the game will go into sudden death. 
   
     If one person misses a question, the other player still needs to get it right to win.
-
-Keyboard Shortcut: Perss Enter to submit an answer.
