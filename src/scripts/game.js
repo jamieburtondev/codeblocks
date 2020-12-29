@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameElement = document.getElementById("game");
     const noQuestionSetPicked =
       !currentGame.getPicked("html") &&
-      currentGame.getPicked("css") &&
+      !currentGame.getPicked("css") &&
       !currentGame.getPicked("js");
     if (noQuestionSetPicked) {
       alert("You must select at least one set of questions to begin.");
