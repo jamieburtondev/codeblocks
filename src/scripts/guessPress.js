@@ -2,8 +2,8 @@ import GameTracker from "../classes/gameTracker";
 import checkWin from "./checkWin";
 
 const showAnswers = () => {
-  document.querySelector(".question").style.display = "none";
-  document.querySelector(".answer").style.display = "block";
+  document.getElementById("display-question").style.display = "none";
+  document.getElementById("display-answer").style.display = "block";
 };
 
 const addCorrect = () => {
@@ -11,9 +11,9 @@ const addCorrect = () => {
   const currentQuestion = currentGame.getQuestion();
   const { link, about, type } = currentQuestion;
   const amountOfPlayers = currentGame.getCurrentPlayer();
-  const helpfulLink = `
+  const correctLink = `
     <p class='helpful-link'>
-      <a target=\"_blank\" href='${link}'>
+      <a target="_blank" href='${link}'>
       ${about}
       </a>
     </p>`;
@@ -21,30 +21,22 @@ const addCorrect = () => {
   const currentPlayer = amountOfPlayers === 1 ? "player1" : "player2";
 
   currentGame.addPoints(currentPlayer);
-  currentGame.addCorrect(currentPlayer, helpfulLink);
+  currentGame.addCorrect(currentPlayer, correctLink);
 
-  const blocks = document.getElementById(
+  const blocksElement = document.getElementById(
     `${
       amountOfPlayers === 1 ? "player-1" : "player-2"
     }-block-${currentGame.getPoints(currentPlayer)}`
   );
 
-  let images;
-
-  switch (type) {
-    case "html":
-      images = 'url("./images/html-full.png")';
-      break;
-    case "css":
-      images = 'url("./images/css-full.png")';
-      break;
-    case "javascript":
-      images = 'url("./images/javascript-full.png")';
-      break;
+  let images = {
+    html: 'url("./images/html-full.png")',
+    css: 'url("./images/css-full.png")',
+    javascript: 'url("./images/javascript-full.png")',
   }
 
-  blocks.style.backgroundImage = images;
-  blocks.style.backgroundSize = "cover";
+  blocksElement.style.backgroundImage = images[type];
+  blocksElement.style.backgroundSize = "cover";
 
   checkWin();
 };

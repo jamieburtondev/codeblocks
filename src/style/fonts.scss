@@ -1,15 +1,15 @@
-h2,
-h3,
-h4 {
-  cursor: default;
+h1, h2, h3 {
   font-size: 2rem;
   font-family: "Quantico", Verdana;
+}
+
+h2,
+h3 {
+  cursor: default;
   font-weight: normal;
 }
 
 h1 {
-  font-family: "Quantico", Verdana;
-  font-size: 2rem;
   text-align: center;
   width: 50%;
   padding: 10px 80px;
@@ -17,8 +17,8 @@ h1 {
   margin: 0 auto;
   border-radius: 10px;
   background-color: white;
-  border: 8px solid black;
-  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+  border: 5px solid black;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .finish {
@@ -41,7 +41,7 @@ p, label {
 }
 
 .label-input-text {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: 10px;
 }

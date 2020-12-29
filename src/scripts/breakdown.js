@@ -4,7 +4,7 @@ export default () => {
   const currentGame = new GameTracker();
   const amountOfPlayers = currentGame.getPlayers();
   const bannerElement = document.getElementById("banner");
-  const answerElement = document.querySelector(".answer");
+  const answerElement = document.getElementById("display-answer");
   const headerElement = document.querySelector("h1");
 
   answerElement.style.display = "none";
@@ -29,25 +29,19 @@ export default () => {
       (element) => (document.getElementById(element).style.display = "none")
     );
 
-    document.querySelector(".finish").style.display = "block";
+    document.getElementById("display-finish").style.display = "block";
+    
+    ["1", "2"].forEach(num => {
+      currentGame.getCorrectQuestions(`player${num}`).forEach(question => {
+        $(`#player-${num}-correct`).append(question);
+      });
 
-    const player1CorrectQuestions = currentGame.getCorrectQuestions("player1");
-    const player1IncorrectQuestions = currentGame.getIncorrectQuestions(
-      "player1"
-    );
-    const player2CorrectQuestions = currentGame.getCorrectQuestions("player2");
-    const player2IncorrectQuestions = currentGame.getIncorrectQuestions(
-      "player2"
-    );
+      currentGame.getIncorrectQuestions(`player${num}`).forEach(question => {
+        $(`#player-${num}-incorrect`).append(question);
+      });
+    })
 
-    for (let i = 0; i <= currentGame.getUsedQuestions().length; i++) {
-      $("#player-1-correct").append(player1CorrectQuestions[i]);
-      $("#player-1-incorrect").append(player1IncorrectQuestions[i]);
-      $("#player-2-correct").append(player2CorrectQuestions[i]);
-      $("#player-2-incorrect").append(player2IncorrectQuestions[i]);
-    }
-
-    if (currentGame.getPlayers() === 1) {
+    if (amountOfPlayers === 1) {
       document.getElementById("player1Finish").textContent = "OVERVIEW";
       [
         "player-2-finish",

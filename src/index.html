@@ -40,9 +40,6 @@
             </p>
           </div>
         </section>
-
-        <!-- SELECT QUESTION TYPES: HTML, CSS, AND/OR JAVASCRIPT -->
-
         <section>
           <div class="select-questions">
             <h2>SELECT QUESTIONS</h2>
@@ -69,9 +66,6 @@
             <label for="js" class="label-input-text">JavaScript</label>
           </div>
         </section>
-
-        <!-- SELECT PLAYERS, 1 OR 2 -->
-
         <section>
           <div class="select-players">
             <h2>SELECT PLAYERS</h2>
@@ -91,20 +85,12 @@
             <label for="versus" class="label-input-text">VERSUS</label>
           </div>
         </section>
-
-        <!-- START GAME BUTTON -->
-
         <div class="button-background">
           <button id="start">START</button>
         </div>
       </div>
       <div id="game">
-        <!-- BANNER FOR PLAYER 1/2 WINS, SUDDEN DEATH SCENARIOS -->
-
-        <h4 id="banner"></h4>
-
-        <!-- PLAYER 1 BLOCKS TO FILL IN -->
-
+        <h2 id="banner"></h2>
         <section id="player1">
           <div class="main-block">
             <div id="player-1-block-7" class="color-block player-block"></div>
@@ -142,9 +128,6 @@
             <div id="player-1-block-3" class="color-block player-block"></div>
           </div>
         </section>
-
-        <!-- PLAYER 2 BLOCKS TO FILL IN -->
-
         <section id="player2">
           <div class="main-block">
             <div id="player-2-block-7" class="color-block player-block"></div>
@@ -182,9 +165,6 @@
             <div id="player-2-block-3" class="color-block player-block"></div>
           </div>
         </section>
-
-        <!-- ASKING A QUESTION SECTION -->
-
         <section class="question" id="display-question">
           <h2 id="question-type"></h2>
 
@@ -200,9 +180,6 @@
 
           <button id="guess">GUESS</button>
         </section>
-
-        <!-- GIVING AN ANSWER, DECLARING CORRECT OR INCORRECT SECTION -->
-
         <section class="answer" id="display-answer">
           <h2 id="answer-type"></h2>
 
@@ -213,9 +190,6 @@
 
           <button id="continue">CONTINUE</button>
         </section>
-
-        <!-- THE RESULTS, OR "BLOCK BREAKDOWN", SECTION AT THE END OF THE GAME -->
-
         <section class="finish" id="display-finish">
           <h2 id="block-breakdown">BLOCK BREAKDOWN</h2>
 
@@ -225,28 +199,25 @@
             <h3 id="player-1-finish">PLAYER 1</h3>
 
             <div class="finish-correct-incorrect" id="player-1-correct">
-              <h4>CORRECT</h4>
+              <h3>CORRECT</h3>
             </div>
             <div class="finish-correct-incorrect" id="player-1-incorrect">
-              <h4>INCORRECT</h4>
+              <h3>INCORRECT</h3>
             </div>
 
             <h3 id="player-2-finish">PLAYER 2</h3>
 
             <div class="finish-correct-incorrect" id="player-2-correct">
-              <h4>CORRECT</h4>
+              <h3>CORRECT</h3>
             </div>
 
             <div class="finish-correct-incorrect" id="player-2-incorrect">
-              <h4>INCORRECT</h4>
+              <h3>INCORRECT</h3>
             </div>
           </div>
 
           <button id="replay">REPLAY</button>
         </section>
-
-        <!-- BUTTON TO SHOW WHOSE TURN IT IS -->
-
         <button id="turn">PLAYER 1</button>
       </div>
     </main>

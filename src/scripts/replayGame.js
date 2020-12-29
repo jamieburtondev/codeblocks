@@ -6,7 +6,7 @@ export default () => {
   const turnElement = document.getElementById("turn");
   const colorBlockElement = document.querySelector(".color-block");
   const player1Element = document.getElementById("player1");
-  const finishElement = document.querySelector(".finish");
+  const finishElement = document.getElementById("display-finish");
 
   finishElement.style.display = "none";
   currentGame.resetTurns();

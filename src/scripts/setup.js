@@ -6,40 +6,32 @@ const questions = () => {
   const currentQuestion = currentGame.getQuestion();
   const { question, type } = currentQuestion;
   const bannerElement = document.getElementById("banner");
-  const questionElement = document.querySelector(".question");
+  const displayQuestionElement = document.getElementById("display-question");
   const questionContentElement = document.getElementById("question");
 
   bannerElement.style.display = "none";
-  questionElement.style.display = "block";
+  displayQuestionElement.style.display = "block";
   questionContentElement.textContent = question;
 
-  let color;
-
-  switch (type) {
-    case "html":
-      color = "#E44D26";
-      break;
-    case "css":
-      color = "#0070BA";
-      break;
-    case "javascript":
-      color = "#63A814";
-      break;
-  }
+  let color = {
+    html: "#E44D26",
+    css: "#0070BA",
+    javascript: "#63A814",
+  };
 
   document.getElementById("question-type").textContent = type.toUpperCase();
 
   ["question-type", "answer-type", "guess", "continue"].forEach(
     (element) =>
-      (document.getElementById(element).style.backgroundColor = color)
+      (document.getElementById(element).style.backgroundColor = color[type])
   );
 };
 
 export default () => {
   const currentGame = new GameTracker();
   const currentTurn = currentGame.getTurn();
-  const currentPlayer = currentGame.getCurrentPlayer();
-  const currentPlayerElement = document.getElementById(
+  let currentPlayer = currentGame.getCurrentPlayer();
+  let currentPlayerElement = document.getElementById(
     `player${currentPlayer}`
   );
   const turnElement = document.getElementById("turn");
@@ -59,23 +51,14 @@ export default () => {
     }, 3000);
     setTimeout(questions, 3000);
   } else {
-    let setPlayer = () => {
-      switch (currentPlayer) {
-        case 1:
-          currentGame.setCurrentPlayer(2);
-          break;
-        case 2:
-          currentGame.setCurrentPlayer(1);
-          break;
-      }
-    };
 
     setTimeout(() => {
       currentPlayerElement.style.display = "none";
-      setPlayer();
-    }, 3000);
-
-    setTimeout(() => {
+      currentPlayer === 1 ? currentGame.setCurrentPlayer(2) : currentGame.setCurrentPlayer(1);
+      currentPlayer = currentGame.getCurrentPlayer();
+      currentPlayerElement =  document.getElementById(
+        `player${currentPlayer}`
+      );
       currentPlayerElement.style.display = "block";
       turnElement.textContent = `PLAYER ${currentPlayer}`;
     }, 3000);

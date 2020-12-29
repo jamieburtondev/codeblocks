@@ -4,11 +4,14 @@ import setup from './setup';
 
 const nextTurn = () => {
   const currentGame = new GameTracker();
+  const answerElement = document.getElementById("display-answer");
+  const currentPlayer = currentGame.getCurrentPlayer();
+  const currentPlayerElement = document.getElementById(
+    `player${currentPlayer}`
+  )
   currentGame.addTurn();
-  document.querySelector(".answer").style.display = "none";
-  document.getElementById(
-    `player${currentGame.getCurrentPlayer()}`
-  ).style.display = "block";
+  answerElement.style.display = "none";
+  currentPlayerElement.style.display = "block";
   setQuestion();
   setup();
 };
@@ -16,15 +19,21 @@ const nextTurn = () => {
 export default () => {
   const currentGame = new GameTracker();
   const bannerElement = document.getElementById("banner");
+  const currentPlayer = currentGame.getCurrentPlayer();
+  const player1Points = currentGame.getPoints('player1');
+  const player2Points = currentGame.getPoints('player2');
+  const currentTurn = currentGame.getTurn();
   const points = currentGame.getPoints(
-    currentGame.getCurrentPlayer() === 1 ? "player1" : "player2"
+    currentPlayer === 1 ? "player1" : "player2"
   );
+  const rightAnswer =currentGame.isRightAnswer();
+  const suddenDeath = currentGame.isSuddenDeath();
 
   const animateBlockInFromLeft = points === 1 || points === 4 || points === 7;
   const animateBlockInFromTop = points === 2 || points === 5 || points === 8;
   const animateBlockInFromRight = points === 3 || points === 6 || points === 9;
 
-  if (currentGame.isRightAnswer()) {
+  if (rightAnswer) {
     let move;
     if (animateBlockInFromLeft) {
       move = "left";
@@ -35,7 +44,7 @@ export default () => {
     }
 
     const blocks = `${
-      currentGame.getCurrentPlayer() === 1 ? "player-1" : "player-2"
+      currentPlayer === 1 ? "player-1" : "player-2"
     }-block-${points}`;
 
     $(`#${blocks}`).animate({ [move]: "-=800px" }, 0);
@@ -45,15 +54,15 @@ export default () => {
     currentGame.setRightAnswer(false);
   }
 
-  if (currentGame.isSuddenDeath()) {
+  if (suddenDeath) {
     bannerElement.style.display = "block";
     bannerElement.textContent = "SUDDEN DEATH";
 
     if (
-      (currentGame.getTurn() % 2 === 0 &&
-        currentGame.getPoints("player1") > currentGame.getPoints("player2")) ||
-      (currentGame.getTurn() % 2 === 0 &&
-        currentGame.getPoints("player2") > currentGame.getPoints("player1"))
+      (currentTurn % 2 === 0 &&
+        player1Points > player2Points) ||
+      (currentTurn % 2 === 0 &&
+        player2Points > player1Points)
     ) {
       breakdown();
     } else {

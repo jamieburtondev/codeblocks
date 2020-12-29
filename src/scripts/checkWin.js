@@ -3,15 +3,16 @@ import breakdown from "./breakdown";
 
 export default () => {
   const currentGame = new GameTracker();
+  const lastTurn = currentGame.isLastTurn();
   const amountOfPlayers = currentGame.getPlayers();
   const player1Points = currentGame.getPoints("player1");
   let player2Points =
     amountOfPlayers === 2 ? currentGame.getPoints("player2") : null;
 
   const tieGame =
-    currentGame.isLastTurn() && player1Points === 9 && player2Points === 9;
+    lastTurn && player1Points === 9 && player2Points === 9;
   const winner =
-    (currentGame.isLastTurn() && player1Points === 9 && player2Points === 8) ||
+    (lastTurn && player1Points === 9 && player2Points === 8) ||
     (player2Points === 9 && player1Points !== 9) ||
     (player1Points === 9 && player2Points < 8);
   const oneTurnLeft = player1Points === 9 && player2Points === 8;
