@@ -64,10 +64,6 @@ class GameTracker {
     this.currentPlayer = num;
   }
 
-  isLastTurn() {
-    return this.lastTurn;
-  }
-
   isRightAnswer() {
     return this.rightAnswer;
   }
@@ -128,12 +124,8 @@ class GameTracker {
     this.correct[player].push(data);
   }
 
-  getBlocks(player) {
-    return this.correct[player].length - 1;
-  }
-
   addIncorrect(player, data) {
-    this.correct[player].push(data);
+    this.incorrect[player].push(data);
   }
 
   addPoints(player) {
@@ -151,8 +143,16 @@ class GameTracker {
     return this.points[player];
   }
 
+  getBlocks(player) {
+    return this.correct[player].length - 1;
+  }
+
   addBlocks(player) {
     this.points[player] += 1;
+  }
+
+  isLastTurn() {
+    return this.lastTurn;
   }
 
   addTurn() {
@@ -163,8 +163,20 @@ class GameTracker {
     return this.turn;
   }
 
+  makeLastTurn() {
+    this.lastTurn = true;
+  }
+
   resetTurns() {
     this.turn = 0;
+  }
+
+  isSuddenDeath() {
+    return this.suddenDeath;
+  }
+
+  makeSuddenDeath() {
+    this.suddenDeath = true;
   }
 
   resetAll() {
@@ -185,17 +197,6 @@ class GameTracker {
     };
   }
 
-  isSuddenDeath() {
-    return this.suddenDeath;
-  }
-
-  makeSuddenDeath() {
-    this.suddenDeath = true;
-  }
-
-  makeLastTurn() {
-    this.lastTurn = true;
-  }
 }
 
 export default GameTracker;

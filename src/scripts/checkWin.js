@@ -9,8 +9,7 @@ export default () => {
   let player2Points =
     amountOfPlayers === 2 ? currentGame.getPoints("player2") : null;
 
-  const tieGame =
-    lastTurn && player1Points === 9 && player2Points === 9;
+  const tieGame = lastTurn && player1Points === 9 && player2Points === 9;
   const winner =
     (lastTurn && player1Points === 9 && player2Points === 8) ||
     (player2Points === 9 && player1Points !== 9) ||
