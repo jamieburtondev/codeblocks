@@ -67,8 +67,8 @@ button {
 }
 
 .color-block {
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 10px;
   border: 5px solid black;
   border-radius: 10px;
@@ -185,9 +185,11 @@ button {
 
 #player {
   &1, &2 {
-    width: 600px;
+    display: flex;
+    width: 500px;
     text-align: center;
     margin: 16px auto;
+    flex-wrap: wrap;
   }
 
   &2 {
@@ -254,7 +256,7 @@ button {
 }
 
 .main-block {
-  width: 25%;
+  width: 33%;
   display: inline-block;
   text-align: center;
   padding: 5px 0;

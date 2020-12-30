@@ -59,7 +59,7 @@ export default () => {
       currentPlayerElement =  document.getElementById(
         `player${currentPlayer}`
       );
-      currentPlayerElement.style.display = "block";
+      currentPlayerElement.style.display = "flex";
       turnElement.textContent = `PLAYER ${currentPlayer}`;
     }, 3000);
 

@@ -11,7 +11,7 @@ const nextTurn = () => {
   )
   currentGame.addTurn();
   answerElement.style.display = "none";
-  currentPlayerElement.style.display = "block";
+  currentPlayerElement.style.display = "flex";
   setQuestion();
   setup();
 };

@@ -10,7 +10,7 @@ export default () => {
   answerElement.style.display = "none";
   document.getElementById(
     `player${currentGame.getCurrentPlayer()}`
-  ).style.display = "block";
+  ).style.display = "flex";
   bannerElement.style.display = "block";
   headerElement.style.visibility = "hidden";
 

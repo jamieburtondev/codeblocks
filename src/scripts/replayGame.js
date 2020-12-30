@@ -12,7 +12,7 @@ export default () => {
   currentGame.resetTurns();
   currentGame.setCurrentPlayer(1);
   colorBlockElement.style.backgroundImage = "none";
-  player1Element.style.display = "block";
+  player1Element.style.display = "flex";
   turnElement.style.display = "block";
   turnElement.textContent = "PLAYER 1";
 
