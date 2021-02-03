@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "question": "What word makes the browser calculate the margin automatically? For instance, margin: 0, what.",
+      "question": "What word makes the browser calculate the margin automatically? For instance, margin: 0 what?",
       "answer": "auto",
       "description": "auto makes the browser calculate the margin.",
       "link": "http://www.w3schools.com/css/css_margin.asp",
@@ -33,7 +33,7 @@
       "type": "css"
     },
     {
-      "question": "When using background-image, how do you link to an image? As in, what do you put before (\"kitten.jpg\")",
+      "question": "When using background-image, how do you link to an image? As in, what do you put before the parenthesis around the image location?",
       "answer": "url",
       "description": "url allows you to link to a background image.",
       "link": "http://www.w3schools.com/css/css_background.asp",
@@ -41,7 +41,7 @@
       "type": "css"
     },
     {
-      "question": "If you do not want a background-image to repeat, what value do you use? background-image: what;",
+      "question": "If you do not want a background-image to repeat, what value do you use? background-image: what",
       "answer": "no-repeat",
       "description": "The no-repeat value prevents a background image from repeating.",
       "link": "http://www.w3schools.com/css/css_background.asp",
@@ -49,15 +49,15 @@
       "type": "css"
     },
     {
-      "question": "When adding a stylesheet, what would be added here? <link what=\"stylesheet\"...>",
+      "question": "When adding a stylesheet, what attribute is used to designate it as a stylehseet",
       "answer": "rel",
-      "description": "rel is part of linking to an external stylesheet: <link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+      "description": "rel is part of linking to an external stylesheet.",
       "link": "http://www.w3schools.com/css/css_howto.asp",
       "about": "rel",
       "type": "css"
     },
     {
-      "question": "When adding padding or margin, what position does the third value effect? padding: 50px, 30px, 10px, 20px",
+      "question": "When adding padding or margin, what position does the third value effect? Top, bottom, left, or right?",
       "answer": "bottom",
       "description": "The order goes clockwise: top, right, bottom, left.",
       "link": "http://www.w3schools.com/css/css_padding.asp",
@@ -73,7 +73,7 @@
       "type": "css"
     },
     {
-      "question": "What property is used to set (or remove) underlines? what: underline;",
+      "question": "What property is used to set, or remove, underlines?",
       "answer": "text-decoration",
       "description": "The text-decoration property allows you to add or remove an underline, overline, or line-through.",
       "link": "http://www.w3schools.com/css/css_text.asp",
@@ -81,7 +81,7 @@
       "type": "css"
     },
     {
-      "question": "What property is used to make all of the text uppercase? what: uppercase;",
+      "question": "What property is used to make all of the text uppercase?",
       "answer": "text-transform",
       "description": "The text-tranform property allows you to make all the applied to content uppercase or lowercase. It can also capitalize the first letter of each word.",
       "link": "http://www.w3schools.com/css/css_text.asp",
@@ -121,9 +121,9 @@
       "type": "css"
     },
     {
-      "question": "If you want to create italic text, what property would you use rather than an <i> tag? what: italic;",
+      "question": "If you want to create italic text, what property would you use rather than an i tag?",
       "answer": "font-style",
-      "description": "font-style allows you to make a font italic (or oblique or normal).",
+      "description": "font-style allows you to make a font italic, obllique, or normal.",
       "link": "http://www.w3schools.com/css/css_font.asp",
       "about": "font-style",
       "type": "css"
@@ -137,7 +137,7 @@
       "type": "css"
     },
     {
-      "question": "If you want to create small-caps (lowercase to uppercase, but in a smaller font size), what property is used? what:small-caps;",
+      "question": "If you want to create small-caps, what property is used?",
       "answer": "font-variant",
       "description": "font-variant is used to create small-caps.",
       "link": "http://www.w3schools.com/css/css_font.asp",
@@ -145,17 +145,17 @@
       "type": "css"
     },
     {
-      "question": "One way to hide elements in CSS is to use display:what;",
+      "question": "One way to hide elements in CSS is to use display what?",
       "answer": "none",
-      "description": "display: none; can be used to hide elements.",
+      "description": "display none can be used to hide elements.",
       "link": "http://www.w3schools.com/css/css_display_visibility.asp",
       "about": "display",
       "type": "css"
     },
     {
-      "question": "display: none; can hide an element. What property would you use if you want the space the hidden element was in to remain empty? what: hidden;",
+      "question": "display none can hide an element. What property would you use if you want the space the hidden element was in to remain empty?",
       "answer": "visibility",
-      "description": "visibility allows you to hide an element and have it take up the same amount of space as before it was hidden.",
+      "description": "visibility with a value of hidden allows you to hide an element and have it take up the same amount of space as before it was hidden.",
       "link": "http://www.w3schools.com/css/css_display_visibility.asp",
       "about": "visibility",
       "type": "css"

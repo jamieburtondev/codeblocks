@@ -60,7 +60,7 @@ export default () => {
 
   if (inVersus) sayNextPlayer = `Player ${currentPlayer === 1 ? 2 : 1} is next.`;
  
-  currentScoreElement.textContent = `Player ${currentPlayer} currently has ${points} ${points === 1 ? 'point' : 'points'}. ${sayNextPlayer}`;
+  currentScoreElement.textContent = `Player ${currentPlayer} currently has ${points} ${points === 1 ? 'point' : 'points'} out of 9 points. ${sayNextPlayer}`;
 
   if (suddenDeath) {
     bannerElement.style.display = "block";
