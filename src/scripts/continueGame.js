@@ -20,13 +20,15 @@ export default () => {
   const currentGame = new GameTracker();
   const bannerElement = document.getElementById("banner");
   const currentPlayer = currentGame.getCurrentPlayer();
+  const currentScoreElement = document.getElementById(`current-score-player-${currentPlayer}`);
   const player1Points = currentGame.getPoints('player1');
   const player2Points = currentGame.getPoints('player2');
   const currentTurn = currentGame.getTurn();
   const points = currentGame.getPoints(
     currentPlayer === 1 ? "player1" : "player2"
   );
-  const rightAnswer =currentGame.isRightAnswer();
+  const inVersus = currentGame.getPlayers() > 1;
+  const rightAnswer = currentGame.isRightAnswer();
   const suddenDeath = currentGame.isSuddenDeath();
 
   const animateBlockInFromLeft = points === 1 || points === 4 || points === 7;
@@ -53,6 +55,12 @@ export default () => {
 
     currentGame.setRightAnswer(false);
   }
+
+  let sayNextPlayer = '';
+
+  if (inVersus) sayNextPlayer = `Player ${currentPlayer === 1 ? 2 : 1} is next.`;
+ 
+  currentScoreElement.textContent = `Player ${currentPlayer} currently has ${points} ${points === 1 ? 'point' : 'points'}. ${sayNextPlayer}`;
 
   if (suddenDeath) {
     bannerElement.style.display = "block";

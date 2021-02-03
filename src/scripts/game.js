@@ -39,15 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("start").addEventListener("click", () => {
     const setupElement = document.getElementById("setup");
     const gameElement = document.getElementById("game");
+    const startGameError = document.getElementById('start-game-error');
+    const currentScoreElement = document.getElementById('current-score-player-1');
+
     const noQuestionSetPicked =
       !currentGame.getPicked("html") &&
       !currentGame.getPicked("css") &&
       !currentGame.getPicked("js");
     if (noQuestionSetPicked) {
-      alert("You must select at least one set of questions to begin.");
+      startGameError.textContent = 'You must select at least one set of questions to begin.';
+      startGameError.setAttribute('aria-live', 'polite');
     } else {
+      startGameError.textContent = '';
+      startGameError.setAttribute('aria-live', 'off');
       setupElement.style.display = "none";
       gameElement.style.display = "block";
+      currentScoreElement.textContent = 'The game is about to start.';
       setup();
     }
   });

@@ -1,165 +1,188 @@
 {
-    "questions": [
-        {"question" : "What word makes the browser calculate the margin automatically? For instance, margin: 0, ____.",
-        "answer" : "auto",
-        "description" : "auto makes the browser calculate the margin.",
-        "link" : "http://www.w3schools.com/css/css_margin.asp",
-        "about" : "auto",
-        "type": "css"
-        },
-        {"question" : "If h1 is the selector, what is the content inside the { } called?",
-        "answer" : "declaration",
-        "description" : "The declaration includes a CSS property name and a value, separated by a :",
-        "link" : "http://www.w3schools.com/css/css_syntax.asp",
-        "about" : "declaration",
-        "type": "css"
-        },
-        {"question" : "What property would you use to center an inline element?",
-        "answer" : "text-align",
-        "description" : "The text-align property allows you to position inline elements.",
-        "link" : "http://www.w3schools.com/css/css_syntax.asp",
-        "about" : "text-align",
-        "type": "css"
-        },
-        {"question" : "What does this channel refer to? rgb(255,0,0, _)",
-        "answer" : "alpha",
-        "description" : "When specifying an RGB value, the fourth option is an optional alpha channel.",
-        "link" : "http://www.w3schools.com/css/css_colors.asp",
-        "about" : "alpha",
-        "type": "css"
-        },
-        {"question" : "When using background-image, how do you link to an image? As in, ___(\"kitten.jpg\")",
-        "answer" : "url",
-        "description" : "url allows you to link to a background image.",
-        "link" : "http://www.w3schools.com/css/css_background.asp",
-        "about" : "url",
-        "type": "css"
-        },
-        {"question" : "If you do not want a background-image to repeat, what value do you use? background-image: _________;",
-        "answer" : "no-repeat",
-        "description" : "The no-repeat value prevents a background image from repeating.",
-        "link" : "http://www.w3schools.com/css/css_background.asp",
-        "about" : "no-repeat",
-        "type": "css"
-        },
-        {"question" : "When adding a stylesheet, what would be added here? <link ___=\"stylesheet\"...>",
-        "answer" : "rel",
-        "description" : "rel is part of linking to an external stylesheet: <link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
-        "link" : "http://www.w3schools.com/css/css_howto.asp",
-        "about" : "rel",
-        "type": "css"
-        },
-        {"question" : "When adding padding or margin, what position does the third value effect? padding: 50px, 30px, 10px, 20px",
-        "answer" : "bottom",
-        "description" : "The order goes clockwise: top, right, bottom, left.",
-        "link" : "http://www.w3schools.com/css/css_padding.asp",
-        "about" : "padding shorthand",
-        "type": "css"
-        },
-        {"question" : "What text-align value stretches each line so all of them have equal width and the left and right margins are straight?",
-        "answer" : "justify",
-        "description" : "The justify value stretches every line to equal width and makes left and right margins that are straight.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "justify",
-        "type": "css"
-        },
-        {"question" : "What property is used to set (or remove) underlines? _______________: underline;",
-        "answer" : "text-decoration",
-        "description" : "The text-decoration property allows you to add or remove an underline, overline, or line-through.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "text-decoration",
-        "type": "css"
-        },
-        {"question" : "What property is used to make all of the text uppercase? ______________: uppercase;",
-        "answer" : "text-transform",
-        "description" : "The text-tranform property allows you to make all the applied to content uppercase or lowercase. It can also capitalize the first letter of each word.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "text-transform",
-        "type": "css"
-        },
-        {"question" : "What property is used to specify the space between characters in text?",
-        "answer" : "letter-spacing",
-        "description" : "letter-spacing specifies the space between characters.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "letter-spacing",
-        "type": "css"
-        },
-        {"question" : "What property is used to specify the space between lines?",
-        "answer" : "line-height",
-        "description" : "line-height specifies the space between lines.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "line-height",
-        "type": "css"
-        },
-        {"question" : "What property is used to specify the space between the words in a text?",
-        "answer" : "word-spacing",
-        "description" : "word-spacing specifies the space between the words in a text.",
-        "link" : "http://www.w3schools.com/css/css_text.asp",
-        "about" : "word-spacing",
-        "type": "css"
-        },
-        {"question" : "What property is used to specify a font set like Arial or Times New Roman?",
-        "answer" : "font-family",
-        "description" : "font-family allows you to decide what font type will be displayed on a web page.",
-        "link" : "http://www.w3schools.com/css/css_font.asp",
-        "about" : "font-family",
-        "type": "css"
-        },
-        {"question" : "If you want to create italic text, what property would you use rather than an <i> tag? __________: italic;",
-        "answer" : "font-style",
-        "description" : "font-style allows you to make a font italic (or oblique or normal).",
-        "link" : "http://www.w3schools.com/css/css_font.asp",
-        "about" : "font-style",
-        "type": "css"
-        },
-        {"question" : "font-size: 1__; is equal to the default font-size.",
-        "answer" : "em",
-        "description" : "em is one alternate to pixels. 1em is equal to the default font size.",
-        "link" : "http://www.w3schools.com/css/css_font.asp",
-        "about" : "em",
-        "type": "css"
-        },
-        {"question" : "If you want to create small-caps (lowercase to uppercase, but in a smaller font size), what property is used? ____________:small-caps;",
-        "answer" : "font-variant",
-        "description" : "font-variant is used to create small-caps.",
-        "link" : "http://www.w3schools.com/css/css_font.asp",
-        "about" : "font-variant",
-        "type": "css"
-        },
-        {"question" : "One way to hide elements in CSS is to use display:____;",
-        "answer" : "none",
-        "description" : "display: none; can be used to hide elements.",
-        "link" : "http://www.w3schools.com/css/css_display_visibility.asp",
-        "about" : "display",
-        "type": "css"
-        },
-        {"question" : "display: none; can hide an element. What property would you use if you want the space the hidden element was in to remain empty? __________: hidden;",
-        "answer" : "visibility",
-        "description" : "visibility allows you to hide an element and have it take up the same amount of space as before it was hidden.",
-        "link" : "http://www.w3schools.com/css/css_display_visibility.asp",
-        "about" : "visibility",
-        "type": "css"
-        },
-        {"question" : "position:______; means the element will stay in the same place, even if the page is scrolled.",
-        "answer" : "fixed",
-        "description" : "position: fixed; is positioned relative to the viewport, making an element stay with the page as it scrolls.",
-        "link" : "http://www.w3schools.com/css/css_positioning.asp",
-        "about" : "position: fixed",
-        "type": "css"
-        },
-        {"question" : "position: ________; is positioned relative to the nearest positioned ancestor or to the body. If there are none, it is positioned relative to the body.",
-        "answer" : "absolute",
-        "description" : "position: absolute; is positioned relative to the nearest positioned ancestor. If there are none, it is positioned relative to the body.",
-        "link" : "http://www.w3schools.com/css/css_positioning.asp",
-        "about" : "position: absolute",
-        "type": "css"
-        },
-        {"question" : "The _____ property is one way to control the behavior of floating elements. It specifies on which sides of an element floating elements are not allowed to float.",
-        "answer" : "clear",
-        "description" : "The clear property is used to control the behavior of floating elements.",
-        "link" : "http://www.w3schools.com/css/css_float.asp",
-        "about" : "clear",
-        "type": "css"
-        }
-    ]
+  "questions": [
+    {
+      "question": "What word makes the browser calculate the margin automatically? For instance, margin: 0, what.",
+      "answer": "auto",
+      "description": "auto makes the browser calculate the margin.",
+      "link": "http://www.w3schools.com/css/css_margin.asp",
+      "about": "auto",
+      "type": "css"
+    },
+    {
+      "question": "If h1 is the selector, what is the content inside the brackets called?",
+      "answer": "declaration",
+      "description": "The declaration includes a CSS property name and a value, separated by a :",
+      "link": "http://www.w3schools.com/css/css_syntax.asp",
+      "about": "declaration",
+      "type": "css"
+    },
+    {
+      "question": "What property would you use to center an inline element?",
+      "answer": "text-align",
+      "description": "The text-align property allows you to position inline elements.",
+      "link": "http://www.w3schools.com/css/css_syntax.asp",
+      "about": "text-align",
+      "type": "css"
+    },
+    {
+      "question": "What does this channel refer to? rgb(255,0,0, this)",
+      "answer": "alpha",
+      "description": "When specifying an RGB value, the fourth option is an optional alpha channel.",
+      "link": "http://www.w3schools.com/css/css_colors.asp",
+      "about": "alpha",
+      "type": "css"
+    },
+    {
+      "question": "When using background-image, how do you link to an image? As in, what do you put before (\"kitten.jpg\")",
+      "answer": "url",
+      "description": "url allows you to link to a background image.",
+      "link": "http://www.w3schools.com/css/css_background.asp",
+      "about": "url",
+      "type": "css"
+    },
+    {
+      "question": "If you do not want a background-image to repeat, what value do you use? background-image: what;",
+      "answer": "no-repeat",
+      "description": "The no-repeat value prevents a background image from repeating.",
+      "link": "http://www.w3schools.com/css/css_background.asp",
+      "about": "no-repeat",
+      "type": "css"
+    },
+    {
+      "question": "When adding a stylesheet, what would be added here? <link what=\"stylesheet\"...>",
+      "answer": "rel",
+      "description": "rel is part of linking to an external stylesheet: <link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+      "link": "http://www.w3schools.com/css/css_howto.asp",
+      "about": "rel",
+      "type": "css"
+    },
+    {
+      "question": "When adding padding or margin, what position does the third value effect? padding: 50px, 30px, 10px, 20px",
+      "answer": "bottom",
+      "description": "The order goes clockwise: top, right, bottom, left.",
+      "link": "http://www.w3schools.com/css/css_padding.asp",
+      "about": "padding shorthand",
+      "type": "css"
+    },
+    {
+      "question": "What text-align value stretches each line so all of them have equal width and the left and right margins are straight?",
+      "answer": "justify",
+      "description": "The justify value stretches every line to equal width and makes left and right margins that are straight.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "justify",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to set (or remove) underlines? what: underline;",
+      "answer": "text-decoration",
+      "description": "The text-decoration property allows you to add or remove an underline, overline, or line-through.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "text-decoration",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to make all of the text uppercase? what: uppercase;",
+      "answer": "text-transform",
+      "description": "The text-tranform property allows you to make all the applied to content uppercase or lowercase. It can also capitalize the first letter of each word.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "text-transform",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to specify the space between characters in text?",
+      "answer": "letter-spacing",
+      "description": "letter-spacing specifies the space between characters.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "letter-spacing",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to specify the space between lines?",
+      "answer": "line-height",
+      "description": "line-height specifies the space between lines.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "line-height",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to specify the space between the words in a text?",
+      "answer": "word-spacing",
+      "description": "word-spacing specifies the space between the words in a text.",
+      "link": "http://www.w3schools.com/css/css_text.asp",
+      "about": "word-spacing",
+      "type": "css"
+    },
+    {
+      "question": "What property is used to specify a font set like Arial or Times New Roman?",
+      "answer": "font-family",
+      "description": "font-family allows you to decide what font type will be displayed on a web page.",
+      "link": "http://www.w3schools.com/css/css_font.asp",
+      "about": "font-family",
+      "type": "css"
+    },
+    {
+      "question": "If you want to create italic text, what property would you use rather than an <i> tag? what: italic;",
+      "answer": "font-style",
+      "description": "font-style allows you to make a font italic (or oblique or normal).",
+      "link": "http://www.w3schools.com/css/css_font.asp",
+      "about": "font-style",
+      "type": "css"
+    },
+    {
+      "question": "font-size: 1 what is equal to the default font-size?",
+      "answer": "em",
+      "description": "em is one alternate to pixels. 1em is equal to the default font size.",
+      "link": "http://www.w3schools.com/css/css_font.asp",
+      "about": "em",
+      "type": "css"
+    },
+    {
+      "question": "If you want to create small-caps (lowercase to uppercase, but in a smaller font size), what property is used? what:small-caps;",
+      "answer": "font-variant",
+      "description": "font-variant is used to create small-caps.",
+      "link": "http://www.w3schools.com/css/css_font.asp",
+      "about": "font-variant",
+      "type": "css"
+    },
+    {
+      "question": "One way to hide elements in CSS is to use display:what;",
+      "answer": "none",
+      "description": "display: none; can be used to hide elements.",
+      "link": "http://www.w3schools.com/css/css_display_visibility.asp",
+      "about": "display",
+      "type": "css"
+    },
+    {
+      "question": "display: none; can hide an element. What property would you use if you want the space the hidden element was in to remain empty? what: hidden;",
+      "answer": "visibility",
+      "description": "visibility allows you to hide an element and have it take up the same amount of space as before it was hidden.",
+      "link": "http://www.w3schools.com/css/css_display_visibility.asp",
+      "about": "visibility",
+      "type": "css"
+    },
+    {
+      "question": "position:what; means the element will stay in the same place, even if the page is scrolled.",
+      "answer": "fixed",
+      "description": "position: fixed; is positioned relative to the viewport, making an element stay with the page as it scrolls.",
+      "link": "http://www.w3schools.com/css/css_positioning.asp",
+      "about": "position: fixed",
+      "type": "css"
+    },
+    {
+      "question": "position: what; is positioned relative to the nearest positioned ancestor or to the body. If there are none, it is positioned relative to the body.",
+      "answer": "absolute",
+      "description": "position: absolute; is positioned relative to the nearest positioned ancestor. If there are none, it is positioned relative to the body.",
+      "link": "http://www.w3schools.com/css/css_positioning.asp",
+      "about": "position: absolute",
+      "type": "css"
+    },
+    {
+      "question": "The what property is one way to control the behavior of floating elements. It specifies on which sides of an element floating elements are not allowed to float.",
+      "answer": "clear",
+      "description": "The clear property is used to control the behavior of floating elements.",
+      "link": "http://www.w3schools.com/css/css_float.asp",
+      "about": "clear",
+      "type": "css"
+    }
+  ]
 }

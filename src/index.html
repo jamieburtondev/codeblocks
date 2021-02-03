@@ -22,76 +22,73 @@
   </head>
   <body>
     <header>
-      <h1>
-        <a href="https://codeblocks.jamieburton.com"
-          ><span>CODE BLOCKS</span>
-        </a>
-      </h1>
+      <h1 aria-label="Code Blocks Game">CODE BLOCKS</h1>
     </header>
 
     <main>
       <div id="setup">
-        <section class="instructions">
+        <section class="instructions" aria-label="Instructions" role="region">
           <div>
-            <h2>Test your HTML, CSS, and JavaScript knowledge!</h2>
             <p>
-              If you would like to just test the game instead, type in
+              Test your HTML, CSS, and JavaScript knowledge! If you would like to just test the game instead, type in
               <i> cheat </i> in the text boxes.
             </p>
+            <p id="start-game-error" aria-live="off"></p>
           </div>
         </section>
-        <section>
+        <section aria-label="Select Questions" role="region">
           <div class="select-questions">
-            <h2>SELECT QUESTIONS</h2>
+            <h2 id="select-questions">SELECT QUESTIONS</h2>
           </div>
 
           <div class="html-select">
             <div id="html" class="color-block clicked">
-              <input type="checkbox" name="select-questions" value="html"></input>
+              <input aria-labelledby="select-questions html-label" type="checkbox" name="select-questions" value="html"></input>
             </div>
-            <label for="html" class="label-input-text">HTML</label>
+            <label id="html-label" class="label-input-text">HTML</label>
           </div>
 
           <div class="css-select">
             <div id="css" class="color-block clicked">
-              <input type="checkbox" name="select-questions" value="css"></input>
+              <input aria-labelledby="select-questions css-label" type="checkbox" name="select-questions" value="css"></input>
             </div>
-            <label for="css" class="label-input-text">CSS</label>
+            <label id="css-label" class="label-input-text">CSS</label>
           </div>
 
           <div class="js-select">
             <div id="js" class="color-block clicked">
-              <input type="checkbox" name="select-questions" value="javascript"></input>
+              <input aria-labelledby="select-questions javascript-label" type="checkbox" name="select-questions" value="javascript"></input>
             </div>
-            <label for="js" class="label-input-text">JavaScript</label>
+            <label id="javascript-label" class="label-input-text">JavaScript</label>
           </div>
         </section>
-        <section>
+        <section aria-label="Select Amount of Players" role="region">
           <div class="select-players">
-            <h2>SELECT PLAYERS</h2>
+            <h2 id="select-players">SELECT AMOUNT OF PLAYERS</h2>
           </div>
 
           <div class="solo-select">
             <div id="solo" class="color-block solo">
-              <input type="radio" name="select-players" value="solo"></input>
+              <input aria-labelledby="select-players solo-label" type="radio" name="select-players" value="solo"></input>
             </div>
-            <label for="solo" class="label-input-text">SOLO</label>
+            <label id="solo-label" class="label-input-text">SOLO</label>
           </div>
 
           <div class="versus-select">
             <div id="versus" class="color-block versus">
-              <input type="radio" name="select-players" value="versus"></input>
+              <input aria-labelledby="select-players versus-label" type="radio" name="select-players" value="versus"></input>
             </div>
-            <label for="versus" class="label-input-text">VERSUS</label>
+            <label id="versus-label" class="label-input-text">VERSUS</label>
           </div>
         </section>
         <div class="button-background">
-          <button id="start">START</button>
+          <button aria-label="Start Game" id="start">START</button>
         </div>
       </div>
       <div id="game">
         <h2 id="banner"></h2>
-        <section id="player1">
+        <section id="player1" role="region" aria-label="Player 1 Current Results">
+          <p id="current-score-player-1" class="screen-reader" aria-live="polite" aria-atomic="true"></p>
           <div class="main-block">
             <div id="player-1-block-7" class="color-block player-block"></div>
           </div>
@@ -128,7 +125,8 @@
             <div id="player-1-block-3" class="color-block player-block"></div>
           </div>
         </section>
-        <section id="player2">
+        <section id="player2" role="region" aria-label="Player 2 Current Results">
+          <p id="current-score-player-2" class="screen-reader" aria-live="polite" aria-atomic="true"></p>
           <div class="main-block">
             <div id="player-2-block-7" class="color-block player-block"></div>
           </div>
@@ -165,11 +163,12 @@
             <div id="player-2-block-3" class="color-block player-block"></div>
           </div>
         </section>
-        <section class="question" id="display-question">
+        <p id="response-to-question" class="screen-reader" aria-live="off" aria-atomic="true"></p>
+        <section class="question" id="display-question" role="region" aria-label="Question">
           <h2 id="question-type"></h2>
 
           <div class="question-answer">
-            <p id="question"></p>
+            <p id="question" aria-live="off"></p>
             <input
               type="text"
               id="input-answer"
@@ -178,51 +177,51 @@
             />
           </div>
 
-          <button id="guess">GUESS</button>
+          <button id="guess" aria-label="Submit Answer to Question">GUESS</button>
         </section>
-        <section class="answer" id="display-answer">
+        <section class="answer" id="display-answer" role="region" aria-label="Answer">
           <h2 id="answer-type"></h2>
 
           <div class="question-answer">
             <p id="description"></p>
-            <p>Learn more about <a id="answer-link"></a> at W3Schools.</p>
+            <p>Learn more about <a target="_blank" aria-label="Information about the answer on W3Schools in a new window" id="answer-link"></a> at W3Schools.</p>
           </div>
 
-          <button id="continue">CONTINUE</button>
+          <button id="continue" aria-label="Continue to next question">CONTINUE</button>
         </section>
-        <section class="finish" id="display-finish">
-          <h2 id="block-breakdown">BLOCK BREAKDOWN</h2>
+        <section class="finish" id="display-finish" role="region" aria-label="Finished game screen">
+          <h2 id="block-breakdown" aria-label="Breakdown of the results">BLOCK BREAKDOWN</h2>
 
           <p id="para-results">These are the results of the match.</p>
 
           <div class="question-answer">
             <div id="player-1-breakdown">
-              <h3 id="player-1-finish">PLAYER 1</h3>
+              <h3 id="player-1-finish" aria-label="Player 1's correct and incorrect answers">PLAYER 1</h3>
 
               <div class="finish-correct-incorrect" id="player-1-correct">
-                <h3>CORRECT</h3>
+                <h3 aria-label="Correct answers by Player 1">CORRECT</h3>
               </div>
               <div class="finish-correct-incorrect" id="player-1-incorrect">
-                <h3>INCORRECT</h3>
+                <h3 aria-label="Incorrect answers by Player 1">INCORRECT</h3>
               </div>
             </div>
 
             <div id="player-2-breakdown">
-              <h3 id="player-2-finish">PLAYER 2</h3>
+              <h3 id="player-2-finish" aria-label="Player 2's correct and incorrect answers">PLAYER 2</h3>
 
               <div class="finish-correct-incorrect" id="player-2-correct">
-                <h3>CORRECT</h3>
+                <h3 aria-label="Correct answers by Player 2">CORRECT</h3>
               </div>
 
               <div class="finish-correct-incorrect" id="player-2-incorrect">
-                <h3>INCORRECT</h3>
+                <h3 aria-label="Incorrect answers by Player 2">INCORRECT</h3>
               </div>
             </div>
           </div>
 
-          <button id="replay">REPLAY</button>
+          <button id="replay" aria-label="Replay game">REPLAY</button>
         </section>
-        <button id="turn">PLAYER 1</button>
+        <div id="turn">PLAYER 1</div>
       </div>
     </main>
   </body>

@@ -8,10 +8,17 @@ const questions = () => {
   const bannerElement = document.getElementById("banner");
   const displayQuestionElement = document.getElementById("display-question");
   const questionContentElement = document.getElementById("question");
+  const questionTypeHeader = document.getElementById("question-type");
+
+  const questionType = document.createElement('span');
+  questionType.classList.add('screen-reader');
+  questionType.textContent = `${type} question`;
 
   bannerElement.style.display = "none";
   displayQuestionElement.style.display = "block";
   questionContentElement.textContent = question;
+  questionContentElement.insertBefore(questionType, questionContentElement.firstChild);
+  questionContentElement.setAttribute('aria-live', 'polite');
 
   let color = {
     html: "#E44D26",
@@ -19,7 +26,8 @@ const questions = () => {
     javascript: "#63A814",
   };
 
-  document.getElementById("question-type").textContent = type.toUpperCase();
+  questionTypeHeader.textContent = type.toUpperCase();
+  questionTypeHeader.setAttribute('aria-label', `${type} question`);
 
   ["question-type", "answer-type", "guess", "continue"].forEach(
     (element) =>

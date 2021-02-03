@@ -6,14 +6,7 @@
   width: 80%;
   margin: 32px auto;
 
-  div h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-
-  div p {
+  p {
     line-height: 2rem;
     text-align: left;
   }
@@ -34,6 +27,11 @@
 #css,
 #js {
   opacity: .5;
+}
+
+#start-game-error {
+  margin-top: 1rem;
+  color: red;
 }
 
 .select-questions,
@@ -146,12 +144,12 @@ button {
   font-size: 1.25rem;
 }
 
-#turn:hover {
-  cursor: default;
-}
-
 #start, #replay {
   font-size: 2rem;
+}
+
+#turn {
+  text-align: center;
 }
 
 #start,
@@ -274,4 +272,14 @@ button {
 .helpful-link,
 .question-answer a {
   text-decoration: underline;
+}
+
+.screen-reader {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

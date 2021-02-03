@@ -41,11 +41,6 @@ export default () => {
 
     document.getElementById("display-finish").style.display = "block";
     
-    console.log('correct 1:', currentGame.getCorrectQuestions(`player1`));
-    console.log('correct 2:', currentGame.getCorrectQuestions(`player2`));
-    console.log('incorrect 1:', currentGame.getIncorrectQuestions(`player1`));
-    console.log('incorrect 2:', currentGame.getIncorrectQuestions(`player2`));
-    
     ["1", "2"].forEach(num => {
       currentGame.getCorrectQuestions(`player${num}`).forEach(question => {
         $(`#player-${num}-correct`).append(question);
